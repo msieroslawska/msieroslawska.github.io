@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title> - Articles</title>
+    <description>Hello, I'm Marta!</description>
+    <link>
+    http://localhost:4000</link>
+    
+      
+      <item>
+        <title>Hello</title>
+        
+          <description>&lt;p&gt;Hello or dzień dobry! This is a first post in what I hope will be a longer series of articles about JavaScript, node, React and stuff. My goal is to organize my programming knowledge and code better!&lt;/p&gt;
+</description>
+        
+        <pubDate>Wed, 31 Oct 2018 11:18:00 +0100</pubDate>
+        <link>
+        http://localhost:4000/Hello</link>
+        <guid isPermaLink="true">http://localhost:4000/Hello</guid>
+      </item>
+      
+    
+      
+      <item>
+        <title>A Full and Comprehensive Style Test</title>
+        
+          <description>&lt;p&gt;Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.&lt;/p&gt;
+
+</description>
+        
+        <pubDate>Sat, 01 Sep 2012 12:00:00 +0200</pubDate>
+        <link>
+        http://localhost:4000/a-full-and-comprehensive-style-test</link>
+        <guid isPermaLink="true">http://localhost:4000/a-full-and-comprehensive-style-test</guid>
+      </item>
+      
+    
+  </channel>
+</rss>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<feed xmlns="http://www.w3.org/2005/Atom" >
+  <generator uri="https://jekyllrb.com/" version="3.7.4">Jekyll</generator>
+  <link href="http://localhost:4000/tag/test/feed.xml" rel="self" type="application/atom+xml" />
+  <link href="http://localhost:4000/" rel="alternate" type="text/html" />
+  <updated>2018-12-24T20:44:59+01:00</updated>
+  <id>http://localhost:4000/tag/test/feed.xml</id>
+
+  
+  
+  
+
+  
+    <title type="html">Marta Sierosławska | Software developer in test | </title>
+  
+
+  
+    <subtitle>Hello, I'm Marta!</subtitle>
+  
+
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+
+  
+    <entry>
+      <title type="html">Hello</title>
+      <link href="http://localhost:4000/Hello" rel="alternate" type="text/html" title="Hello" />
+      <published>2018-10-31T11:18:00+01:00</published>
+      <updated>2018-10-31T11:18:00+01:00</updated>
+      <id>http://localhost:4000/Hello</id>
+      <content type="html" xml:base="http://localhost:4000/Hello">&lt;p&gt;Hello or dzień dobry! This is a first post in what I hope will be a longer series of articles about JavaScript, node, React and stuff. My goal is to organize my programming knowledge and code better!&lt;/p&gt;</content>
+
+      
+      
+      
+      
+      
+
+      <author>
+          <name>Marta</name>
+        
+        
+      </author>
+
+      
+
+      
+        <category term="test" />
+      
+        <category term="other" />
+      
+
+      
+        <summary type="html">Hello or dzień dobry! This is a first post in what I hope will be a longer series of articles about JavaScript, node, React and stuff. My goal is to organize my programming knowledge and code better!</summary>
+      
+
+      
+      
+    </entry>
+  
+</feed>
