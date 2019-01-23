@@ -1,4 +1,22 @@
 /**
+ * Custom stuff
+ */
+
+ img[src*="#about-picture"] {
+   border-radius: 50%;
+   width: 150px;
+   margin: 0 20px;
+   float: left;
+ }
+
+ img[src*="#doggo"] {
+  border-radius: 50%;
+  width: 100px;
+  margin: 0 20px;
+  float: right;
+}
+
+/**
  * Site header
  */
 .site-header {
