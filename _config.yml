@@ -26,6 +26,7 @@ github_username:  msieroslawska
 linkedin_username: martasieroslawska
 show_excerpts: true
 excerpt_separator: <!--more-->
+rss: Subscribe
 
 # Build settings
 markdown: kramdown
