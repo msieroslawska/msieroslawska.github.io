@@ -22,3 +22,14 @@ The topics I want to cover in the future (a.k.a. blog TODO):
 * why do I always break `npm` and what is `package.json`,
 * just bite *node*, even just a little, just try,
 * transpiling, do I even use it?
+* `Object.prototype`,
+* passing via value / reference,
+* closures,
+* classes,
+* shallow vs. deep copy,
+* class property syntax,
+* setters and getters,
+* `*.es` vs. `*.js`,
+* proxies,
+* documenting functions,
+* `undefined`, `null`, `NaN`.
