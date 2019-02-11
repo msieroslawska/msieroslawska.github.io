@@ -1,26 +1,9 @@
 ---
 layout: page
 ---
-<h2>Posts related to: {{ page.title }}</h2>
 
-{% unless page.content == '' %}
-  <p>{{ page.content }}</p>
-{% endunless %}
+{{ content }}
 
-{% unless site.categories[page.category].size > 0 %}
-  <p>No posts in this category at this time.</p>
-{% endunless %}
-
-{% for post in site.categories[page.category] %}
-<div class="post-preview">
-    <a href="{{ post.url | prepend: site.baseurl }}">
-      <h2 class="post-title">
-          {{ post.title }}
-      </h2>
-    </a>
-    <p class="post-meta">
-      Posted on {{ post.date | date: "%B %-d, %Y" }}
-    </p>
+<div class="entries-{{ page.entries_layout | default: 'list' }}">
+  {% include posts-category.html taxonomy=page.taxonomy %}
 </div>
-<hr>
-{% endfor %}

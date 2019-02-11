@@ -35,14 +35,4 @@ The topics I want to cover in the future (a.k.a. blog TODO):
 * `undefined`, `null`, `NaN`,
 * what are APIs and how to test it.
 
-Sources:
-
-* [API testing][api-test]
-* [Frontend topics to master][frontend-topics]
-* [Some testing resources][testing-resources]
-* [React mini patters][react-mini-patterns]
-
-[api-test]: https://restful-booker.herokuapp.com/apidoc/index.html
-[frontend-topics]:   https://solutionchaser.com/rekrutacja-na-front-end-developera-porady-pytania/
-[testing-resources]: https://onesoftwaretester.wordpress.com/resources/
-[react-mini-patterns]: https://hackernoon.com/10-react-mini-patterns-c1da92f068c5
+[Sources list](../resources.md)

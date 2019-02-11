@@ -2,41 +2,27 @@
 layout: default
 ---
 
-<div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+{% include page-intro.html %}
 
-  {{ content }}
+<main id="main" class="page-content" aria-label="Content">
+  <div class="index inner">
+    <div>{{ content }}</div>
 
-  <div>
-    Categories:
-    {% for category in site.categories %}
-      <a href="/categories/{{ category[0] }}/" style="text-decoration: none;">{{ category[0] }}</a>
-    {% endfor %}
+    <div>
+      <header class="section-title">
+        <h2>{{ site.data.theme.t.posts | default: 'Posts' }}{% if paginator.page > 1 %}{{ site.data.theme.t.page | default: 'Page' | prepend: ' - ' | append: ' ' }}{{ paginator.page }} {{ site.data.theme.t.of | default: 'of' }} {{ paginator.total_pages }}{% endif %}</h2>
+      </header>
+      <div class="entries-{{ page.entries_layout | default: 'list' }}">
+        {% if site.plugins contains 'jekyll-paginate' and page.paginate or site.gems contains 'jekyll-paginate' and page.paginate %}
+          {% comment %}
+            Add paginator.posts loop if jekyll-paginate plugin is enabled
+            and page.paginate == true
+          {% endcomment %}
+          {% include posts-paginated.html %}
+        {% else %}
+          {% include posts-all.html %}
+        {% endif %}
+      </div>
+    </div>
   </div>
-
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Posts" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <span class="post-meta">{{ post.date | date: date_format }}</span>
-        <h3>
-          <a class="post-link" href="{{ post.url | relative_url }}">
-            {{ post.title | escape }}
-          </a>
-        </h3>
-        {%- if site.show_excerpts -%}
-          {{ post.excerpt }}
-          <a href="{{ post.url | relative_url }}">Read more...</a>
-        {%- endif -%}
-      </li>
-      {%- endfor -%}
-    </ul>
-
-    <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
-  {%- endif -%}
-
-</div>
+</main>
