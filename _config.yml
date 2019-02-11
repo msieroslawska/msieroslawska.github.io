@@ -1,76 +1,71 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
-
-# Site settings
-# These are used to personalize your new site. If you look in the HTML files,
-# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
-# You can create any custom variable you would like, and they will be accessible
-# in the templates via {{ site.myvariable }}.
-title: Marta Sierosławska | Software developer in test
-# email: your-email@example.com
+# Site
+title: Marta Sierosławska
+title2: Software developer in test
+bio: ""
 description: ""
 description_long: >- # this means to ignore newlines until "baseurl:"
   This is page is a playground and a notebook for my experiments. I would like
   to document here my programming progress and write down all the notes
   I might need later.
+locale: en_US
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-github_username:  msieroslawska
-linkedin_username: martasieroslawska
+background_image:   /images/bg.jpg
+show_excerpts: true
+excerpt_separator: <!--more-->
+
+defaults:
+- scope:
+    path: ''
+    type: posts
+  values:
+    permalink: "/:year/:month/:day/:title/"
+    layout: post
+    author:
+
+# Jekyll
+permalink:          /:year/:month/:day/:title/
+markdown:           kramdown
+highlighter:        rouge
+kramdown:
+  auto_ids:         true
+  footnote_nr:      1
+  entity_output:    as_char
+  toc_levels:       1..6
+  enable_coderay:   false
+mathjax:            true
+sass:
+  sass_dir:         _sass
+  style:            compressed
+
+# Social
+github:  msieroslawska
+linkedin: martasieroslawska
+
+# Personal
+location: Munich, Germany
+# phone:
+# email: your-email@example.com
+
 show_excerpts: true
 excerpt_separator: <!--more-->
 rss: Subscribe
-search: # true, false (default)
-search_full_content: false # true, false (default)
-search_provider: # lunr (default), algolia
-algolia:
-  application_id: # YOUR_APPLICATION_ID
-  index_name: # YOUR_INDEX_NAME
-  search_only_api_key: # YOUR_SEARCH_ONLY_API_KEY
-  powered_by: # true (default), false
 
-# Build settings
-markdown: kramdown
-# theme: minima
-theme: jekyll-theme-basically-basic
 plugins:
   - jekyll-feed
-  - jekyll-seo-tag
+  - jekyll-mentions
   - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-gist
+
 feed:
   path: atom.xml
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - minima/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+paginate: 6
+paginate_path: "/page:num/"
 
-# Pagination - https://jekyllrb.com/docs/pagination/
-paginate: 10
-paginate_path: /page:num/
+jekyll-mentions:
+    base_url: https://github.com
 
-# Front Matter Defaults
-defaults:
-  # _posts
-  - scope:
-      path: "_posts"
-      type: posts
-    values:
-      layout: post
-read_time: true
+# Exclude list
+exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile, old]

@@ -1,14 +1,18 @@
 ---
-layout: post
+layout: page
 title: About
 permalink: /about/
+sitemap:
+    priority: 0.7
+    lastmod: 2019-02-11
+    changefreq: weekly
 ---
 
-![Me](../assets/marta.jpg#about-picture)
+![Me](../assets/img/marta.jpg#about-picture)
 
 I am a silly geek born and raised in Poland, currently enjoying my life and trying to speak German in Munich, Germany. I am stereotypical to the bone: I like books, video games and quiet evenings at home, sharing my couch with Arya the Corgi. If we don't stay indoors we go for hikes or travel around.
 
-![Arya](../assets/arya.jpg#doggo)
+![Arya](../assets/img/arya.jpg#doggo)
 
 I used to be a Linux power user, but I betrayed the penguin for the sake of the popular fruit.
 Life ¯\\\_(ツ)_/¯
