@@ -18,7 +18,7 @@ The topics I want to cover in the future (a.k.a. blog TODO):
 * mastering Git (like, **really** mastering, become a Rebase Master),
 * what's the deal with *this*??
 * summary of good practices in React,
-* `const` vs. `let` vs. `var`,
+* ~~`const` vs. `let` vs. `var`~~ (covered [here](../_drafts/2019-02-25-variables-and-constants.md)),
 * Linter rules (and why you should be using Linter in the first place),
 * why do I always break `npm` and what is `package.json`,
 * just bite *node*, even just a little, just try,

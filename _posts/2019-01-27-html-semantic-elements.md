@@ -138,7 +138,7 @@ This is first paragraph.<br />This is second paragraph.
 
 It does not mean much more work for you and sticking to correct HTML tags gives you more confidence that the page you create will be looking the same in all web browsers.
 
-Sources:
+# Sources:
 
 * [www.w3schools.com](https://www.w3schools.com/html/html5_semantic_elements.asp)
 * [performancemedia.pl](https://performancemedia.pl/blog/semantyka-czyli-jak-poprawnie-stosowac-znaczniki-html/)

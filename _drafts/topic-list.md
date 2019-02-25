@@ -47,7 +47,7 @@ Poniższe tematy powinny być opracowane w trybie: co to jest, jak się tego uż
 
 JavaScript jest najszybciej rozwijającym się językiem na świecie pod względem uczących się go programistów. Jest to język skryptowy, interpretowany, słabotypowany, który posiada mnóstwo ciekawych własności, które trzeba rozumieć. Konieczne jest też posiada wiedzy z podstaw działania stron internetowych i operacjach na DOMie.
 
-* [ ] Słowa kluczowe: var, let, const; zakres zmiennych, hoisting;
+* [x] Słowa kluczowe: var, let, const; zakres zmiennych, hoisting;
 * [ ] Typy danych, typy prymitywne i złożone
 * [ ] Referencje w JavaScript
 * [ ] Domknięcia
