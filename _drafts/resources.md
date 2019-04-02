@@ -11,3 +11,6 @@ categories: [other, javascript, react, testing]
 * [Some testing resources](https://onesoftwaretester.wordpress.com/resources/)
 * [React mini patters](https://hackernoon.com/10-react-mini-patterns-c1da92f068c5)
 * [Fun way to learn CSS](https://flukeout.github.io/)
+* [JavaScript coercions grid](https://getify.github.io/coercions-grid/)
+* [Awesome JS game](https://alexnisnevich.github.io/untrusted/)
+* [Programming podcast](http://codingblocks.net)
