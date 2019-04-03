@@ -1,8 +1,7 @@
 ---
-layout: post
+layout: page
 title:  "[What a Frontend Engineer should know] HTML semantic elements"
-date:   2019-01-27 21:04:10 +0100
-categories: html frontend
+categories: [html, frontend]
 ---
 
 *This is a part of larger series I am writing as answers to [these questions (PL)](https://solutionchaser.com/rekrutacja-na-front-end-developera-porady-pytania/) posted as preparation for an interview as a frontend engineer.*

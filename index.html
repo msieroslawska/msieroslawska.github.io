@@ -29,7 +29,7 @@ sitemap:
             <h1>{{site.title}}</h1>
 						<h2>{{site.title2}}</h2>
 						<p>{{site.description_long}}</p>
-						
+
 						<ul class="actions">
 							<li><a href="#header" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
 						</ul>
@@ -52,34 +52,8 @@ sitemap:
 						<!-- Featured Post -->
 							<article class="post featured">
 								<!-- <header class="major"></header> -->
-								<a href="#" class="image main"><img src="{{ "/images/pic01.jpg" | absolute_url }}" alt="" /></a>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-								aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-								occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+								{% include hello-world.html %}
 							</article>
-
-						<!-- Posts -->
-							<section class="posts">
-                {% for post in site.posts limit:4 %}
-                {% assign mod4 = forloop.index | modulo: 4 %}
-  								<article>
-  									<header>
-  										<span class="date">{{ post.date | date_to_string }}</span>
-  										<h2><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
-  									</header>
-  									<a href="{{ post.url | absolute_url }}" class="image fit"><img src="{{ post.image | absolute_url }}" alt="" /></a>
-  									<p>{{ post.excerpt }}</p>
-  									<ul class="actions">
-  										<li><a href="{{ post.url | absolute_url }}" class="button">Full Story</a></li>
-  									</ul>
-  								</article>
-                  {% if mod4 == 0 %}
-                  {% endif %}
-                {% endfor %}
-
-							</section>
-
 					</div>
 
 				<!-- Footer -->

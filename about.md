@@ -2,10 +2,6 @@
 layout: page
 title: About
 permalink: /about/
-sitemap:
-    priority: 0.7
-    lastmod: 2019-02-11
-    changefreq: weekly
 ---
 
 ![Me](../assets/img/marta.jpg#about-picture)

@@ -23,6 +23,10 @@ defaults:
     layout: post
     author:
 
+collections:
+  articles:
+    output: true
+
 # Jekyll
 permalink:          /:year/:month/:day/:title/
 markdown:           kramdown
@@ -52,17 +56,9 @@ excerpt_separator: <!--more-->
 rss: Subscribe
 
 plugins:
-  - jekyll-feed
   - jekyll-mentions
   - jekyll-sitemap
-  - jekyll-paginate
   - jekyll-gist
-
-feed:
-  path: atom.xml
-
-paginate: 6
-paginate_path: "/page:num/"
 
 jekyll-mentions:
     base_url: https://github.com

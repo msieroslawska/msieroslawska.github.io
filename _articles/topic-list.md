@@ -1,7 +1,6 @@
 ---
-layout: post
+layout: page
 title:  "Topic list"
-# date:   2019-01-27 21:04:10 +0100
 categories: [html, frontend]
 ---
 

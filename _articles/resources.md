@@ -1,7 +1,6 @@
 ---
 layout: page
 title:  "Braindump for online resources worth checking"
-# date:   2019-01-23 21:11:10 +0100
 categories: [other, javascript, react, testing]
 ---
 
