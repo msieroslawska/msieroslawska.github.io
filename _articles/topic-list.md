@@ -14,7 +14,7 @@ List of topics to prepare for an interview as a frontend engineer
 
 Jeśli sądzisz, że znasz HTML to prawdopodobnie masz rację :) Ale istnieje wiele API, które powinieneś kojarzyć oraz wiele tematów na które trzeba umieć się wypowiedzieć.
 
-* [x] Semantyka tagów - co to jest; czy wiesz który tag co oznacza; wiesz jak powinna wygląda prawidłowa budowa strony i dlaczego ([covered 2019-01-27](2019-01-27-html-semantic-elements.md))
+* [x] Semantyka tagów - co to jest; czy wiesz który tag co oznacza; wiesz jak powinna wygląda prawidłowa budowa strony i dlaczego ([covered](html-semantic-elements.md))
 * [ ] Nowe tagi HTML5 - znasz większość nowych tagów; wiesz dlaczego weszły i co wprowadziły; potrafisz ich użyć
 * [ ] API tagów audio i video - jak uruchomić na stronie internetowej film czy audio; jak wygląda budowanie dedykowanego playera
 * [ ] Lokalne przechowywanie danych: LocalStorage/Session Storage/Cookies - co to jest; jak się tego używa w JavaScript; czym się różnią;
@@ -66,7 +66,7 @@ Zagadnienia były banalne lub przerobiliście już wcześniej? To teraz etap pyt
 * [ ] Jak wycentrować poziomo i pionowo element? Jakie sposoby są najlepsze dla elementów blokowych a jakie dla liniowych?
 * [ ] Co to jest REST? Jak pobrać dane z RESTowego API? Jak wysłać dane do RESTowego API? Jakie znasz funkcje, metody, biblioteki które mogą ci w tym pomóc? Omów funkcję fetch.
 * [ ] Co w CSS oznaczają symbole +,  ~, >? Podaj przykłady użycia.
-* [ ] Opisz działanie :first-child, :first-of-type, :focus, :hover, `:checked.
+* [ ] Opisz działanie `:first-child`, `:first-of-type`, `:focus`, `:hover`, `:checked`.
 * [ ] Filtry w CSS. Jakie znasz? Jak się ich używa, jaka jest składnia? Jakie mają ograniczenia?
 * [ ] Bubbling i capturing - Co to jest? Jak to działa? Czy istnieją na wszystkich zdarzeniach?
 * [ ] Jakie znasz wzorce projektowe? Czy któreś są charakterystyczne dla JavaScript?

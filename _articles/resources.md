@@ -13,3 +13,5 @@ categories: [other, javascript, react, testing]
 * [JavaScript coercions grid](https://getify.github.io/coercions-grid/)
 * [Awesome JS game](https://alexnisnevich.github.io/untrusted/)
 * [Programming podcast](http://codingblocks.net)
+* [Lifecycle methods in React article](https://medium.com/@k.d.kwiecinski/lifecycle-methods-in-react-refactoring-patterns-bed34599615f)
+* [JS tricks](https://medium.com/@bretcameron/12-javascript-tricks-you-wont-find-in-most-tutorials-a9c9331f169d)
