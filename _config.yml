@@ -14,10 +14,12 @@ excerpt_separator: <!--more-->
 collections:
   articles:
     output: true
+    permalink: /blog/:collection/:name
 
 # Social
 github:  msieroslawska
 linkedin: martasieroslawska
+hackerrank: msieroslawska
 location: Munich, Germany
 
 # Build settings

@@ -1,12 +1,14 @@
 ---
 layout: page
-title: Projects
+title: Current projects
 permalink: /projects/
 ---
 
-# Current projects
-
 ## [Calculator](https://msieroslawska.github.io/calculator/)
+
+Started: March 2019
+
+Status: in progress
 
 Stack:
 
