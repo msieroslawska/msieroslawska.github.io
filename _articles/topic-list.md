@@ -4,17 +4,43 @@ title:  "Topic list"
 categories: [html, frontend]
 ---
 
+Topics I want to cover in the future (a.k.a. TODO):
+
+- mastering Git (like, *really* mastering, become a Rebase Master),
+- what's the deal with *this*??
+- summary of good practices in React,
+- `const` vs. `let` vs. `var` (will be covered [here](variables-and-constants.html),
+- Linter rules (and why you should be using Linter in the first place),
+- why do I always break *npm* and what is `package.json`,
+- just bite *node*, even just a little, just try,
+- transpiling, do I even use it?
+- `Object.prototype`,
+- passing via value / reference,
+- closures,
+- classes,
+- shallow vs. deep copy,
+- class property syntax,
+- setters and getters,
+- `*.es` vs. `*.js`,
+- proxies,
+- documenting functions,
+- `undefined`, `null`, `NaN`,
+- what are APIs and how to test it,
+- proper testing of JS and React (unit tests).
+
+-------------------------------
+
 List of topics to prepare for an interview as a frontend engineer
 
 [Source](https://solutionchaser.com/rekrutacja-na-front-end-developera-porady-pytania/)
 
 <!--more-->
 
-# HTML
+## HTML
 
 Jeśli sądzisz, że znasz HTML to prawdopodobnie masz rację :) Ale istnieje wiele API, które powinieneś kojarzyć oraz wiele tematów na które trzeba umieć się wypowiedzieć.
 
-* [x] Semantyka tagów - co to jest; czy wiesz który tag co oznacza; wiesz jak powinna wygląda prawidłowa budowa strony i dlaczego ([covered](html-semantic-elements.md))
+* [x] Semantyka tagów - co to jest; czy wiesz który tag co oznacza; wiesz jak powinna wygląda prawidłowa budowa strony i dlaczego ([covered](html-semantic-elements.html))
 * [ ] Nowe tagi HTML5 - znasz większość nowych tagów; wiesz dlaczego weszły i co wprowadziły; potrafisz ich użyć
 * [ ] API tagów audio i video - jak uruchomić na stronie internetowej film czy audio; jak wygląda budowanie dedykowanego playera
 * [ ] Lokalne przechowywanie danych: LocalStorage/Session Storage/Cookies - co to jest; jak się tego używa w JavaScript; czym się różnią;
@@ -24,7 +50,7 @@ Jeśli sądzisz, że znasz HTML to prawdopodobnie masz rację :) Ale istnieje wi
 * [ ] Nowości z Web API - ogólne pojęcie co to jest, czym to się różni od JavaScript; jakieś przykłady nowości z WebAPI i ich użycie
 * [ ] DOM - co to jest; budowa; sposób działania
 
-# CSS
+## CSS
 
 Z tym stylowaniem to jest zawsze problem, szczególnie gdy rozmowa odbywa się bez komputera. Ale są tematy, które każdy front-end powinien znać :)
 
@@ -42,7 +68,7 @@ Poniższe tematy powinny być opracowane w trybie: co to jest, jak się tego uż
 * [ ] SASS/LESS - zmienne, mixiny, modularność styli
 * [ ] Media Queries
 
-# JavaScript
+## JavaScript
 
 JavaScript jest najszybciej rozwijającym się językiem na świecie pod względem uczących się go programistów. Jest to język skryptowy, interpretowany, słabotypowany, który posiada mnóstwo ciekawych własności, które trzeba rozumieć. Konieczne jest też posiada wiedzy z podstaw działania stron internetowych i operacjach na DOMie.
 
@@ -56,12 +82,12 @@ JavaScript jest najszybciej rozwijającym się językiem na świecie pod względ
 * [ ] Eventy - jakie istnieją, jak działają?
 * [ ] Transpilacja - co to jest? Dlaczego się to stosuje?
 
-# Pytania
+## Pytania
 
 Zagadnienia były banalne lub przerobiliście już wcześniej? To teraz etap pytań :) Starałam się, żeby łączyły banały i trudniejsze rzeczy, teorie i praktykę.
 
 * [ ] (*) Co to są Web Workery? Jakie znasz rodzaje Web Workerów? Jakie znasz zastosowania Web Workerów?
-* [ ] Co to jest CSS Specifity? Wyjaśnij jak się je liczy dla poszczególnej właściwości?
+* [x] Co to jest CSS Specifity? Wyjaśnij jak się je liczy dla poszczególnej właściwości? ([covered](specifity.html))
 * [ ] Jak ustawić dwa elementy obok siebie? Jakie są charakterystyczne sposoby dla bloków a jakie dla elementów liniowych?
 * [ ] Jak wycentrować poziomo i pionowo element? Jakie sposoby są najlepsze dla elementów blokowych a jakie dla liniowych?
 * [ ] Co to jest REST? Jak pobrać dane z RESTowego API? Jak wysłać dane do RESTowego API? Jakie znasz funkcje, metody, biblioteki które mogą ci w tym pomóc? Omów funkcję fetch.
