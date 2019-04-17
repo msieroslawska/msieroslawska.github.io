@@ -1,10 +1,8 @@
 ---
-layout: page
+layout: article
 title: Projects
 permalink: /projects/
 ---
-
-# Current projects
 
 ## [Calculator](https://msieroslawska.github.io/calculator/)
 
