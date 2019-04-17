@@ -1,7 +1,6 @@
 ---
-layout: page
+layout: article
 title:  "Topic list"
-categories: [html, frontend]
 ---
 
 Topics I want to cover in the future (a.k.a. TODO):

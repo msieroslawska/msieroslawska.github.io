@@ -1,6 +1,6 @@
 ---
-layout: page
-title: Current projects
+layout: article
+title: Projects
 permalink: /projects/
 ---
 
