@@ -1,7 +1,6 @@
 ---
-layout: page
+layout: article
 title:  "Braindump for online resources worth checking"
-categories: [other, javascript, react, testing]
 ---
 
 * [Reddit thread how to start a portfolio project](https://www.reddit.com/r/javascript/comments/a3egay/how_to_start_your_very_first_portfolio_project/)
