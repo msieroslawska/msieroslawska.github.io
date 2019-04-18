@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Codelogs
-permalink: /codelogs/
+permalink: /blog/codelogs/
 ---
 
 {% for log in site.codelogs %}

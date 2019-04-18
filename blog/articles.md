@@ -1,7 +1,7 @@
 ---
 layout: article
 title: Articles
-permalink: /articles/
+permalink: /blog/articles/
 ---
 
 {% for article in site.articles %}
