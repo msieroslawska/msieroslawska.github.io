@@ -11,8 +11,10 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 collections:
   articles:
     output: true
+    permalink: /blog/:collection/:name
   codelogs:
     output: true
+    permalink: /blog/:collection/:name
 
 # Social
 github:  msieroslawska
