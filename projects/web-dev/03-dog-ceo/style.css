@@ -1,0 +1,18 @@
+.doggos {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+  flex-wrap: wrap;
+}
+
+.doggo {
+  max-width: 200px;
+  border: 1px solid black;
+  margin: 0 5px;
+  padding: 5px;
+}
+
+.btn {
+  margin: 15px;
+}
