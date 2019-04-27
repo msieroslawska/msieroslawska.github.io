@@ -2,7 +2,7 @@ name: Marta Sierosławska
 title: Software developer in test
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  This is page is a playground and a notebook for my experiments. I would like
+  This page is a playground and a notebook for my experiments. I would like
   to document here my programming progress and write down all the notes
   I might need later.
 baseurl: "" # the subpath of your site, e.g. /blog

@@ -26,6 +26,10 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-image: url('bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 
@@ -114,14 +118,6 @@ a {
     color: $text-color;
     text-decoration: underline;
   }
-
-  .social-media-list &:hover {
-    text-decoration: none;
-
-    .username {
-      text-decoration: underline;
-    }
-  }
 }
 
 
@@ -209,18 +205,12 @@ pre {
  */
 
 .svg-icon {
-    width: 16px;
-    height: 16px;
+    width: 30px;
+    height: 30px;
     display: inline-block;
     fill: #{$grey-color};
     padding-right: 5px;
     vertical-align: text-top;
-}
-
-.social-media-list {
-  li + li {
-    padding-top: 5px;
-  }
 }
 
 

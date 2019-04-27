@@ -6,8 +6,8 @@ title:  "Topic list"
 ## Global
 
 - [ ] ~~Can I use a smarter templating for codelogs, so I do not have to repeat the headers?~~ Implement a template
-- [ ] Clean up default theme CSS
-- [ ] Create a landing page
+- [x] Clean up default theme CSS
+- [x] Create a landing page
 - [ ] Find out what happened with my local repo as described here: [2019-04-21-Codelog.html](2019-04-21-Codelog.html)
 
 ## Courses
