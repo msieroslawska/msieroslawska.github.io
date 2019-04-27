@@ -1,11 +1,11 @@
 ---
 layout: article
-title:  "[What a Frontend Engineer should know] CSS specifity"
+title:  "[What a Frontend Engineer should know] CSS specificity"
 ---
 
 *This is a part of larger series I am writing as answers to [these questions (PL)](https://solutionchaser.com/rekrutacja-na-front-end-developera-porady-pytania/) posted as preparation for an interview as a frontend engineer.*
 
-CSS bases on different building blocks: tags, classes, pseudo-classes, etc. **Specifity** is CSS's way of defining which style decorations should took precedence in case of conflicts.
+CSS bases on different building blocks: tags, classes, pseudo-classes, etc. **Specificity** is CSS's way of defining which style decorations should took precedence in case of conflicts.
 
 <!--more-->
 
@@ -25,11 +25,11 @@ Let's look at the following code:
 <h1 class="header">This is a header</h1>
 ```
 
-In the code above we define styles for all `h1` elements present on the page (you should avoid using tags as CSS has a **global** scope) and for all elements containing a `header` class. The result will be a *blue* text, because class selectors have **higher specifity** over tags.
+In the code above we define styles for all `h1` elements present on the page (you should avoid using tags as CSS has a **global** scope) and for all elements containing a `header` class. The result will be a *blue* text, because class selectors have **higher specificity** over tags.
 
-## Specifity rules
+## Specificity rules
 
-Specifity is a score calculated as a sum of grades coming from all selectors. If a conflict occurs, style with higher specifity will be used. If specifity of two or more styles is the same, the rules of cascading kick in and the **last** declared rule will be used.
+Specificity is a score calculated as a sum of grades coming from all selectors. If a conflict occurs, style with higher specificity will be used. If specificity of two or more styles is the same, the rules of cascading kick in and the **last** declared rule will be used.
 
 The rules can be divided as following:
 
@@ -40,7 +40,7 @@ The rules can be divided as following:
 - 1000 for inline style,
 - 10000 for `!important`.
 
-Coming back to the previous example, it is clear why a class selector (specifity 10) took over a tag (specifity 1).
+Coming back to the previous example, it is clear why a class selector (specificity 10) took over a tag (specificity 1).
 
 ## More examples
 
@@ -54,11 +54,11 @@ Coming back to the previous example, it is clear why a class selector (specifity
 ### Good patterns
 
 - Remember that CSS has a global scope. Avoid using tag selectors (`p`, `span`, `div`) unless you are 100% sure you want the styling to be applied to all elements of the same type.
-- Make your life easier and avoid future problems of overriding high specifity selectors by:
+- Make your life easier and avoid future problems of overriding high specificity selectors by:
   - keeping your CSS as simple as possible,
   - avoiding complex selectors,
   - avoiding chaining class selectors,
-  - not using IDs if possible. Not only are they hard to override with their high specifity, they are also unique and hard to repurpose,
+  - not using IDs if possible. Not only are they hard to override with their high specificity, they are also unique and hard to repurpose,
   - forgetting about `!important`. Don't be lazy :)
 
 ## Sources
