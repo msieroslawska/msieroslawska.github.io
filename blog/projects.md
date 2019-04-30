@@ -4,9 +4,10 @@ title: Projects
 permalink: /blog/projects/
 ---
 
-## [Calculator](https://msieroslawska.github.io/calculator/)
+## [Calculator](https://github.com/msieroslawska/calculator)
 
 - Status: in progress
+- [Implementation](https://msieroslawska.github.io/calculator/)
 - Stack:
   - React.js (create-react-app),
   - CSS + SASS,
