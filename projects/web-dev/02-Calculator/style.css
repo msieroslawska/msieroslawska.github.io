@@ -1,0 +1,36 @@
+.main {
+  border: 1px solid black;
+  width: 400px;
+  height: 500px;
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  margin: -250px 0 0 -200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 30px;
+  align-items: stretch;
+}
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.result {
+  background-color: black;
+  color: white;
+}
+
+.button {
+  background: lightgray;
+  border: 2px solid black;
+}
+
+.row .button:last-child {
+  background: orange;
+}
