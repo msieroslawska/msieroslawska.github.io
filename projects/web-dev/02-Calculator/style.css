@@ -2,35 +2,55 @@
   border: 1px solid black;
   width: 400px;
   height: 500px;
-
   position: absolute;
   top: 50%;
   left: 50%;
 
-  margin: -250px 0 0 -200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
   font-size: 30px;
-  align-items: stretch;
-}
+  margin: -250px 0 0 -200px;
 
-.row {
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-}
-
-.result {
-  background-color: black;
-  color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr [column-end];
+  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .button {
   background: lightgray;
   border: 2px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.row .button:last-child {
+.button:hover {
+  background: gray;
+}
+
+.main .button:nth-child(4n) {
   background: orange;
+}
+
+.main .button:nth-child(4n):hover {
+  background: darkorange;
+}
+
+.result {
+  background-color: black;
+  color: white;
+  grid-column-start: 1;
+  grid-column-end: column-end;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 20px;
+}
+
+.clear {
+  grid-column-start: 1;
+  grid-column-end: span 2;
+}
+
+.zero {
+  grid-column-start: 1;
+  grid-column-end: span 3;
 }
