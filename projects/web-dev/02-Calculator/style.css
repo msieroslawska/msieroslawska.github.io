@@ -9,9 +9,15 @@
   font-size: 30px;
   margin: -250px 0 0 -200px;
 
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons-area {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr [column-end];
-  grid-template-rows: 2fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr [operators] 1fr [column-end];
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  height: 100%;
 }
 
 .button {
@@ -26,11 +32,11 @@
   background: gray;
 }
 
-.main .button:nth-child(4n) {
+.operator {
   background: orange;
 }
 
-.main .button:nth-child(4n):hover {
+.operator:hover {
   background: darkorange;
 }
 
@@ -43,6 +49,7 @@
   align-items: center;
   justify-content: flex-end;
   padding-right: 20px;
+  height: 100px;
 }
 
 .clear {

@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 
 const resultElement = document.querySelector('.result');
+let prevValue;
+let prevOperator;
 
 const isDigit = value => !Number.isNaN(parseInt(value, 10));
 
@@ -12,22 +14,27 @@ const handleDigit = (value) => {
     : `${currentValue}${value}`;
 };
 
+const handleOperator = (value) => {
+  prevValue = resultElement.innerHTML;
+  prevOperator = value;
+};
+
 const handleNonDigit = (value) => {
   switch (value) {
     case 'C':
       resultElement.innerHTML = '0';
+      prevValue = null;
+      prevOperator = null;
       break;
     case '<-':
       break;
     case '=':
       break;
     case '+':
-      break;
     case '-':
-      break;
     case 'x':
-      break;
     case '/':
+      handleOperator(value);
       break;
     default:
     //

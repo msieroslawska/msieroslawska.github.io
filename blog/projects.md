@@ -29,10 +29,10 @@ permalink: /blog/projects/
 - [Vanilla JS calculator](https://github.com/msieroslawska/msieroslawska.github.io/tree/master/projects/web-dev/02-Calculator/)
   - Create vanilla JS calculator ([Task description](https://btholt.github.io/intro-to-web-dev-v2/js-project))
   ![Final result calculator](../../projects/web-dev/img/calculator.png "Final result for calculator")
-  - Status: TODO
+  - Status: in progress
   - [Implementation](../../projects/web-dev/02-Calculator/index.html)
   - Stack: HTML + CSS + JS
-    - flex
+    - grid
 
 - [Fetcher for randomized doggo pics](https://github.com/msieroslawska/msieroslawska.github.io/tree/master/projects/web-dev/03-dog-ceo/)
   - Use dog.ceo API to display random pictures of cute doggos ([Task description](https://btholt.github.io/intro-to-web-dev-v2/ajax))
