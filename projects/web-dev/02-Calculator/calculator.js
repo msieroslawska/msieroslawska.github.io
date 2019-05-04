@@ -1,22 +1,39 @@
 /* eslint-disable no-undef */
 
 const resultElement = document.querySelector('.result');
-let prevValue;
-let prevOperator;
+let tempValue = null;
+let wasLastClickOperator = false;
 
-const isDigit = value => !Number.isNaN(parseInt(value, 10));
+const isDigit = value => !Number.isNaN(Number(value));
+const getCurrentValue = () => Number(resultElement.innerHTML);
 
 const handleDigit = (value) => {
-  const currentValue = resultElement.innerHTML;
-
-  resultElement.innerHTML = currentValue.startsWith('0')
-    ? value
-    : `${currentValue}${value}`;
+  if (wasLastClickOperator) {
+    wasLastClickOperator = false;
+    resultElement.innerHTML = value;
+  } else {
+    resultElement.innerHTML = Number(`${getCurrentValue()}${value}`);
+  }
 };
 
 const handleOperator = (value) => {
-  prevValue = resultElement.innerHTML;
-  prevOperator = value;
+  wasLastClickOperator = true;
+  switch (value) {
+    case '+':
+      tempValue += getCurrentValue();
+      break;
+    case '-':
+      tempValue -= getCurrentValue();
+      break;
+    case 'x':
+      tempValue *= getCurrentValue();
+      break;
+    case '/':
+      tempValue /= getCurrentValue();
+      break;
+    default:
+    //
+  }
 };
 
 const handleNonDigit = (value) => {
@@ -29,6 +46,8 @@ const handleNonDigit = (value) => {
     case '<-':
       break;
     case '=':
+      resultElement.innerHTML = tempValue;
+      tempValue = null;
       break;
     case '+':
     case '-':
