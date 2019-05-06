@@ -7,7 +7,7 @@ title:  "[What a Frontend Engineer should know] CSS specificity"
 
 CSS bases on different building blocks: tags, classes, pseudo-classes, etc. **Specificity** is CSS's way of defining which style decorations should took precedence in case of conflicts.
 
-<!--more-->
+------------
 
 Let's look at the following code:
 

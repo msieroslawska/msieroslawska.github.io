@@ -7,7 +7,7 @@ title:  "[What a Frontend Engineer should know] HTML semantic elements"
 
 The first topic mentioned on the list are HTML tags. What are they? Do you know what they mean? Do you know how to correctly build a website?
 
-## Semantics
+------------
 
 The obvious first question would be: what is semantics?
 

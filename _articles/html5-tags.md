@@ -7,6 +7,8 @@ title:  "[What a Frontend Engineer should know] HTML5 new tags"
 
 The first topic mentioned on the list are HTML tags. What are they? Do you know what they mean? Do you know how to correctly build a website?
 
+------------
+
 I think I covered new tags partially in the article about [semantic elements](/blog/articles/html-semantic-elements.html). The full list is a bit overwhelming:
 
 ### [Semantic elements](https://www.w3schools.com/html/html5_semantic_elements.asp)
