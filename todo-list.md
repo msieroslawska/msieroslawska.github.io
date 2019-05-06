@@ -25,7 +25,7 @@ title:  "Topic list"
 - `const` vs. `let` vs. `var`,
 - Linter rules (and why you should be using Linter in the first place),
 - why do I always break *npm* and what is `package.json`,
-- just bite *node*, even just a little, just try,
+- just bite *node*,,
 - transpiling, do I even use it?
 - `Object.prototype`,
 - passing via value / reference,
@@ -50,7 +50,8 @@ title:  "Topic list"
 ### HTML
 
 - [x] Tag semantics - what that is; you know what each tag means; you know how to properly build a website and why ([covered](/blog/articles/html-semantic-elements.html)).
-- [ ] New tags in HTML5 - you know most of them; you know why they appeared and what they brought; you know how to use them.
+- [x] New tags in HTML5 - you know most of them; you know why they appeared and what they brought; you know how to use them ([covered](/blog/articles/html5-tags.html)).
+  - [ ] TODO: add examples
 - [ ] API of audio and video tags - how to run a video / audio on a website; how to build a dedicated player.
 - [ ] Local data storage: LocalStorage / Session Storage / Cookies - what that is; how to use it in JS; what are the differences.
 - [ ] Geolocalisation - what that is; how to use it in JS.

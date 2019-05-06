@@ -7,9 +7,7 @@ title:  "[What a Frontend Engineer should know] HTML semantic elements"
 
 The first topic mentioned on the list are HTML tags. What are they? Do you know what they mean? Do you know how to correctly build a website?
 
-<!--more-->
-
-# Semantics
+## Semantics
 
 The obvious first question would be: what is semantics?
 
@@ -18,7 +16,7 @@ The obvious first question would be: what is semantics?
 
 Long story short, it follows the **meaning** of words in a language over time.
 
-# HTML5
+## HTML5
 
 For a language like HTML5, semantic elements are carrying some meaning, giving you some information.
 
@@ -55,9 +53,9 @@ This adds to the following existing tags (the list is not complete, please see t
 * `<p>`: paragraph,
 * `<ul>`: unordered list,
 
-# What does it mean
+## What does it mean
 
-## Stop using separate classes to describe the tag's role
+### Stop using separate classes to describe the tag's role
 
 ```html
 <p class="header">This is a header</p>
@@ -67,7 +65,7 @@ This adds to the following existing tags (the list is not complete, please see t
 <h1>This is a header</h1>
 ```
 
-## Don't use tables to create the structure
+### Don't use tables to create the structure
 
 ```html
 <table>
@@ -86,7 +84,7 @@ This adds to the following existing tags (the list is not complete, please see t
 <p>This is a random paragraph</p>
 ```
 
-## Don't use semantic tags when the data is clearly meant to be presented in a table
+### Don't use semantic tags when the data is clearly meant to be presented in a table
 
 ```html
 <div class="row">
@@ -132,11 +130,11 @@ This is first paragraph.<br />This is second paragraph.
 
 `<br />` can be used to add line breaks within one element.
 
-# Summary
+## Summary
 
 It does not mean much more work for you and sticking to correct HTML tags gives you more confidence that the page you create will be looking the same in all web browsers.
 
-# Sources:
+## Sources
 
 * [www.w3schools.com](https://www.w3schools.com/html/html5_semantic_elements.asp)
 * [performancemedia.pl](https://performancemedia.pl/blog/semantyka-czyli-jak-poprawnie-stosowac-znaczniki-html/)
