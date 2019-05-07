@@ -71,7 +71,7 @@ All the following topics should be covered in a similar matter: what that is, ho
 - [ ] Position
 - [ ] CSS Animations
 - [ ] CSS Filters
-- [x] CSS Specificity
+- [x] CSS Specificity ([covered](/blog/articles/specificity.html))
 - [ ] CSS selectors level 4 - focus on future of CSS, know a few new selectors
 - [ ] SASS/LESS - variables, mixins, style modules
 - [ ] Media Queries
@@ -79,7 +79,7 @@ All the following topics should be covered in a similar matter: what that is, ho
 ### JavaScript
 
 - [ ] Keywords: var, let, const; scoping and hoisting.
-- [ ] Data types; primitive and complex types.
+- [x] Data types; primitive and complex types ([covered](/blog/articles/data-types.html)).
 - [ ] References.
 - [ ] Closures.
 - [ ] ES6.
