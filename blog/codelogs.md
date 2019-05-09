@@ -4,36 +4,24 @@ title: Codelogs
 permalink: /blog/codelogs/
 ---
 
-{% for log in site.codelogs %}
-  {% if log.title contains "2019-" and is2019Assigned != "true" %}
+{% for log in site.posts %}
+  {% assign currentYear = log.date | date: "%Y" %}
+  {% assign currentMonth = log.date | date: "%m" %}
 
-## 2019
+  {% if currentYear != year %}
 
-    {% assign is2019Assigned = "true" %}
+## {{ currentYear }}
+
+    {% assign year = currentYear %}
   {% endif %}
 
-  {% if log.title contains "-04-" and isAprilAssigned != "true" %}
+  {% if currentMonth != month %}
 
-### April
+### {{ currentMonth }}
 
-    {% assign isAprilAssigned = "true" %}
-  {% elsif log.title contains "-05-" and isMayAssigned != "true" %}
-
-### May
-
-    {% assign isMayAssigned = "true" %}
-  {% elsif log.title contains "-06-"and isJuneAssigned != "true"  %}
-
-### June
-
-    {% assign isJuneAssigned = "true" %}
-  {% elsif log.title contains "-07-"and isJulyAssigned != "true" %}
-
-### July
-
-    {% assign isJulyAssigned = "true" %}
+    {% assign month = currentMonth %}
   {% endif %}
 
-  [{{ log.title }}]({{ log.url }})
+[{{ log.title }}]({{ log.url }})
 
 {% endfor %}
