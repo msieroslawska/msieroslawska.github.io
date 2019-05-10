@@ -78,20 +78,20 @@ All the following topics should be covered in a similar matter: what that is, ho
 
 ### JavaScript
 
-- [ ] Keywords: var, let, const; scoping and hoisting.
+- [x] Keywords: var, let, const; scoping and hoisting ([covered](/blog/articles/variables.html)).
 - [x] Data types; primitive and complex types ([covered](/blog/articles/data-types.html)).
 - [ ] References.
 - [ ] Closures.
 - [ ] ES6.
 - [ ] ES7.
 - [ ] AJAX - native support, HTML statuses, types of responses.
-- [ ] Eventy - existing events; how do they work?
+- [ ] Events - existing events; how do they work?
 - [ ] Transpilation - what that is; why is it used.
 
 ### Questions
 
 - [x] What is CSS Specificity? Explain how to calculate it for each particular attribute ([covered](/blog/articles/specificity.html)).
-- [ ] How to set two elements next to each other? What are characterstics of inline and block elements?
+- [ ] How to set two elements next to each other? What are characteristics of inline and block elements?
 - [ ] How to center an element horizontally and vertically? What are the best solutions for inline and block elements?
 - [ ] What is REST? How to fetch data from a REST API? How to send data to REST API? What functions, methods and libraries might help you with that? Explain fetch method.
 - [ ] What are `+`, `~`, `>` in CSS? Give examples.
