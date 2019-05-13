@@ -12,8 +12,13 @@ title:  "Topic list"
 
 ## Courses
 
-- [ ] [Mastering Chrome Developer Tools, v2](https://frontendmasters.com/courses/chrome-dev-tools-v2/) by Jon Kuperman
+- [ ] [Introduction to JavaScript Programming](https://frontendmasters.com/courses/javascript-basics/) by Kyle Simpson (probably just skim through it)
+- [x] [Mastering Chrome Developer Tools, v2](https://frontendmasters.com/courses/chrome-dev-tools-v2/) by Jon Kuperman
+  - Finished on 13.05.2019
+  - **Summary**: DevTools can definitely look very intimidating. At the same time it's a powerful tool which is a must if running any code in a browser. I'm glad I interjected my JS learning path with this class, because I'm no longer at mercy of `console.log` (it still has its use!)! The videos are enjoyable (even though I had to push myself a little to finish performance- and memory-related parts), Jon is funny and presents really well.
 - [x] [Complete Intro to Web Development, v2](https://frontendmasters.com/courses/web-development-v2/) by Brian Holt
+  - Finished on 23.04.2019
+  - **Summary**: it was well-structured and nicely presented. Definitely worth checking out to cover the basics -- even though I thought I knew the topics, I did learn new tricks from each video! That being said, the one part which was relatively new to me was *node* and creating your own web server. I'm going to definitely add it to my list of TODOs!
 
 -------------------------------
 
@@ -22,10 +27,9 @@ title:  "Topic list"
 - mastering Git (like, *really* mastering, become a Rebase Master),
 - what's the deal with *this*??
 - summary of good practices in React,
-- `const` vs. `let` vs. `var`,
 - Linter rules (and why you should be using Linter in the first place),
 - why do I always break *npm* and what is `package.json`,
-- just bite *node*,,
+- just bite *node*,
 - transpiling, do I even use it?
 - `Object.prototype`,
 - passing via value / reference,
