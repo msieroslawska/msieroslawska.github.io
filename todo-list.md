@@ -12,7 +12,10 @@ title:  "Topic list"
 
 ## Courses
 
-- [ ] [Introduction to JavaScript Programming](https://frontendmasters.com/courses/javascript-basics/) by Kyle Simpson (probably just skim through it)
+- [ ] [JavaScript: From Fundamentals to Functional JS, v2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/) by Bianca Gandolfo
+- [x] [Introduction to JavaScript Programming](https://frontendmasters.com/courses/javascript-basics/) by Kyle Simpson (probably just skim through it)
+  - Finished on 15.05.2019
+  - **Summary**: Not too long, it was a nice refreshment of JS fundamentals. I still managed to take some notes :)
 - [x] [Mastering Chrome Developer Tools, v2](https://frontendmasters.com/courses/chrome-dev-tools-v2/) by Jon Kuperman
   - Finished on 13.05.2019
   - **Summary**: DevTools can definitely look very intimidating. At the same time it's a powerful tool which is a must if running any code in a browser. I'm glad I interjected my JS learning path with this class, because I'm no longer at mercy of `console.log` (it still has its use!)! The videos are enjoyable (even though I had to push myself a little to finish performance- and memory-related parts), Jon is funny and presents really well.
