@@ -3,16 +3,11 @@ layout: article
 title:  "Topic list"
 ---
 
-## Global
-
-- [ ] ~~Can I use a smarter templating for codelogs, so I do not have to repeat the headers?~~ Implement a template
-- [x] Clean up default theme CSS
-- [x] Create a landing page
-- [ ] Find out what happened with my local repo as described here: [2019-04-21-Codelog.html](2019-04-21-Codelog.html)
-
 ## Courses
 
 - [ ] [JavaScript: From Fundamentals to Functional JS, v2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/) by Bianca Gandolfo
+  - Finished on XX.XX.XXXX
+  - **Summary**: XXXX
 - [x] [Introduction to JavaScript Programming](https://frontendmasters.com/courses/javascript-basics/) by Kyle Simpson (probably just skim through it)
   - Finished on 15.05.2019
   - **Summary**: Not too long, it was a nice refreshment of JS fundamentals. I still managed to take some notes :)
