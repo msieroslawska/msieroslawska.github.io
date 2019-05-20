@@ -1,8 +1,14 @@
 ---
-layout: article
+layout: codelogs
 title: Codelogs
 permalink: /blog/codelogs/
 ---
+
+## Calendar
+
+<table id="calendar">
+
+</table>
 
 {% for log in site.posts %}
   {% assign currentYear = log.date | date: "%Y" %}
