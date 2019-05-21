@@ -6,7 +6,7 @@ permalink: /blog/codelogs/
 
 ## Calendar
 
-<table id="calendar">
+<table id="calendar_table">
 
 </table>
 
