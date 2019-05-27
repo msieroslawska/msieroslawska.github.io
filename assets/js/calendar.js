@@ -4,24 +4,42 @@
 /* eslint object-curly-newline: ["error", { "multiline": true }] */
 /* global document */
 
-const DAYS = [
-  'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'
-];
+let postDay, postMonth, postYear;
+let posts = [];
+
+{% for log in site.posts %}
+  postDay = "{{ log.date | date: '%d' }}";
+  postMonth = "{{log.date | date: '%m'}}"
+  postYear = "{{log.date | date: '%Y'}}"
+  posts.push(`${postYear}-${postMonth}-${postDay}`);
+{% endfor %}
+
 const MONTHS = [
   'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
-const createUrl = ({ text, year, month, day }) => {
+const createUrl = ({ day, month, year }) => {
   const url = document.createElement('a');
-  const urlText = document.createTextNode(text);
+  const urlText = document.createTextNode(day);
   url.appendChild(urlText);
   url.href = `{{ site.url }}/blog/codelogs/${year}-${month}-${day}-Codelog.html`;
   return url;
 };
 
-const createCell = ({ row, text = '', year = '', month = '', day = '', isUrl = false }) => {
-  const cell = document.createElement('td');
+const createCell = ({
+  cellType = 'td',
+  className = '',
+  day = '',
+  isUrl = false,
+  month = '',
+  row,
+  text = '',
+  year = '',
+}) => {
+  const cell = document.createElement(cellType);
+
+  cell.className = className;
   if (isUrl) {
-    const url = createUrl({ text, year, month, day });
+    const url = createUrl({ className, day, month, year });
     cell.appendChild(url);
   } else {
     const cellText = document.createTextNode(text);
@@ -31,71 +49,46 @@ const createCell = ({ row, text = '', year = '', month = '', day = '', isUrl = f
   row.appendChild(cell);
 };
 
-const getNumberOfDays = ({ month, year = 2019 }) => {
-  return new Date(Number(year), Number(month) + 1, 0).getDate();
-}
+const getNumberOfDays = ({
+  month,
+  year = 2019
+}) => new Date(Number(year), Number(month) + 1, 0).getDate();
+
+const createDayCell = ({ day, idx, row }) => {
+  const m = idx < 9 ? `0${idx + 1}` : `${idx + 1}`;
+  const d = day < 9 ? `0${day + 1}` : `${day + 1}`;
+  const isUrl = Boolean(posts.indexOf(`2019-${m}-${d}`) + 1);
+
+  createCell({ day: d, isUrl, month: m, row, text: d, year: 2019 });
+};
 
 const generateCalendar = () => {
   const calendar = document.getElementById('calendar_table');
+  const currentDate = new Date();
+  let newRow;
 
   MONTHS.forEach((monthName, idx) => {
-    let monthRow = document.createElement('tr');
-    createCell({ row: monthRow, text: monthName });
-    calendar.appendChild(monthRow);
+    if (currentDate.getMonth() >= Number(idx)) {
+      let isFirstDay = true;
+      newRow = document.createElement('tr');
 
-    let daysRow = document.createElement('tr');
-    for (const day of Array(getNumberOfDays({ month: idx })).keys()) {
-      createCell({ row: daysRow, text: day + 1 });
+      createCell({ cellType: 'th', className: 'month', row: newRow, text: monthName });
+      calendar.appendChild(newRow);
+
+      for (const day of Array(getNumberOfDays({ month: idx })).keys()) {
+        if (isFirstDay || day % 7 === 0) {
+          newRow = document.createElement('tr');
+
+          createDayCell({ day, idx, row: newRow });
+
+          calendar.appendChild(newRow);
+          isFirstDay = false;
+        } else {
+          createDayCell({ day, idx, row: newRow });
+        }
+      }
     }
-    calendar.appendChild(daysRow);
   });
 };
 
 generateCalendar();
-
-let day, month, year;
-let posts = [];
-
-{% for log in site.posts %}
-  day = "{{ log.date | date: '%d' }}";
-  month = "{{log.date | date: '%m'}}"
-  year = "{{log.date | date: '%Y'}}"
-  posts.push({ day, month, year });
-{% endfor %}
-
-let monthName = -1;
-let yearName = -1;
-let isFirst = true;
-
-const calendar = document.getElementById('calendar_table');
-posts.forEach((post) => {
-  let row;
-
-  if (yearName !== post.year) {
-    row = document.createElement('tr');
-    yearName = post.year;
-    createCell({ row, text: yearName });
-  } else if (monthName !== post.month) {
-    row = document.createElement('tr');
-    monthName = post.month;
-    createCell({ row, text: monthName });
-    isFirst = true;
-  } else {
-    if (isFirst) {
-      row = document.createElement('tr');
-      row.className = 'first';
-      isFirst = false;
-    } else {
-      row = document.querySelector('.first');
-      createCell({
-        row,
-        text: post.day,
-        year: post.year,
-        month: post.month,
-        day: post.day,
-        isUrl: true,
-      });
-    }
-  }
-  calendar.appendChild(row);
-});
