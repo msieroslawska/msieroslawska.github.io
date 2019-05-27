@@ -15,7 +15,8 @@ let posts = [];
 {% endfor %}
 
 const MONTHS = [
-  'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  'December', 'November', 'October', 'September', 'August', 'July', 'June', 'May', 'April', 'March', 'February', 'January'];
+  // 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 const createUrl = ({ day, month, year }) => {
   const url = document.createElement('a');
@@ -67,7 +68,8 @@ const generateCalendar = () => {
   const currentDate = new Date();
   let newRow;
 
-  MONTHS.forEach((monthName, idx) => {
+  MONTHS.forEach((monthName, i) => {
+    const idx = 11 - i;
     if (currentDate.getMonth() >= Number(idx)) {
       let isFirstDay = true;
       newRow = document.createElement('tr');
