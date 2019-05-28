@@ -8,7 +8,10 @@ title:  "Topic list"
 - [ ] [JavaScript: From Fundamentals to Functional JS, v2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/) by Bianca Gandolfo
   - Finished on XX.XX.XXXX
   - **Summary**: XXXX
-- [x] [Introduction to JavaScript Programming](https://frontendmasters.com/courses/javascript-basics/) by Kyle Simpson (probably just skim through it)
+- [x] [Coercion in JavaScript](https://frontendmasters.com/courses/javascript-coercion/) by Kyle Simpson
+  - Finished on 28.05.2019
+  - **Summary**: a deep dive into different types of coercion. Brings a bit of a headache :) Solution: just use triple equals (`===`)!
+- [x] [Introduction to JavaScript Programming](https://frontendmasters.com/courses/javascript-basics/) by Kyle Simpson
   - Finished on 15.05.2019
   - **Summary**: Not too long, it was a nice refreshment of JS fundamentals. I still managed to take some notes :)
 - [x] [Mastering Chrome Developer Tools, v2](https://frontendmasters.com/courses/chrome-dev-tools-v2/) by Jon Kuperman

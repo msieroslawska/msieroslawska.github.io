@@ -12,6 +12,7 @@ permalink: /blog/resources/
 - [Eloquent JavaScript](https://eloquentjavascript.net/)
 - [You don't know JS](https://github.com/getify/You-Dont-Know-JS)
 - [Truthy and falsy values](https://www.sitepoint.com/javascript-truthy-falsy/)
+- [Coercion table](https://jscoercion.qfox.nl)
 
 ## HTML
 
