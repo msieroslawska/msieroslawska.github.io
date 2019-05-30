@@ -5,9 +5,12 @@ title:  "Topic list"
 
 ## Courses
 
-- [ ] [JavaScript: From Fundamentals to Functional JS, v2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/) by Bianca Gandolfo
+- [ ] [JavaScript: The Hard Parts](https://frontendmasters.com/courses/javascript-hard-parts/) by Will Sentance
   - Finished on XX.XX.XXXX
   - **Summary**: XXXX
+- [x] [JavaScript: From Fundamentals to Functional JS, v2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/) by Bianca Gandolfo
+  - Finished on 30.05.2019
+  - **Summary**: It was one of the weakest FM classes I've seen so far. Having an interactive style of teaching which involves the students present in the room is beneficial to them, but slows down the pace of the recording. I'd rather be given facts and examples by the teacher than to listen to students trying to figure out the question. I also think that some concepts were not explained very well (curring or closures). If I've never heard of it before, I'd be even more confused.
 - [x] [Coercion in JavaScript](https://frontendmasters.com/courses/javascript-coercion/) by Kyle Simpson
   - Finished on 28.05.2019
   - **Summary**: a deep dive into different types of coercion. Brings a bit of a headache :) Solution: just use triple equals (`===`)!
