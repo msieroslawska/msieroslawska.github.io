@@ -107,7 +107,8 @@ li {
  * Headings
  */
 h1, h2, h3, h4, h5, h6 {
-  font-weight: $base-font-weight;
+  font-family: "DM Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: calc(#{$base-font-weight} + 400);
 }
 
 
@@ -154,6 +155,7 @@ blockquote {
 pre,
 code {
   @include relative-font-size(0.9375);
+  font-family: "Space Mono", serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   border: 1px solid $grey-color-light;
   border-radius: 3px;
   background-color: #eef;

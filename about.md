@@ -13,21 +13,20 @@ I am a silly geek born and raised in Poland, currently enjoying my life and tryi
 I used to be a Linux power user, but I betrayed the penguin for the sake of the popular fruit.
 Life ¯\\\_(ツ)_/¯
 
-Professionally I have become a bit of Jack of all trades. While I always enjoyed playing with code, I have initially decided to proceed on a path of testing. I pay great attention to detail (yes, I *know* my picture is not centered!) and enjoy hunting for bugs. All of this creates quite a combo: I develop, test it manually, write automation scripts and every now and then dab in CI/CD. I believe being on the both sides of the dev - QA field gives me an interesting perspective.
+Professionally I have become a bit of Jack of all trades. While I always enjoyed playing with code, I have initially decided to proceed on a path of testing. I pay great attention to detail (yes, I *know* my picture is not centered!) and enjoy creating new stuff. All of this creates quite a combo: I develop with great respect for quality and testability. I believe being on the both sides of the dev - QA field gives me an interesting perspective.
 
 On my daily basis I am working with:
 
 * JavaScript + ES6 + Mocha,
-* React,
-* HTML + CSS + Sass + Handlebars,
+* React.JS,
+* HTML5 + CSS3 + Sass + Handlebars,
 * Jenkins + Groovy,
-* Git,
+* Git (Github),
 * Jira.
 
-In the past I played around with (results were not always worth mentioning):
+Besides getting better in what I already use, I'm currently also looking into (a.k.a. *learning*):
 
-* Python,
-* Java,
-* Assembler,
-* SQL,
-* Selenium.
+* TypeScript,
+* algorithms,
+* testing React (and good practices for that),
+* what is the big deal about React hooks :D.
