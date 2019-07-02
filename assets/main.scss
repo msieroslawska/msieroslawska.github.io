@@ -1,7 +1,7 @@
 ---
 ---
 
-@import "minima";
+@import "main";
 
 .striked {
   text-decoration: line-through;
@@ -21,9 +21,4 @@ img[src*="#doggo"] {
     height: 100px;
     float: right;
     margin-left: 10px;
-}
-
-.month {
-  color: red;
-  text-align: center;
 }

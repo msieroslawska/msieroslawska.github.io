@@ -38,11 +38,13 @@ const createCell = ({
 }) => {
   const cell = document.createElement(cellType);
 
-  cell.className = className;
   if (isUrl) {
+    cell.className = `${className} url`;
     const url = createUrl({ className, day, month, year });
+    // url.className = 'url';
     cell.appendChild(url);
   } else {
+    cell.className = className;
     const cellText = document.createTextNode(text);
     cell.appendChild(cellText);
   }
@@ -60,33 +62,55 @@ const createDayCell = ({ day, idx, row }) => {
   const d = day < 9 ? `0${day + 1}` : `${day + 1}`;
   const isUrl = Boolean(posts.indexOf(`2019-${m}-${d}`) + 1);
 
-  createCell({ day: d, isUrl, month: m, row, text: d, year: 2019 });
+  createCell({ className: 'cell', day: d, isUrl, month: m, row, text: d, year: 2019 });
 };
 
 const generateCalendar = () => {
-  const calendar = document.getElementById('calendar_table');
+  const calendar = document.getElementById('calendar-table');
   const currentDate = new Date();
   let newRow;
 
   MONTHS.forEach((monthName, i) => {
     const idx = 11 - i;
     if (currentDate.getMonth() >= Number(idx)) {
-      let isFirstDay = true;
-      newRow = document.createElement('tr');
+      const monthHeader = document.createElement('h3');
+      monthHeader.className = 'month';
+      const monthText = document.createTextNode(monthName)
+      monthHeader.appendChild(monthText);
+      calendar.appendChild(monthHeader);
+      const monthTable = document.createElement('table');
+      calendar.appendChild(monthTable);
 
-      createCell({ cellType: 'th', className: 'month', row: newRow, text: monthName });
-      calendar.appendChild(newRow);
+      let isFirstDay = true;
+
+      console.log('day', currentDate.getDay())
 
       for (const day of Array(getNumberOfDays({ month: idx })).keys()) {
         if (isFirstDay || day % 7 === 0) {
           newRow = document.createElement('tr');
+          newRow.className = 'row';
 
-          createDayCell({ day, idx, row: newRow });
+          if (currentDate.getMonth() === Number(idx)) {
+            if (day < currentDate.getDay()) {
+              createDayCell({ day, idx, row: newRow });
 
-          calendar.appendChild(newRow);
-          isFirstDay = false;
+              monthTable.appendChild(newRow);
+              isFirstDay = false;
+            }
+          } else {
+            createDayCell({ day, idx, row: newRow });
+
+            monthTable.appendChild(newRow);
+            isFirstDay = false;
+          }
         } else {
-          createDayCell({ day, idx, row: newRow });
+          if (currentDate.getMonth() === Number(idx)) {
+            if (day < currentDate.getDay()) {
+              createDayCell({ day, idx, row: newRow });
+            }
+          } else {
+            createDayCell({ day, idx, row: newRow });
+          }
         }
       }
     }
