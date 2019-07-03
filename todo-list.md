@@ -5,18 +5,27 @@ title:  "Topic list"
 
 ## Courses
 
-- [ ] [JavaScript: The Hard Parts](https://frontendmasters.com/courses/javascript-hard-parts/) by Will Sentance
+- [ ] [JavaScript: The Recent Parts](https://frontendmasters.com/courses/js-recent-parts/) by Kyle Simpson
   - Finished on XX.XX.XXXX
   - **Summary**: XXXX
+- [ ] [Deep JavaScript Foundations, v3](https://frontendmasters.com/courses/deep-javascript-v3/) by Kyle Simpson
+  - Finished on XX.XX.XXXX
+  - **Summary**: XXXX
+- [ ] [Getting Started with JavaScript, v2](https://frontendmasters.com/courses/getting-started-javascript-v2/) by Kyle Simpson
+  - Finished on XX.XX.XXXX
+  - **Summary**: XXXX
+- [x] [JavaScript: The Hard Parts](https://frontendmasters.com/courses/javascript-hard-parts/) by Will Sentance
+  - Finished on 03.07.2019
+  - **Summary**: absolutely great overview of hard parts in JS. Will proved that you **can** teach Computer Science without a computer and using a whiteboard instead. Writing everything down from scratch was often tedious, but man, how it helped to understand what is happening!
 - [x] [JavaScript: From Fundamentals to Functional JS, v2](https://frontendmasters.com/courses/js-fundamentals-functional-v2/) by Bianca Gandolfo
   - Finished on 30.05.2019
-  - **Summary**: It was one of the weakest FM classes I've seen so far. Having an interactive style of teaching which involves the students present in the room is beneficial to them, but slows down the pace of the recording. I'd rather be given facts and examples by the teacher than to listen to students trying to figure out the question. I also think that some concepts were not explained very well (curring or closures). If I've never heard of it before, I'd be even more confused.
+  - **Summary**: it was one of the weakest FM classes I've seen so far. Having an interactive style of teaching which involves the students present in the room is beneficial to them, but slows down the pace of the recording. I'd rather be given facts and examples by the teacher than to listen to students trying to figure out the question. I also think that some concepts were not explained very well (curring or closures). If I've never heard of it before, I'd be even more confused.
 - [x] [Coercion in JavaScript](https://frontendmasters.com/courses/javascript-coercion/) by Kyle Simpson
   - Finished on 28.05.2019
   - **Summary**: a deep dive into different types of coercion. Brings a bit of a headache :) Solution: just use triple equals (`===`)!
 - [x] [Introduction to JavaScript Programming](https://frontendmasters.com/courses/javascript-basics/) by Kyle Simpson
   - Finished on 15.05.2019
-  - **Summary**: Not too long, it was a nice refreshment of JS fundamentals. I still managed to take some notes :)
+  - **Summary**: not too long, it was a nice refreshment of JS fundamentals. I still managed to take some notes :)
 - [x] [Mastering Chrome Developer Tools, v2](https://frontendmasters.com/courses/chrome-dev-tools-v2/) by Jon Kuperman
   - Finished on 13.05.2019
   - **Summary**: DevTools can definitely look very intimidating. At the same time it's a powerful tool which is a must if running any code in a browser. I'm glad I interjected my JS learning path with this class, because I'm no longer at mercy of `console.log` (it still has its use!)! The videos are enjoyable (even though I had to push myself a little to finish performance- and memory-related parts), Jon is funny and presents really well.
