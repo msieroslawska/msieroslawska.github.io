@@ -11,9 +11,9 @@ title:  "Topic list"
 - [ ] [Deep JavaScript Foundations, v3](https://frontendmasters.com/courses/deep-javascript-v3/) by Kyle Simpson
   - Finished on XX.XX.XXXX
   - **Summary**: XXXX
-- [ ] [Getting Started with JavaScript, v2](https://frontendmasters.com/courses/getting-started-javascript-v2/) by Kyle Simpson
-  - Finished on XX.XX.XXXX
-  - **Summary**: XXXX
+- [x] [Getting Started with JavaScript, v2](https://frontendmasters.com/courses/getting-started-javascript-v2/) by Kyle Simpson
+  - Finished on 08.07.2019
+  - **Summary**: small JS refreshment, nice class.
 - [x] [JavaScript: The Hard Parts](https://frontendmasters.com/courses/javascript-hard-parts/) by Will Sentance
   - Finished on 03.07.2019
   - **Summary**: absolutely great overview of hard parts in JS. Will proved that you **can** teach Computer Science without a computer and using a whiteboard instead. Writing everything down from scratch was often tedious, but man, how it helped to understand what is happening!
