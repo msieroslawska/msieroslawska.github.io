@@ -12,7 +12,12 @@ doelgerTheme.overrideThemeStyles = () => ({
   },
   'a, body': {
     color: '#111',
-  }
+  },
+  img: {
+    'background-color': '#FFF',
+    border: '1px solid black',
+    padding: '5px',
+  },
 });
 
 const typography = new Typography(doelgerTheme);

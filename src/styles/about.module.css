@@ -1,0 +1,16 @@
+.marta,
+.doggo {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+}
+
+.marta {
+  float: left;
+  margin-right: 10px;
+}
+
+.doggo {
+  float: right;
+  margin-left: 10px;
+}
