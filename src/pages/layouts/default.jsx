@@ -12,10 +12,9 @@ export default ({ children }) => (
       <title>Marta Sierosławska - Frontend engineer</title>
       <link rel="canonical" href="http://msieroslawska.github.io" />
     </Helmet>
-    <main className={defaultStyles.container}>
+    <main className={defaultStyles.background}>
       {children}
+      <Footer />
     </main>
-
-    <Footer />
   </>
 );

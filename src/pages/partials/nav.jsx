@@ -3,8 +3,8 @@ import { Link } from 'gatsby';
 
 import helloStyles from '../../styles/index.module.css';
 
-export default () => (
-  <nav>
+export default ({ navClass }) => (
+  <nav className={navClass}>
     <Link className={helloStyles.nav} to="/">Main page</Link>
     <Link className={helloStyles.nav} to="/about">About</Link>
     <Link className={helloStyles.nav} to="/articles">Articles</Link>
