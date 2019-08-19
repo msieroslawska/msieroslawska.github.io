@@ -1,5 +1,5 @@
 import React from 'react';
-import PageLayout from './layouts/page';
+import PageLayout from './layouts/page-layout';
 
 const TopicList = () => (
   <PageLayout>

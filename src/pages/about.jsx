@@ -1,6 +1,6 @@
 import React from 'react';
 import aboutStyles from '../styles/about.module.css';
-import PageLayout from './layouts/page';
+import PageLayout from './layouts/page-layout';
 
 import doggo from '../assets/arya.jpg';
 import marta from '../assets/marta.jpg';

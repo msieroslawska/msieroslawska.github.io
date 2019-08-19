@@ -6,12 +6,12 @@
   background-size: cover;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
-.container {
-  align-items: center;
+.content-container {
+  flex: 1 1 auto;
   display: flex;
-  justify-content: center;
 }
 
 .content {
@@ -24,9 +24,15 @@
 }
 
 .footer {
-  align-self: center;
   border-top: 1px solid #e8e8e8;
   font-size: 12px;
-  line-height: 3;
-  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 60px;
+}
+
+.footerText {
+  margin: 0;
 }
