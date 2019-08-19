@@ -1,6 +1,7 @@
 import React from 'react';
 import homeStyles from '../styles/home.module.css';
 import HomeLayout from './layouts/home-layout';
+import Template from './layouts/blog-layout';
 
 import Social from './partials/social';
 
@@ -12,6 +13,8 @@ export default () => (
     <h2 className={homeStyles.tagline}>Frontend engineer</h2>
     <h3 className={homeStyles.description}>{descriptionText}</h3>
     <Social />
+
+    <Template />
 
   </HomeLayout>
 );
