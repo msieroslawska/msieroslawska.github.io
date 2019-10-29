@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "jsx": "preserve",
+        "lib": ["dom"],
+        "strict": true,
+        "noEmit": true,
+        "esModuleInterop": true,
+        "noUnusedLocals": false
+    },
+    "include": ["**/*"],
+    "exclude": ["node_modules", "public", ".cache"]
+}
