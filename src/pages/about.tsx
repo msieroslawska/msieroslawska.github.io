@@ -1,13 +1,31 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
+import styled from 'styled-components';
 
-// import doggo from '../assets/arya.jpg';
-// import marta from '../assets/marta.jpg';
+import MainLayout from '../layouts/main';
+import doggo from '../assets/arya.jpg';
+import marta from '../assets/marta.jpg';
 
-const About = () => (
-  <div>
+const Doggo = styled.img`
+  height: 150px;
+  width: 150px;
+  float: right;
+  border-radius: 50%;
+  margin: 20px;
+`;
+
+const Marta = styled.img`
+  height: 180px;
+  width: 180px;
+  float: left;
+  border-radius: 50%;
+  margin: 20px;
+`;
+
+const About = (): ReactElement => (
+  <MainLayout>
     <h2>About</h2>
 
-    {/* <img className={aboutStyles.marta} src={marta} alt="Marta" /> */}
+    <Marta src={marta} alt="Marta" />
 
     <p>
       I am a silly geek born and raised in Poland, currently enjoying my life and trying to speak German in Munich,
@@ -16,10 +34,11 @@ const About = () => (
     </p>
 
     <p>
-      I used to be a Linux power user, but I betrayed the penguin for the sake of the popular fruit. Life ¯\_(ツ)_/¯
+      I used to be a Linux power user, but I betrayed the penguin for the sake of the popular fruit ¯\_(ツ)_/¯. My
+      current OS situation is a bit funny: I work on Fedora, play video games on Windows and use Mac as my main machine.
     </p>
 
-    {/* <img className={aboutStyles.doggo} src={doggo} alt="Doggo" /> */}
+    <Doggo src={doggo} alt="Doggo" />
 
     <p>
       Professionally I have become a bit of Jack of all trades. While I always enjoyed playing with code, I have
@@ -29,15 +48,25 @@ const About = () => (
       perspective.
     </p>
 
-    <p>On my daily basis I am working with:</p>
+    <p>My current tech stack involves:</p>
+
+    <ul>
+      <li>TypeScript,</li>
+      <li>React, React-Router, React-Redux</li>
+      <li>HTML5 + CSS3 + Less,</li>
+      <li>MongoDB,</li>
+      <li>RabbitMQ,</li>
+      <li>Bamboo,</li>
+      <li>Git (Bitbucket).</li>
+    </ul>
+
+    <p>In the past projects, I have also been working with:</p>
 
     <ul>
       <li>JavaScript + ES6 + Mocha,</li>
-      <li>React.JS,</li>
-      <li>HTML5 + CSS3 + Sass + Handlebars,</li>
+      <li>Sass + Handlebars,</li>
       <li>Jenkins + Groovy,</li>
-      <li>Git (Github),</li>
-      <li>Jira.</li>
+      <li>Git (Github).</li>
     </ul>
 
     <p>
@@ -45,12 +74,12 @@ const About = () => (
     </p>
 
     <ul>
-      <li>TypeScript,</li>
+      <li>deep JS foundations,</li>
       <li>algorithms,</li>
       <li>testing React (and good practices for that),</li>
       <li>what is the big deal about React hooks :D.</li>
     </ul>
-  </div>
+  </MainLayout>
 );
 
 export default About;
