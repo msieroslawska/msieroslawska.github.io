@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
-import { Link } from 'gatsby';
+import { Link } from 'gatsby-theme-material-ui';
 
 const Header = styled.header`
   height: 50px;

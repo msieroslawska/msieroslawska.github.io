@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import { graphql } from 'gatsby';
 
-import MainLayout from '../layouts/main-layout';
+import MainLayout from './main-layout';
 
 interface Props {
   data: {
