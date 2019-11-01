@@ -1,5 +1,5 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-const notFound = () => <p>Much sad, not found</p>;
+const notFound = (): ReactElement => <p>Much sad, not found</p>;
 
 export default notFound;

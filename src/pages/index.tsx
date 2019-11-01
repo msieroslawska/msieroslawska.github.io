@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 
-import MainLayout from '../layouts/main';
+import MainLayout from '../layouts/main-layout';
 
 const Index = (): ReactElement => (
   <MainLayout>

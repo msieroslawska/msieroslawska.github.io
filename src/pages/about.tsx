@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react';
 import styled from 'styled-components';
 
-import MainLayout from '../layouts/main';
+import MainLayout from '../layouts/main-layout';
 import doggo from '../assets/arya.jpg';
 import marta from '../assets/marta.jpg';
 
@@ -28,23 +28,27 @@ const About = (): ReactElement => (
     <Marta src={marta} alt="Marta" />
 
     <p>
-      I am a silly geek born and raised in Poland, currently enjoying my life and trying to speak German in Munich,
-      Germany. I am stereotypical to the bone: I like books, video games and quiet evenings at home, sharing my couch
-      with Arya the Corgi. If we don’t stay indoors we go for hikes or travel around.
+      I am a silly geek born and raised in Poland, currently enjoying my life and trying
+      to speak German in Munich, Germany. I am stereotypical to the bone: I like books,
+      video games and quiet evenings at home, sharing my couch with Arya the Corgi.
+      If we don’t stay indoors we go for hikes or travel around.
     </p>
 
     <p>
-      I used to be a Linux power user, but I betrayed the penguin for the sake of the popular fruit ¯\_(ツ)_/¯. My
-      current OS situation is a bit funny: I work on Fedora, play video games on Windows and use Mac as my main machine.
+      I used to be a Linux power user, but I betrayed the penguin for
+      the sake of the popular fruit ¯\_(ツ)_/¯. My current OS situation is a bit funny:
+      I work on Fedora, play video games on Windows and use Mac as my main machine.
     </p>
 
     <Doggo src={doggo} alt="Doggo" />
 
     <p>
-      Professionally I have become a bit of Jack of all trades. While I always enjoyed playing with code, I have
-      initially decided to proceed on a path of testing. I pay great attention to detail (yes, I know my picture is not
-      centered!) and enjoy creating new stuff. All of this creates quite a combo: I develop with great respect for
-      quality and testability. I believe being on the both sides of the dev - QA field gives me an interesting
+      Professionally I have become a bit of Jack of all trades. While I always enjoyed
+      playing with code, I have initially decided to proceed on a path of testing.
+      I pay great attention to detail (yes, I know my picture is not
+      centered!) and enjoy creating new stuff. All of this creates quite a combo:
+      I develop with great respect for quality and testability. I believe being
+      on the both sides of the dev - QA field gives me an interesting
       perspective.
     </p>
 
@@ -70,7 +74,9 @@ const About = (): ReactElement => (
     </ul>
 
     <p>
-      Besides getting better in what I already use, I’m currently also looking into (a.k.a. <em>learning</em>):
+      Besides getting better in what I already use, I’m currently also looking into (a.k.a.
+      <em>learning</em>
+      ):
     </p>
 
     <ul>

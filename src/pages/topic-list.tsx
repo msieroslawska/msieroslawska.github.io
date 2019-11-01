@@ -1,5 +1,11 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-const TopicList = () => <div>TopicList</div>;
+import MainLayout from '../layouts/main-layout';
+
+const TopicList = (): ReactElement => (
+  <MainLayout>
+    <div>Topic list</div>
+  </MainLayout>
+);
 
 export default TopicList;

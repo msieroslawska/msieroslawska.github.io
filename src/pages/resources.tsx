@@ -1,5 +1,11 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-const Resources = () => <div>Resources</div>;
+import MainLayout from '../layouts/main-layout';
+
+const Resources = (): ReactElement => (
+  <MainLayout>
+    <div>Resources</div>
+  </MainLayout>
+);
 
 export default Resources;

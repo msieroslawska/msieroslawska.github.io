@@ -1,5 +1,11 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 
-const Articles = () => <div>Articles</div>;
+import MainLayout from '../layouts/main-layout';
+
+const Articles = (): ReactElement => (
+  <MainLayout>
+    <div>Articles</div>
+  </MainLayout>
+);
 
 export default Articles;

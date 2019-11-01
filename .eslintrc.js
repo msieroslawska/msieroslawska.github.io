@@ -4,9 +4,7 @@ module.exports = {
     extends: [
         'plugin:@typescript-eslint/recommended',
         "plugin:react/recommended",
-        // 'airbnb',
-        'prettier/@typescript-eslint',
-        'plugin:prettier/recommended',
+        'airbnb',
     ],
     parserOptions: {
         ecmaVersion: 2018,
@@ -28,6 +26,9 @@ module.exports = {
     },
     rules: {
         'react/jsx-filename-extension': 'off',
+        'react/jsx-one-expression-per-line': 'off',
         'react/prop-types': 'off',
+        '@typescript-eslint/no-unused-vars': 'off',
+        'no-unused-vars': 'off',
     }
 }
