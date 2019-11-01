@@ -1,9 +1,20 @@
 ---
-path: /blog/my-first-post
-date: 2018-12-01
-summary: Post summary
-tags: [my, first, post]
+path: /blog/2019/10/30
+date: 2019-10-30
+tags: []
 title: My First Post
 ---
 
-ABCABC
+For some bizzare reason I have decided to reanimate this project and continue my work with Gatsby. Thanks to my new awesome job, I am getting familiar with Typescript, so hey, why not use it here?
+
+Good riddance, what a stupid idea that was.
+
+I am writing this quick note right now, so I can incorporate my rants later into blog post list.
+
+It took me **FOREVER** to setup the project. Mostly because I have decided I want to work on my old config.
+
+(*Yet another stupid idea this evening...*)
+
+After at least an hour of setting up `npm<`, I ended up removing most of config files and setting up everything basically from scratch. No Gatsby starters. Good luck typing those without having any idea what is happening.
+
+The most important highlight of the day: do not open multiple projects in VSCode if you do not install `eslint` globally. You will save hours without having to figure out why it **CONSTANTLY** complains about not being able to find plugins.

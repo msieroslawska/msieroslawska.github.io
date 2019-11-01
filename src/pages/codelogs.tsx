@@ -1,41 +1,61 @@
 import React, { ReactElement } from 'react';
-
 import { graphql, Link } from 'gatsby';
 
 import MainLayout from '../layouts/main-layout';
-import QuickNote from './quick-note-first-day';
+
+interface Edges {
+  edges: [{
+    node: {
+      id: string;
+      frontmatter: {
+        date: string;
+        path: string;
+      };
+    };
+  }];
+}
 
 interface Props {
   data: {
-    allMarkdownRemark: {
-      edges: [{
-        node: {
-          id: string;
-          frontmatter: {
-            path: string;
-            title: string;
-          };
-        };
-      }];
-    };
+    allMarkdownRemark: Edges;
   };
 }
 
-const Codelogs = (): ReactElement =>
-  // const Posts = edges
-  //   .filter((edge) => !!edge.node.frontmatter.date) // Filtering posts
-  //   .map((edge) => (
-  //     <Link key={edge.node.id} to={edge.node.frontmatter.path}>
-  //       {`${edge.node.frontmatter.title} (${edge.node.frontmatter.path})`}
-  //     </Link>
-  //   ));
-  (
-    <MainLayout>
-      <div>Codelogs</div>
-      <QuickNote />
+const renderCodelogsList = ({ edges }: Edges): ReactElement[] => (
+  edges
+    .filter((edge) => !!edge.node.frontmatter.date) // Filtering posts
+    .map((edge) => {
+      const { id, frontmatter: { date, path } } = edge.node;
+      return (
+        <Link key={id} to={path}>
+          {date}
+        </Link>
+      );
+    }));
 
-      <Link to="/blog/my-first-post/">Go to my first Markdown blog post</Link>
+const Codelogs = ({ data: { allMarkdownRemark: { edges } } }: Props): ReactElement => (
+  <MainLayout>
+    <div>Codelogs</div>
 
-    </MainLayout>
-  );
+    <div>{renderCodelogsList({ edges })}</div>
+
+  </MainLayout>
+);
 export default Codelogs;
+
+export const pageQuery = graphql`
+  query {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          id
+          excerpt(pruneLength: 250)
+          frontmatter {
+            date(formatString: "YYYY-MM-DD")
+            path
+          }
+        }
+      }
+    }
+  }
+`;
