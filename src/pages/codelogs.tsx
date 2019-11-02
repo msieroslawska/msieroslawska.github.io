@@ -27,17 +27,17 @@ const renderCodelogsList = ({ edges }: Edges): ReactElement[] => (
     .map((edge) => {
       const { id, frontmatter: { date, path } } = edge.node;
       return (
-        <Link key={id} to={path}>
-          {date}
-        </Link>
+        <li>
+          <Link key={id} to={path}>{date}</Link>
+        </li>
       );
     }));
 
 const Codelogs = ({ data: { allMarkdownRemark: { edges } } }: Props): ReactElement => (
   <MainLayout>
-    <div>Codelogs</div>
+    <h2>Codelogs</h2>
 
-    <div>{renderCodelogsList({ edges })}</div>
+    <ul>{renderCodelogsList({ edges })}</ul>
 
   </MainLayout>
 );
