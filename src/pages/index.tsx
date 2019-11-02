@@ -1,4 +1,5 @@
 import React, { ReactElement } from 'react';
+import { Helmet } from 'react-helmet';
 import styled from 'styled-components';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,13 +13,19 @@ const MainWrapper = styled.div`
 `;
 
 const Index = (): ReactElement => (
-  <ThemeProvider theme={theme}>
-    <CssBaseline />
-    <MainWrapper>
-      <EntryPage />
-      <MainPage />
-    </MainWrapper>
-  </ThemeProvider>
+  <>
+    <Helmet>
+      {/* <link rel="stylesheet" type="text/css" href="./styles/custom.css" /> */}
+    </Helmet>
+
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <MainWrapper>
+        <EntryPage />
+        <MainPage />
+      </MainWrapper>
+    </ThemeProvider>
+  </>
 );
 
 export default Index;

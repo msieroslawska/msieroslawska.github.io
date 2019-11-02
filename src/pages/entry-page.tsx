@@ -16,24 +16,44 @@ const keyFrameExampleOne = keyframes`
   }
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
+  width: 100vw;
   height: 100vh;
   animation: ${keyFrameExampleOne} 2s ease-in-out 2s 1;
   animation-fill-mode: forwards;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
 
-const Header = styled.h1`
-  color: ${theme.palette.error.main}
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+const Hello = styled.h1`
+  color: ${theme.palette.primary.main}
   margin: 0;
 `;
 
+const Tagline = styled.h2`
+  color: ${theme.palette.secondary.main}
+`;
+
+const Description = styled.h3`
+  color: ${theme.palette.error.main}
+`;
+
+// position: absolute;
+// left: 50%;
+// top: 50%;
+// transform: translate(-50%, -50%);
+
+const descriptionText = 'This page is a playground and a notebook for my experiments. I would like to document here my programming progress and write down all the notes I might need later.';
+
 const EntryPage = (): ReactElement => (
   <Wrapper>
-    <Header>HI!</Header>
+    <Hello>Hi, I&apos;m Marta!</Hello>
+    <Tagline>Software engineer</Tagline>
+    <Description>{descriptionText}</Description>
   </Wrapper>
 );
 
