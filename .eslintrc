@@ -1,19 +1,18 @@
 {
-  "parser": "@typescript-eslint/parser",
   "plugins": [
     "@typescript-eslint"
   ],
+  "extends": [
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
   "rules": {
-    "semi": [
-      "error",
-      "never"
-    ],
-    "quotes": [
-      2,
-      "single"
-    ]
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/require-default-props": "off"
   },
   "parserOptions": {
+    "project": "./tsconfig.json",
     "ecmaVersion": 6,
     "sourceType": "module",
     "ecmaFeatures": {
