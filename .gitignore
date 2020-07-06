@@ -4,4 +4,5 @@ _site
 .vscode
 .DS_Store
 .cache
+.next
 node_modules
