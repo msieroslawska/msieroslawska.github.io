@@ -1,14 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
-import { v4 } from 'uuid';
 
-interface Codelog {
-  content: string;
-  id: string;
-  slug: string[];
-  tags: string[];
-  title: string;
-}
+import { Codelog } from '../interfaces';
 
 export const ROOT_PATH = `${process.cwd()}/content/codelogs`;
 
@@ -34,15 +27,14 @@ export const getCodelogs = (): Codelog[] => {
           const rawContent = fs.readFileSync(path, {
             encoding: 'utf-8',
           });
-          const { data: { tags }, content } = matter(rawContent);
+          const { data: { tags, title }, content } = matter(rawContent);
           const day = fileName.replace('.md', '');
 
           return {
             content,
             tags,
-            id: v4(),
-            slug: [yearDir, monthDir, day],
-            title: `${yearDir}-${monthDir}-${day}`,
+            title,
+            slug: { year: yearDir, month: monthDir, day },
           };
         });
 

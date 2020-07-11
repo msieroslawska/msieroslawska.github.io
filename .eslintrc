@@ -9,7 +9,8 @@
   "parser": "@typescript-eslint/parser",
   "rules": {
     "jsx-a11y/anchor-is-valid": "off",
-    "react/require-default-props": "off"
+    "react/require-default-props": "off",
+    "react/no-danger": "off"
   },
   "parserOptions": {
     "project": "./tsconfig.json",
