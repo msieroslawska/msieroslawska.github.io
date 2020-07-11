@@ -1,45 +1,31 @@
 import React from 'react';
-import Link from 'next/link';
-import { GetStaticProps } from 'next';
-
 import Layout from '../components/Layout';
 
-import { getCodelogs } from '../utils/fileUtils';
-import { Codelog } from '../interfaces';
+const IndexPage: React.FunctionComponent = () => (
+  <Layout title="Marta Sierosławska | Frontend engineer">
+    <h1 className="hello">Hello! I&apos;m Marta!</h1>
+    <h2>Frontend engineer</h2>
 
-interface Props {
-  codelogs: Codelog[];
-}
+    <section>
+      This page is a playground and a notebook for my experiments.
+      I would like to document here my programming progress and
+      write down all the notes I might need later.
+    </section>
 
-const IndexPage: React.FunctionComponent<Props> = ({ codelogs = [] }: Props) => (
-  <Layout title="TEST">
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
+    <section>
+      <a href="https://github.com/msieroslawska">
+        <img className="svg-icon" src="/img/github.svg" alt="Github" />
+      </a>
 
-    <ul>
-      {codelogs.map((codelog) => {
-        const { slug } = codelog;
-        return (
-          <li key={codelog.title}>
-            <Link href={`/codelogs/${slug.year}-${slug.month}-${slug.day}`}>
-              <a>{codelog.title}</a>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
+      <a href="https://www.linkedin.com/in/martasieroslawska">
+        <img className="svg-icon" src="/img/linkedin.svg" alt="linkedin" />
+      </a>
+
+      <a href="https://www.hackerrank.com/msieroslawska">
+        <img className="svg-icon" src="/img/hackerrank.svg" alt="HackerRank" />
+      </a>
+    </section>
   </Layout>
 );
-
-export const getStaticProps: GetStaticProps = async () => {
-  const codelogs: Codelog[] = getCodelogs();
-
-  return {
-    props: { codelogs },
-  };
-};
 
 export default IndexPage;

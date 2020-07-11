@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Head from 'next/head';
 
 interface Props {
-  children;
+  children: JSX.Element[] | JSX.Element;
   title: string;
 }
 
@@ -25,19 +25,11 @@ const Layout: React.FunctionComponent<Props> = ({ children, title }: Props) => (
         <Link href="/about">
           <a>About</a>
         </Link>
-        {' '}
-        |
-        {' '}
-        <Link href="/users">
-          <a>Users List</a>
-        </Link>
-        {' '}
-        |
-        {' '}
-        <a href="/api/users">Users API</a>
       </nav>
     </header>
+
     {children}
+
     <footer>
       <hr />
       <span>I&apos;m here to stay (Footer)</span>

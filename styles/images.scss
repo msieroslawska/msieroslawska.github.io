@@ -1,0 +1,10 @@
+@use 'colors';
+
+.svg-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  fill: #{colors.$grey};
+  padding-right: 5px;
+  vertical-align: text-top;
+}

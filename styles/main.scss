@@ -1,0 +1,18 @@
+@use 'colors';
+@use 'variables';
+@use 'base';
+@use 'images';
+
+body {
+  font: variables.$base-font-weight variables.$base-font-size/variables.$base-line-height variables.$base-font-family;
+  src: url('/fonts/NotoSans-Regular.ttf');
+  color: variables.$text-color;
+  background: variables.$background-color;
+  padding: 20px 20px 60px;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.hello {
+  font-size: 45px;
+}
