@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
 
-import Layout from '../../components/Layout';
+import PageLayout from '../../layouts/Page';
 
 import { getCodelogs } from '../../utils/fileUtils';
 import { Codelog } from '../../interfaces';
@@ -12,7 +12,7 @@ interface Props {
 }
 
 const CodelogList: React.FunctionComponent<Props> = ({ codelogs = [] }: Props) => (
-  <Layout title="All codelogs">
+  <PageLayout title="All codelogs">
     <h1>All codelogs</h1>
 
     <ul>
@@ -27,7 +27,7 @@ const CodelogList: React.FunctionComponent<Props> = ({ codelogs = [] }: Props) =
         );
       })}
     </ul>
-  </Layout>
+  </PageLayout>
 );
 
 export const getStaticProps: GetStaticProps = async () => {

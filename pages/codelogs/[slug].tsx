@@ -5,7 +5,7 @@ import unified from 'unified';
 import markdown from 'remark-parse';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
-import Layout from '../../components/Layout';
+import PageLayout from '../../layouts/Page';
 
 import { getCodelogs } from '../../utils/fileUtils';
 import { Codelog } from '../../interfaces';
@@ -17,11 +17,11 @@ interface Props {
 const BlogPostPage: React.FunctionComponent<Props> = (props: Props) => {
   const { codelog: { content, tags, title } } = props;
   return (
-    <Layout title={title}>
+    <PageLayout title={title}>
       <h1>{title}</h1>
       <p>{`Tags: ${tags}`}</p>
       <section dangerouslySetInnerHTML={{ __html: content }} />
-    </Layout>
+    </PageLayout>
   );
 };
 

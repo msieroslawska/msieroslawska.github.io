@@ -1,8 +1,9 @@
 import React from 'react';
-import Layout from '../components/Layout';
+
+import PageLayout from '../layouts/Page';
 
 const IndexPage: React.FunctionComponent = () => (
-  <Layout title="Marta Sierosławska | Frontend engineer">
+  <PageLayout title="Marta Sierosławska | Frontend engineer">
     <h1 className="hello">Hello! I&apos;m Marta!</h1>
     <h2>Frontend engineer</h2>
 
@@ -25,7 +26,7 @@ const IndexPage: React.FunctionComponent = () => (
         <img className="svg-icon" src="/img/hackerrank.svg" alt="HackerRank" />
       </a>
     </section>
-  </Layout>
+  </PageLayout>
 );
 
 export default IndexPage;
