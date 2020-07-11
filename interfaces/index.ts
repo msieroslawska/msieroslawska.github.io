@@ -8,3 +8,8 @@ export interface Codelog {
   tags: string[];
   title: string;
 }
+
+export interface Url {
+  href: string;
+  name: string;
+}

@@ -2,10 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-interface Url {
-  href: string;
-  name: string;
-}
+import { Url } from '../interfaces';
 
 const URLS: Url[] = [
   { href: '/', name: 'Home' },
