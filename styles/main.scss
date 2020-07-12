@@ -4,7 +4,8 @@
 @use 'images';
 
 body {
-  font: variables.$base-font-weight #{variables.$base-font-size}/#{variables.$base-line-height} variables.$base-font-family;
+  font: variables.$base-font-weight #{variables.$base-font-size}/#{variables.$base-line-height}
+    variables.$base-font-family;
   src: url('/fonts/NotoSans-Regular.ttf');
   color: variables.$text-color;
   background: variables.$background-color;
