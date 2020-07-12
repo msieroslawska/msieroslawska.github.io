@@ -8,8 +8,8 @@
     "type-check": "tsc",
     "style": "stylelint \"**/*.scss\" --color",
     "style:fix": "stylelint \"**/*.scss\" --color --fix",
-    "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./",
-    "eslint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx ./"
+    "eslint": "eslint --ext .ts,.tsx ./",
+    "eslint:fix": "eslint --fix --ext .ts,.tsx ./"
   },
   "husky": {
     "hooks": {

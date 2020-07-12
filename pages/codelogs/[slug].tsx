@@ -19,8 +19,7 @@ const BlogPostPage: React.FunctionComponent<Props> = (props: Props) => {
     codelog: { content, tags, title },
   } = props;
   return (
-    <PageLayout title={title}>
-      <h1 className="page-header">{title}</h1>
+    <PageLayout header={title} title={title}>
       <p>{`Tags: ${tags}`}</p>
       <section dangerouslySetInnerHTML={{ __html: content }} />
     </PageLayout>

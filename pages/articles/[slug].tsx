@@ -19,8 +19,7 @@ const ArticlePage: React.FunctionComponent<Props> = (props: Props) => {
     article: { content, title },
   } = props;
   return (
-    <PageLayout title={title}>
-      <h1 className="page-header">{title}</h1>
+    <PageLayout header={title} title={title}>
       <section dangerouslySetInnerHTML={{ __html: content }} />
     </PageLayout>
   );

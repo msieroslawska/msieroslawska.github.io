@@ -27,8 +27,7 @@ const renderCodelogs = (codelogs: Codelog[]) => (
 );
 
 const CodelogList: React.FunctionComponent<Props> = ({ codelogs = [] }: Props) => (
-  <PageLayout title="All codelogs | Marta Sierosławska">
-    <h1 className="page-header">All codelogs</h1>
+  <PageLayout header="All codelogs" title="All codelogs | Marta Sierosławska">
     <h2 className="page-subheader">2019</h2>
     {renderCodelogs(filterCodelogsByYear(codelogs, '2019'))}
   </PageLayout>

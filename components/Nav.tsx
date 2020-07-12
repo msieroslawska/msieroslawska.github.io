@@ -9,6 +9,8 @@ const URLS: Url[] = [
   { href: '/about', name: 'About' },
   { href: '/codelogs', name: 'Codelogs' },
   { href: '/articles', name: 'Articles' },
+  { href: '/projects', name: 'Projects' },
+  { href: '/todo', name: 'TODO' },
 ];
 
 const checkSelf = (href: string): boolean => {

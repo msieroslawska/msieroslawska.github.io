@@ -3,9 +3,7 @@ import React from 'react';
 import PageLayout from '../layouts/Page';
 
 const AboutPage: React.FunctionComponent = () => (
-  <PageLayout title="About | Marta Sierosławska">
-    <h1>About</h1>
-
+  <PageLayout header="About" title="About | Marta Sierosławska">
     <img className="about marta" src="/img/marta.jpg" alt="Marta" />
 
     <p>
