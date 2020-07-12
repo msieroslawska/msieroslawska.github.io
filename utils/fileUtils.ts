@@ -1,9 +1,7 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 
-import { Codelog } from '../interfaces';
-
-export const ROOT_PATH = `${process.cwd()}/content/codelogs`;
+import { Article, Codelog } from '../interfaces';
 
 export const getDirectories = (source: string): string[] =>
   fs
@@ -12,8 +10,9 @@ export const getDirectories = (source: string): string[] =>
     .map((dirent) => dirent.name);
 
 export const getCodelogs = (): Codelog[] => {
-  let codelogs: Codelog[] = [];
+  const ROOT_PATH = `${process.cwd()}/content/codelogs`;
   const yearDirs = getDirectories(ROOT_PATH);
+  let codelogs: Codelog[] = [];
 
   yearDirs.forEach((yearDir) => {
     const monthDirs = getDirectories(`${ROOT_PATH}/${yearDir}`);
@@ -47,4 +46,25 @@ export const getCodelogs = (): Codelog[] => {
   });
 
   return codelogs;
+};
+
+export const getArticles = (): Article[] => {
+  const ROOT_PATH = `${process.cwd()}/content/articles`;
+  const files = fs.readdirSync(ROOT_PATH, 'utf-8');
+
+  return files
+    .filter((fileName) => fileName.endsWith('.md'))
+    .map((fileName) => {
+      const rawContent = fs.readFileSync(`${ROOT_PATH}/${fileName}`, { encoding: 'utf-8' });
+      const {
+        data: { title },
+        content,
+      } = matter(rawContent);
+
+      return {
+        content,
+        title,
+        slug: fileName.replace('.md', ''),
+      };
+    });
 };

@@ -9,6 +9,12 @@ export interface Codelog {
   title: string;
 }
 
+export interface Article {
+  content: string;
+  slug: string;
+  title: string;
+}
+
 export interface Url {
   href: string;
   name: string;
