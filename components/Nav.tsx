@@ -32,7 +32,7 @@ const Nav: React.FunctionComponent = () => (
     <nav>
       <ul>
         {getLinks().map((link) => (
-          <li>
+          <li key={link.name}>
             <Link href={link.href}>
               <a>{link.name}</a>
             </Link>

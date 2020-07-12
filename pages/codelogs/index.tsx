@@ -11,22 +11,26 @@ interface Props {
   codelogs: Codelog[];
 }
 
+const filterCodelogsByYear = (codelogs: Codelog[], year: string) => codelogs.filter((codelog) => codelog.slug.year === year);
+
+const renderCodelogs = (codelogs: Codelog[]) => (
+  <ul>
+    {codelogs.map((codelog) => (
+      <li key={codelog.title}>
+        <Link href={`/codelogs/${codelog.slug.year}-${codelog.slug.month}-${codelog.slug.day}`}>
+          <a>{codelog.title}</a>
+        </Link>
+      </li>
+    ))}
+  </ul>
+);
+
 const CodelogList: React.FunctionComponent<Props> = ({ codelogs = [] }: Props) => (
   <PageLayout title="All codelogs">
     <h1>All codelogs</h1>
+    <h2>2019</h2>
+    {renderCodelogs(filterCodelogsByYear(codelogs, '2019'))}
 
-    <ul>
-      {codelogs.map((codelog) => {
-        const { slug } = codelog;
-        return (
-          <li key={codelog.title}>
-            <Link href={`/codelogs/${slug.year}-${slug.month}-${slug.day}`}>
-              <a>{codelog.title}</a>
-            </Link>
-          </li>
-        );
-      })}
-    </ul>
   </PageLayout>
 );
 
