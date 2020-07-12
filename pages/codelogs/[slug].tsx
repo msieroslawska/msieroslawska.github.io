@@ -20,7 +20,7 @@ const BlogPostPage: React.FunctionComponent<Props> = (props: Props) => {
   } = props;
   return (
     <PageLayout title={title}>
-      <h1>{title}</h1>
+      <h1 className="page-header">{title}</h1>
       <p>{`Tags: ${tags}`}</p>
       <section dangerouslySetInnerHTML={{ __html: content }} />
     </PageLayout>

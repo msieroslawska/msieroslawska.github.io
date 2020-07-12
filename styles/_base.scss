@@ -1,4 +1,6 @@
+@use 'colors';
 @use 'variables';
+@use 'mixins';
 
 html {
   box-sizing: border-box;
@@ -13,7 +15,6 @@ html {
 body {
   font: variables.$base-font-weight #{variables.$base-font-size}/#{variables.$base-line-height}
     variables.$base-font-family;
-  src: url('/fonts/NotoSans-Regular.ttf');
   color: variables.$text-color;
   background: variables.$background-color;
 }
@@ -50,6 +51,10 @@ h6 {
   margin-bottom: 15px;
 }
 
+p {
+  margin: 10px 0;
+}
+
 /* Lists */
 ul,
 ol {
@@ -60,5 +65,45 @@ li {
   > ul,
   > ol {
     margin-bottom: 0;
+  }
+}
+
+blockquote {
+  @include mixins.relative-font-size(1.125);
+
+  color: colors.$grey;
+  border-left: 4px solid colors.$light-grey;
+  padding-left: variables.$spacing-unit / 2;
+  letter-spacing: -1px;
+  font-style: italic;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Code formatting */
+pre,
+code {
+  @include mixins.relative-font-size(0.9375);
+
+  font-family: 'Space Mono', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  border: 1px solid colors.$light-grey;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  padding: 8px 12px;
+  overflow-x: auto;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
   }
 }

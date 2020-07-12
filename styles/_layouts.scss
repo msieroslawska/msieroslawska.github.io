@@ -1,12 +1,13 @@
 @use 'colors';
+@use 'mixins';
 
 @mixin block-spacing {
   padding: 10px;
 }
 
 .page-wrapper {
-  min-height: 100vh;
   display: flex;
+  min-height: 100vh;
 }
 
 .hello-section {
@@ -19,7 +20,7 @@
 }
 
 .hello {
-  font-size: 45px;
+  @include mixins.relative-font-size(4);
 }
 
 .sidebar {
@@ -43,4 +44,12 @@
 
 .page-section {
   @include block-spacing();
+}
+
+.page-header {
+  @include mixins.relative-font-size(2);
+}
+
+.page-subheader {
+  @include mixins.relative-font-size(1.8);
 }
