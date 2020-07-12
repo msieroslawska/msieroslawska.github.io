@@ -1,5 +1,0 @@
-@use 'variables';
-
-@mixin relative-font-size($ratio) {
-  font-size: variables.$base-font-size * $ratio;
-}
