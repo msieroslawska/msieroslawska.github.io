@@ -5,6 +5,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "prod": "next export",
     "type-check": "tsc",
     "style": "stylelint \"**/*.scss\" --color",
     "style:fix": "stylelint \"**/*.scss\" --color --fix",

@@ -5,4 +5,5 @@ _site
 .DS_Store
 .cache
 .next
+out
 node_modules

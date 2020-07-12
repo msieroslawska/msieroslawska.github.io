@@ -4,7 +4,7 @@ import Base from './Base';
 import Sidebar from '../components/Sidebar';
 
 interface Props {
-  children;
+  children: any;
   header: string;
   title: string;
 }
