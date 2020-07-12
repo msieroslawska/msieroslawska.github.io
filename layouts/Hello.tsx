@@ -11,7 +11,7 @@ interface Props {
 const Page: React.FunctionComponent<Props> = ({ children, title }: Props) => (
   <Base title={title}>
     <Sidebar />
-    <main className="page-section">{children}</main>
+    <main className="hello-section">{children}</main>
   </Base>
 );
 
