@@ -11,7 +11,8 @@ interface Props {
   codelogs: Codelog[];
 }
 
-const filterCodelogsByYear = (codelogs: Codelog[], year: string) => codelogs.filter((codelog) => codelog.slug.year === year);
+const filterCodelogsByYear = (codelogs: Codelog[], year: string) =>
+  codelogs.filter((codelog) => codelog.slug.year === year);
 
 const renderCodelogs = (codelogs: Codelog[]) => (
   <ul>
@@ -30,7 +31,6 @@ const CodelogList: React.FunctionComponent<Props> = ({ codelogs = [] }: Props) =
     <h1>All codelogs</h1>
     <h2>2019</h2>
     {renderCodelogs(filterCodelogsByYear(codelogs, '2019'))}
-
   </PageLayout>
 );
 

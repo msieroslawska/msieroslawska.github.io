@@ -15,7 +15,9 @@ interface Props {
 }
 
 const BlogPostPage: React.FunctionComponent<Props> = (props: Props) => {
-  const { codelog: { content, tags, title } } = props;
+  const {
+    codelog: { content, tags, title },
+  } = props;
   return (
     <PageLayout title={title}>
       <h1>{title}</h1>
@@ -36,11 +38,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const { content, tags, title } = codelog;
 
-  const result = await unified()
-    .use(markdown)
-    .use(highlight)
-    .use(html)
-    .process(content);
+  const result = await unified().use(markdown).use(highlight).use(html).process(content);
 
   return {
     props: {

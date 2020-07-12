@@ -8,9 +8,8 @@ const IndexPage: React.FunctionComponent = () => (
     <h2>Frontend engineer</h2>
 
     <section>
-      This page is a playground and a notebook for my experiments.
-      I would like to document here my programming progress and
-      write down all the notes I might need later.
+      This page is a playground and a notebook for my experiments. I would like to document here my programming progress
+      and write down all the notes I might need later.
     </section>
 
     <section>
