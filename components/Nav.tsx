@@ -18,23 +18,13 @@ const checkSelf = (href: string): boolean => {
   return router.route === href;
 };
 
-const getLinks = (): Url[] => {
-  const links: Url[] = [];
-
-  URLS.forEach((url) => {
-    if (!checkSelf(url.href)) {
-      links.push(url);
-    }
-  });
-
-  return links;
-};
+const getCurrentClass = (href: string): string => (checkSelf(href) ? 'current' : '');
 
 const Nav: React.FunctionComponent = () => (
   <nav className="nav">
-    {getLinks().map((link) => (
+    {URLS.map((link) => (
       <Link href={link.href} key={link.name}>
-        <div className="nav-link">
+        <div className={`nav-link ${getCurrentClass(link.href)}`}>
           <a>{link.name}</a>
         </div>
       </Link>

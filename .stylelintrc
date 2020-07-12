@@ -3,6 +3,7 @@
   "rules": {
     "selector-list-comma-newline-after": null,
     "order/properties-alphabetical-order": null,
-    "declaration-colon-newline-after": null
+    "declaration-colon-newline-after": null,
+    "max-nesting-depth": 2
   }
 }

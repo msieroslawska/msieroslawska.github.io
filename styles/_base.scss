@@ -17,6 +17,7 @@ body {
     variables.$base-font-family;
   color: variables.$text-color;
   background: variables.$background-color;
+  overflow: hidden;
 }
 
 /* Reset some basic elements */

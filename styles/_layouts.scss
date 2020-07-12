@@ -7,7 +7,8 @@
 
 .page-wrapper {
   display: flex;
-  min-height: 100vh;
+  justify-content: space-between;
+  height: 100vh;
 }
 
 .hello-section {
@@ -24,7 +25,8 @@
 }
 
 .sidebar {
-  flex: 0 0 300px;
+  height: 100vh;
+  flex: 0 0 200px;
   display: flex;
   flex-direction: column;
   border-right: 1px solid colors.$black;
@@ -36,6 +38,12 @@
   flex: 1 1;
 }
 
+.current {
+  font-weight: bold;
+  color: colors.$accent-color;
+  text-decoration: underline;
+}
+
 .footer {
   @include block-spacing();
 
@@ -44,6 +52,9 @@
 
 .page-section {
   @include block-spacing();
+
+  overflow-y: auto;
+  flex: 1 1 600px;
 }
 
 .page-header {
