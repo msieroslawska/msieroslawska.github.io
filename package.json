@@ -6,8 +6,15 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
+    "style": "stylelint \"**/*.scss\" --color",
+    "style:fix": "stylelint \"**/*.scss\" --color --fix",
     "eslint": "eslint --ext .js,.jsx,.ts,.tsx ./",
     "eslint:fix": "eslint --fix --ext .js,.jsx,.ts,.tsx ./"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run style && npm run eslint"
+    }
   },
   "dependencies": {
     "gray-matter": "4.0.2",
@@ -35,6 +42,7 @@
     "eslint-plugin-prettier": "3.1.4",
     "eslint-plugin-react": "7.20.3",
     "eslint-plugin-react-hooks": "4.0.5",
+    "husky": "4.2.5",
     "prettier": "2.0.5",
     "stylelint": "13.6.1",
     "stylelint-config-sass-guidelines": "7.0.0",

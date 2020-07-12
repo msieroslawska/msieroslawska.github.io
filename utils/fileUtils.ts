@@ -5,10 +5,11 @@ import { Codelog } from '../interfaces';
 
 export const ROOT_PATH = `${process.cwd()}/content/codelogs`;
 
-export const getDirectories = (source: string): string[] => fs
-  .readdirSync(source, { withFileTypes: true })
-  .filter((dirent) => dirent.isDirectory())
-  .map((dirent) => dirent.name);
+export const getDirectories = (source: string): string[] =>
+  fs
+    .readdirSync(source, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
 
 export const getCodelogs = (): Codelog[] => {
   let codelogs: Codelog[] = [];
@@ -27,7 +28,10 @@ export const getCodelogs = (): Codelog[] => {
           const rawContent = fs.readFileSync(path, {
             encoding: 'utf-8',
           });
-          const { data: { tags, title }, content } = matter(rawContent);
+          const {
+            data: { tags, title },
+            content,
+          } = matter(rawContent);
           const day = fileName.replace('.md', '');
 
           return {
@@ -38,10 +42,7 @@ export const getCodelogs = (): Codelog[] => {
           };
         });
 
-      codelogs = [
-        ...codelogs,
-        ...codelogsInMonth,
-      ];
+      codelogs = [...codelogs, ...codelogsInMonth];
     });
   });
 
