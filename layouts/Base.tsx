@@ -14,7 +14,7 @@ const Layout: React.FunctionComponent<Props> = ({ children, title }: Props) => (
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
 
-    {children}
+    <section className="page-wrapper">{children}</section>
   </div>
 );
 

@@ -1,8 +1,7 @@
 import React from 'react';
 
 import Base from './Base';
-import Nav from '../components/Nav';
-import Footer from '../components/Footer';
+import Sidebar from '../components/Sidebar';
 
 interface Props {
   children;
@@ -11,9 +10,8 @@ interface Props {
 
 const Page: React.FunctionComponent<Props> = ({ children, title }: Props) => (
   <Base title={title}>
-    <Nav />
+    <Sidebar />
     {children}
-    <Footer />
   </Base>
 );
 

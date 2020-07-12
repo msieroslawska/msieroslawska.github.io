@@ -28,19 +28,15 @@ const getLinks = (): Url[] => {
 };
 
 const Nav: React.FunctionComponent = () => (
-  <header>
-    <nav>
-      <ul>
-        {getLinks().map((link) => (
-          <li key={link.name}>
-            <Link href={link.href}>
-              <a>{link.name}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </nav>
-  </header>
+  <nav className="nav">
+    {getLinks().map((link) => (
+      <Link href={link.href} key={link.name}>
+        <div className="nav-link">
+          <a>{link.name}</a>
+        </div>
+      </Link>
+    ))}
+  </nav>
 );
 
 export default Nav;
