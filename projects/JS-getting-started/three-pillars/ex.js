@@ -21,13 +21,7 @@ const BOOK_API = 'https://some.url/api';
 
 function fakeAjax(url, cb) {
   setTimeout(() => {
-    cb([
-      'A Song of Ice and Fire',
-      'The Great Gatsby',
-      'Crime & Punishment',
-      'Great Expectations',
-      "You Don't Know JS"
-    ]);
+    cb(['A Song of Ice and Fire', 'The Great Gatsby', 'Crime & Punishment', 'Great Expectations', "You Don't Know JS"]);
   }, 500);
 }
 

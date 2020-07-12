@@ -1,0 +1,37 @@
+@use 'colors';
+
+.svg-icon {
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  fill: #{colors.$grey};
+  padding-right: 5px;
+  vertical-align: text-top;
+}
+
+.page-section {
+  img {
+    max-height: 350px;
+    max-width: 90%;
+    display: block;
+    margin: 5px auto;
+    border: 1px solid colors.$black;
+    padding: 5px;
+    background: colors.$white;
+  }
+
+  .about {
+    border-radius: 50%;
+    margin: 5px;
+    height: 100px;
+    width: 100px;
+
+    &.marta {
+      float: left;
+    }
+
+    &.doggo {
+      float: right;
+    }
+  }
+}

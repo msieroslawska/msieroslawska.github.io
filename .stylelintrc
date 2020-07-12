@@ -1,0 +1,9 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-sass-guidelines"],
+  "rules": {
+    "selector-list-comma-newline-after": null,
+    "order/properties-alphabetical-order": null,
+    "declaration-colon-newline-after": null,
+    "max-nesting-depth": 2
+  }
+}
