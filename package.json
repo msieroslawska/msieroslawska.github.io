@@ -1,8 +1,0 @@
-{
-  "name": "msieroslawska.github.io",
-  "version": "2.1.0",
-  "scripts": {
-    "deploy": "git add . && git commit -m 'Chore: regen site' && git push origin master"
-  },
-  "license": "ISC"
-}
