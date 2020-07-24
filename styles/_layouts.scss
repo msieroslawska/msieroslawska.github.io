@@ -1,0 +1,70 @@
+@use 'colors';
+@use 'mixins';
+
+@mixin block-spacing {
+  padding: 10px 80px;
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.hello-section {
+  @include block-spacing();
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex: 1 1 600px;
+}
+
+.hello {
+  @include mixins.relative-font-size(4);
+}
+
+.sidebar {
+  height: 100vh;
+  flex: 0 0 200px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid colors.$black;
+}
+
+.nav {
+  padding: 10px;
+  flex: 1 1;
+
+  .nav-link {
+    cursor: pointer;
+  }
+}
+
+.current {
+  font-weight: bold;
+  color: colors.$accent-color;
+  text-decoration: underline;
+}
+
+.footer {
+  padding: 5px;
+  flex: 0 0;
+}
+
+.page-section {
+  @include block-spacing();
+
+  overflow-y: auto;
+  flex: 1 1 600px;
+}
+
+.page-header {
+  @include mixins.relative-font-size(2);
+}
+
+.page-subheader {
+  @include mixins.relative-font-size(1.8);
+}

@@ -1,0 +1,115 @@
+@use 'colors';
+@use 'variables';
+@use 'mixins';
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font: variables.$base-font-weight #{variables.$base-font-size}/#{variables.$base-line-height}
+    variables.$base-font-family;
+  color: variables.$text-color;
+  background: variables.$background-color;
+  overflow: hidden;
+}
+
+/* Reset some basic elements */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+hr,
+dl,
+dd,
+ol,
+ul,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: variables.$base-font-family;
+  font-weight: calc(#{variables.$base-font-weight} + 400);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 5px 0;
+}
+
+/* Lists */
+ul,
+ol {
+  margin-left: variables.$spacing-unit;
+}
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+}
+
+blockquote {
+  @include mixins.relative-font-size(1.125);
+
+  color: colors.$grey;
+  border-left: 4px solid colors.$light-grey;
+  padding-left: variables.$spacing-unit / 2;
+  letter-spacing: -1px;
+  font-style: italic;
+
+  > :last-child {
+    margin-bottom: 0;
+  }
+}
+
+/* Code formatting */
+pre,
+code {
+  @include mixins.relative-font-size(0.9375);
+
+  font-family: 'Space Mono', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  border: 1px solid colors.$light-grey;
+  border-radius: 3px;
+  background-color: #eef;
+}
+
+code {
+  padding: 1px 5px;
+}
+
+pre {
+  width: 80%;
+  margin: 10px 10px 10px 40px;
+  border-left: 3px solid colors.$light-accent-color;
+  padding: 8px 12px;
+  overflow-x: auto;
+  max-height: 250px;
+
+  > code {
+    border: 0;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
