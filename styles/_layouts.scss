@@ -68,3 +68,20 @@
 .page-subheader {
   @include mixins.relative-font-size(1.8);
 }
+
+.section-header {
+  @include mixins.relative-font-size(1.5);
+}
+
+.wrapped-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 70%;
+  max-height: 200px;
+
+  .wrapped-element {
+    margin: 5px 15px;
+    list-style: none;
+    flex: 0 0 100px;
+  }
+}

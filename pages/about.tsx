@@ -2,7 +2,7 @@ import React from 'react';
 
 import PageLayout from '../layouts/Page';
 
-const AboutPage: React.FunctionComponent = () => (
+const AboutPage: React.FC = () => (
   <PageLayout header="About" title="About | Marta Sierosławska">
     <img className="about marta" src="/img/marta.jpg" alt="Marta" />
 

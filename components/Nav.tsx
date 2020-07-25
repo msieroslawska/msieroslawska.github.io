@@ -21,7 +21,7 @@ const checkSelf = (href: string): boolean => {
 
 const getCurrentClass = (href: string): string => (checkSelf(href) ? 'current' : '');
 
-const Nav: React.FunctionComponent = () => (
+const Nav: React.FC = () => (
   <nav className="nav">
     {URLS.map((link) => (
       <Link href={link.href} key={link.name}>

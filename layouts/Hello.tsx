@@ -8,7 +8,7 @@ interface Props {
   title: string;
 }
 
-const Page: React.FunctionComponent<Props> = ({ children, title }: Props) => (
+const Page: React.FC<Props> = ({ children, title }: Props) => (
   <Base title={title}>
     <Sidebar />
     <main className="hello-section">{children}</main>

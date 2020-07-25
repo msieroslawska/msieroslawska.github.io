@@ -3,7 +3,7 @@ import React from 'react';
 import PageLayout from '../layouts/Page';
 import Project from '../components/Project';
 
-const ProjectPage: React.FunctionComponent = () => (
+const ProjectPage: React.FC = () => (
   <PageLayout header="Projects" title="Projects | Marta Sierosławska">
     <h2>msieroslawska.github.io</h2>
     <p>

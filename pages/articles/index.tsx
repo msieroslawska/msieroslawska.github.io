@@ -23,7 +23,7 @@ const renderArticleList = (articles: Article[]) => (
   </ul>
 );
 
-const ArticleList: React.FunctionComponent<Props> = ({ articles = [] }: Props) => (
+const ArticleList: React.FC<Props> = ({ articles = [] }: Props) => (
   <PageLayout header="All articles" title="All articles | Marta Sierosławska">
     {renderArticleList(articles)}
   </PageLayout>

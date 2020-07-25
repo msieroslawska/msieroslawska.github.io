@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "gray-matter": "4.0.2",
-    "next": "latest",
+    "moment": "2.27.0",
+    "next": "9.4.4",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "remark-highlight.js": "6.0.0",

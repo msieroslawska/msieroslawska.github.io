@@ -2,7 +2,7 @@ import React from 'react';
 
 import HelloLayout from '../layouts/Hello';
 
-const IndexPage: React.FunctionComponent = () => (
+const IndexPage: React.FC = () => (
   <HelloLayout title="Marta Sierosławska | Frontend engineer">
     <h1 className="hello">Hello! I&apos;m Marta!</h1>
     <h2>Frontend engineer</h2>

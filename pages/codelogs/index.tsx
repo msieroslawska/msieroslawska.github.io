@@ -1,35 +1,69 @@
 import React from 'react';
+import moment from 'moment';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
 
 import PageLayout from '../../layouts/Page';
 
 import { getCodelogs } from '../../utils/fileUtils';
-import { Codelog } from '../../interfaces';
+import { Codelog, MappedCodelogs } from '../../interfaces';
 
 interface Props {
   codelogs: Codelog[];
 }
 
-const filterCodelogsByYear = (codelogs: Codelog[], year: string) =>
-  codelogs.filter((codelog) => codelog.slug.year === year);
+const filterCodelogsByPeriod = (codelogs: Codelog[], year: string, month: string): Codelog[] =>
+  codelogs.filter((codelog) => codelog.slug.month === month && codelog.slug.year === year);
 
-const renderCodelogs = (codelogs: Codelog[]) => (
-  <ul>
-    {codelogs.map((codelog) => (
-      <li key={codelog.title}>
-        <Link href={`/codelogs/${codelog.slug.year}-${codelog.slug.month}-${codelog.slug.day}`}>
-          <a>{codelog.title}</a>
-        </Link>
-      </li>
-    ))}
-  </ul>
-);
+const mapCodelogsToMonths = (codelogs: Codelog[], year: string): MappedCodelogs =>
+  moment.months().reduce((prev, curr, idx) => {
+    const stringMonth = (idx + 1).toString();
+    const m = stringMonth.length === 1 ? `0${stringMonth}` : stringMonth;
 
-const CodelogList: React.FunctionComponent<Props> = ({ codelogs = [] }: Props) => (
+    return {
+      ...prev,
+      [curr]: filterCodelogsByPeriod(codelogs, year, m),
+    };
+  }, {});
+
+const renderCodelogs = (filteredCodelogs: MappedCodelogs) =>
+  Object.keys(filteredCodelogs).map(
+    (month) =>
+      filteredCodelogs[month].length > 0 && (
+        <div key={month}>
+          <p>{month}</p>
+          <ul className="wrapped-list">
+            {filteredCodelogs[month].map((codelog) => (
+              <li key={codelog.title} className="wrapped-element">
+                <Link href={`/codelogs/${codelog.slug.year}-${codelog.slug.month}-${codelog.slug.day}`}>
+                  <a>{codelog.title}</a>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ),
+  );
+
+const CodelogList: React.FC<Props> = ({ codelogs = [] }: Props) => (
   <PageLayout header="All codelogs" title="All codelogs | Marta Sierosławska">
-    <h2 className="page-subheader">2019</h2>
-    {renderCodelogs(filterCodelogsByYear(codelogs, '2019'))}
+    <p>
+      Codelogs were my way of taking notes while learning new stuff during my transitioning from QA to full time dev. I
+      was mostly using <a href="https://frontendmasters.com">Frontend Masters</a> courses and a bit of{' '}
+      <a href="https://hackerrank.com">Hackerrank</a>. Each day I was studying, I was taking notes following the pattern
+      of:
+    </p>
+
+    <ul>
+      <li>What are my plans for today?</li>
+      <li>What did I learn today?</li>
+      <li>What resources did I use?</li>
+      <li>What other resources did I stumble upon?</li>
+    </ul>
+
+    <h2 className="page-subheader">Archive</h2>
+    <h3 className="section-header">2019</h3>
+    {renderCodelogs(mapCodelogsToMonths(codelogs, '2019'))}
   </PageLayout>
 );
 

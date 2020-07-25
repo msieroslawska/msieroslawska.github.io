@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer: React.FunctionComponent = () => (
+const Footer: React.FC = () => (
   <footer className="footer">
     <p>
       Powered by <a href="https://nextjs.org/">next.js</a> and <a href="https://www.netlify.com/">Netlify</a>

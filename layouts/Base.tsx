@@ -6,7 +6,7 @@ interface Props {
   title: string;
 }
 
-const Layout: React.FunctionComponent<Props> = ({ children, title }: Props) => (
+const Layout: React.FC<Props> = ({ children, title }: Props) => (
   <div>
     <Head>
       <title>{title}</title>

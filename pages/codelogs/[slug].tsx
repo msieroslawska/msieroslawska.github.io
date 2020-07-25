@@ -14,7 +14,7 @@ interface Props {
   codelog: Codelog;
 }
 
-const BlogPostPage: React.FunctionComponent<Props> = (props: Props) => {
+const BlogPostPage: React.FC<Props> = (props: Props) => {
   const {
     codelog: { content, tags, title },
   } = props;

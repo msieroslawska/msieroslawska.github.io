@@ -14,7 +14,7 @@ interface Props {
   article: Article;
 }
 
-const ArticlePage: React.FunctionComponent<Props> = (props: Props) => {
+const ArticlePage: React.FC<Props> = (props: Props) => {
   const {
     article: { content, title },
   } = props;

@@ -3,7 +3,7 @@ import React from 'react';
 import PageLayout from '../layouts/Page';
 import TodoCourse from '../components/TodoCourse';
 
-const ToDoPage: React.FunctionComponent = () => (
+const ToDoPage: React.FC = () => (
   <PageLayout header="TODO" title="TODO | Marta Sierosławska">
     <>
       <h2>Courses</h2>

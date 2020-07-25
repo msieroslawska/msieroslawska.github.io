@@ -27,3 +27,7 @@ export interface Url {
   href: string;
   name: string;
 }
+
+export interface MappedCodelogs {
+  [key: string]: Codelog[];
+}
