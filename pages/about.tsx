@@ -26,25 +26,16 @@ const AboutPage: React.FunctionComponent = () => (
       perspective.
     </p>
 
-    <p>On my daily basis I am working with:</p>
+    <p>
+      Tech stack I&apos;m using daily involves: JavaScript / TypeScript, React.js, HTML5 + CSS + Less, MongoDB,
+      Express.js and obviously git-based version control. I strongly believe in comprehensive unit testing and using
+      linters to make your life easier.
+    </p>
 
-    <ul>
-      <li>JavaScript + ES6 + Mocha,</li>
-      <li>React.JS,</li>
-      <li>HTML5 + CSS3 + Sass + Handlebars,</li>
-      <li>Jenkins + Groovy,</li>
-      <li>Git (Github),</li>
-      <li>Jira.</li>
-    </ul>
-
-    <p>Besides getting better in what I already use, I&apos;m currently also looking into (a.k.a. *learning*):</p>
-
-    <ul>
-      <li>TypeScript,</li>
-      <li>algorithms,</li>
-      <li>testing React (and good practices for that),</li>
-      <li>testing React (and good practices for that),</li>
-    </ul>
+    <p>
+      Besides getting better in what I already use, I&apos;m currently also looking into React Hooks (I&apos;m honestly
+      getting hooked!) and basics of UX.
+    </p>
   </PageLayout>
 );
 
