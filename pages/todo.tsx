@@ -2,9 +2,12 @@ import React from 'react';
 
 import PageLayout from '../layouts/Page';
 import TodoCourse from '../components/TodoCourse';
+import { Url } from '../interfaces';
+
+const crumbs: Url[] = [{ href: '/', name: 'Home' }];
 
 const ToDoPage: React.FC = () => (
-  <PageLayout header="TODO" title="TODO | Marta Sierosławska">
+  <PageLayout crumbs={crumbs} header="TODO" title="TODO | Marta Sierosławska">
     <>
       <h2>Courses</h2>
       <TodoCourse

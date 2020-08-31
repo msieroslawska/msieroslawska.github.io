@@ -8,18 +8,24 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import PageLayout from '../../layouts/Page';
 
 import { getBlogs } from '../../utils/fileUtils';
-import { Blog } from '../../interfaces';
+import { Blog, Url } from '../../interfaces';
 
 interface Props {
   blog: Blog;
 }
 
+const crumbsList: Url[] = [
+  { href: '/', name: 'Home' },
+  { href: '/blog/', name: 'All blog articles' },
+];
+
 const BlogPage: React.FC<Props> = (props: Props) => {
   const {
     blog: { content, date, tags, title },
   } = props;
+
   return (
-    <PageLayout header={title} title={title}>
+    <PageLayout crumbs={crumbsList} header={title} title={title}>
       <p>{date}</p>
       <p>{`Tags: ${tags}`}</p>
       <section dangerouslySetInnerHTML={{ __html: content }} />

@@ -8,18 +8,23 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import PageLayout from '../../layouts/Page';
 
 import { getCodelogs } from '../../utils/fileUtils';
-import { Codelog } from '../../interfaces';
+import { Codelog, Url } from '../../interfaces';
 
 interface Props {
   codelog: Codelog;
 }
+
+const crumbs: Url[] = [
+  { href: '/', name: 'Home' },
+  { href: '/codelogs', name: 'All codelogs' },
+];
 
 const BlogPostPage: React.FC<Props> = (props: Props) => {
   const {
     codelog: { content, tags, title },
   } = props;
   return (
-    <PageLayout header={title} title={title}>
+    <PageLayout crumbs={crumbs} header={title} title={title}>
       <p>{`Tags: ${tags}`}</p>
       <section dangerouslySetInnerHTML={{ __html: content }} />
     </PageLayout>

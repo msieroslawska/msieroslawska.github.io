@@ -5,11 +5,13 @@ import { GetStaticProps } from 'next';
 import PageLayout from '../../layouts/Page';
 
 import { getArticles } from '../../utils/fileUtils';
-import { Article } from '../../interfaces';
+import { Article, Url } from '../../interfaces';
 
 interface Props {
   articles: Article[];
 }
+
+const crumbs: Url[] = [{ href: '/', name: 'Home' }];
 
 const renderArticleList = (articles: Article[]) => (
   <ul>
@@ -24,7 +26,7 @@ const renderArticleList = (articles: Article[]) => (
 );
 
 const ArticleList: React.FC<Props> = ({ articles = [] }: Props) => (
-  <PageLayout header="All articles" title="All articles | Marta Sierosławska">
+  <PageLayout crumbs={crumbs} header="All articles" title="All articles | Marta Sierosławska">
     {renderArticleList(articles)}
   </PageLayout>
 );

@@ -8,18 +8,23 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import PageLayout from '../../layouts/Page';
 
 import { getArticles } from '../../utils/fileUtils';
-import { Article } from '../../interfaces';
+import { Article, Url } from '../../interfaces';
 
 interface Props {
   article: Article;
 }
+
+const crumbs: Url[] = [
+  { href: '/', name: 'Home' },
+  { href: '/articles', name: 'All articles' },
+];
 
 const ArticlePage: React.FC<Props> = (props: Props) => {
   const {
     article: { content, title },
   } = props;
   return (
-    <PageLayout header={title} title={title}>
+    <PageLayout crumbs={crumbs} header={title} title={title}>
       <section dangerouslySetInnerHTML={{ __html: content }} />
     </PageLayout>
   );
