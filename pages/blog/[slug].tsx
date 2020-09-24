@@ -19,7 +19,7 @@ const crumbsList: Url[] = [
   { href: '/blog/', name: 'All blog articles' },
 ];
 
-const BlogPage: React.FC<Props> = (props: Props) => {
+const BlogPage: React.FC<Props> = (props) => {
   const {
     blog: { content, date, tags, title },
   } = props;

@@ -19,15 +19,13 @@ const checkSelf = (href: string): boolean => {
   return router.route === href;
 };
 
-const getCurrentClass = (href: string): string => (checkSelf(href) ? 'current' : '');
+const getCurrentClass = (href: string): string => (checkSelf(href) ? 'link current-link' : 'link');
 
 const Nav: React.FC = () => (
   <nav className="nav">
     {URLS.map((link) => (
       <Link href={link.href} key={link.name}>
-        <div className={`nav-link ${getCurrentClass(link.href)}`}>
-          <a>{link.name}</a>
-        </div>
+        <a className={getCurrentClass(link.href)}>{link.name}</a>
       </Link>
     ))}
   </nav>

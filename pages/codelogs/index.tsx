@@ -6,13 +6,11 @@ import { GetStaticProps } from 'next';
 import PageLayout from '../../layouts/Page';
 
 import { getCodelogs } from '../../utils/fileUtils';
-import { Codelog, MappedCodelogs, Url } from '../../interfaces';
+import { Codelog, MappedCodelogs } from '../../interfaces';
 
 interface Props {
   codelogs: Codelog[];
 }
-
-const crumbs: Url[] = [{ href: '/', name: 'Home' }];
 
 const filterCodelogsByPeriod = (codelogs: Codelog[], year: string, month: string): Codelog[] =>
   codelogs.filter((codelog) => codelog.slug.month === month && codelog.slug.year === year);
@@ -47,8 +45,8 @@ const renderCodelogs = (filteredCodelogs: MappedCodelogs) =>
       ),
   );
 
-const CodelogList: React.FC<Props> = ({ codelogs = [] }: Props) => (
-  <PageLayout crumbs={crumbs} header="All codelogs" title="All codelogs | Marta Sierosławska">
+const CodelogList: React.FC<Props> = ({ codelogs = [] }) => (
+  <PageLayout header="All codelogs" title="All codelogs | Marta Sierosławska">
     <p>
       Codelogs were my way of taking notes while learning new stuff during my transitioning from QA to full time dev. I
       was mostly using <a href="https://frontendmasters.com">Frontend Masters</a> courses and a bit of{' '}

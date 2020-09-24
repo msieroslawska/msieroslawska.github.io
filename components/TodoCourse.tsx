@@ -9,7 +9,7 @@ interface Props {
   url: string;
 }
 
-const ToDoCourse: React.FC<Props> = ({ author, done, finished = 'XX.XX.XXXX', summary = 'N/A', title, url }: Props) => (
+const ToDoCourse: React.FC<Props> = ({ author, done, finished = 'XX.XX.XXXX', summary = 'N/A', title, url }) => (
   <>
     <h3>
       {done ? '[x]' : `[ ]`}

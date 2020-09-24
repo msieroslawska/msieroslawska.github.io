@@ -1,12 +1,9 @@
 import React from 'react';
 
 import PageLayout from '../layouts/Page';
-import { Url } from '../interfaces';
-
-const crumbs: Url[] = [{ href: '/', name: 'Home' }];
 
 const AboutPage: React.FC = () => (
-  <PageLayout crumbs={crumbs} header="About" title="About | Marta Sierosławska">
+  <PageLayout header="About" title="About | Marta Sierosławska">
     <img className="about marta" src="/img/marta.jpg" alt="Marta" />
 
     <p>

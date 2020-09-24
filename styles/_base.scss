@@ -74,7 +74,7 @@ blockquote {
   @include mixins.relative-font-size(1.125);
 
   color: colors.$grey;
-  border-left: 4px solid colors.$light-grey;
+  border-left: 4px solid colors.$green;
   padding-left: variables.$spacing-unit / 2;
   letter-spacing: -1px;
   font-style: italic;
@@ -90,9 +90,9 @@ code {
   @include mixins.relative-font-size(0.9375);
 
   font-family: 'Space Mono', serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-  border: 1px solid colors.$light-grey;
+  border: 1px solid colors.$green;
   border-radius: 3px;
-  background-color: #eef;
+  background-color: colors.$white;
 }
 
 code {
@@ -102,7 +102,7 @@ code {
 pre {
   width: 80%;
   margin: 10px 10px 10px 40px;
-  border-left: 3px solid colors.$light-accent-color;
+  border-left: 3px solid colors.$dark-green;
   padding: 8px 12px;
   overflow-x: auto;
   max-height: 250px;
@@ -111,5 +111,19 @@ pre {
     border: 0;
     padding-right: 0;
     padding-left: 0;
+  }
+}
+
+a {
+  color: colors.$blue;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:visited {
+    color: colors.$light-blue;
+  }
+
+  &:hover {
+    color: colors.$red;
   }
 }

@@ -2,11 +2,10 @@ import React from 'react';
 import Head from 'next/head';
 
 interface Props {
-  children: any;
   title: string;
 }
 
-const Layout: React.FC<Props> = ({ children, title }: Props) => (
+const Layout: React.FC<Props> = ({ children, title }) => (
   <div>
     <Head>
       <title>{title}</title>

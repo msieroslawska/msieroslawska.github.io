@@ -7,7 +7,7 @@ interface Props {
   url: string;
 }
 
-const Project: React.FC<Props> = ({ implementation = 'not ready yet', name, stack = [], url }: Props) => (
+const Project: React.FC<Props> = ({ implementation = 'not ready yet', name, stack = [], url }) => (
   <>
     <h2>
       <a href={url}>{name}</a>

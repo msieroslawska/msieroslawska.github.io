@@ -2,12 +2,9 @@ import React from 'react';
 
 import PageLayout from '../layouts/Page';
 import Project from '../components/Project';
-import { Url } from '../interfaces';
-
-const crumbs: Url[] = [{ href: '/', name: 'Home' }];
 
 const ProjectPage: React.FC = () => (
-  <PageLayout crumbs={crumbs} header="Projects" title="Projects | Marta Sierosławska">
+  <PageLayout header="Projects" title="Projects | Marta Sierosławska">
     <h2>msieroslawska.github.io</h2>
     <p>
       <a href="https://github.com/msieroslawska/msieroslawska.github.io">Source code</a>

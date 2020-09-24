@@ -19,7 +19,7 @@ const crumbs: Url[] = [
   { href: '/articles', name: 'All articles' },
 ];
 
-const ArticlePage: React.FC<Props> = (props: Props) => {
+const ArticlePage: React.FC<Props> = (props) => {
   const {
     article: { content, title },
   } = props;

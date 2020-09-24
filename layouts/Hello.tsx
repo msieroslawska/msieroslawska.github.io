@@ -1,17 +1,20 @@
 import React from 'react';
 
 import Base from './Base';
-import Sidebar from '../components/Sidebar';
+import Nav from '../components/Nav';
+import Footer from '../components/Footer';
 
 interface Props {
-  children: any;
   title: string;
 }
 
-const Page: React.FC<Props> = ({ children, title }: Props) => (
+const Page: React.FC<Props> = ({ children, title }) => (
   <Base title={title}>
-    <Sidebar />
-    <main className="hello-section">{children}</main>
+    <Nav />
+    <main className="hello-section">
+      {children}
+      <Footer />
+    </main>
   </Base>
 );
 

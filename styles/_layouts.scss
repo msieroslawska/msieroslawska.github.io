@@ -2,79 +2,127 @@
 @use 'mixins';
 
 @mixin block-spacing {
-  padding: 10px 80px;
+  padding: 10px 50px;
+
+  @media (min-width: 800px) {
+    padding: 10px 80px;
+  }
 }
+
+/* PAGE STRUCTURE */
 
 .page-wrapper {
-  display: flex;
-  justify-content: space-between;
   height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  display: grid;
+  grid-template-areas: 'nav' 'content';
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+
+  @media (min-width: 800px) {
+    overflow-y: hidden;
+    grid-template-areas: 'nav content';
+    grid-template-columns: 200px auto;
+    grid-template-rows: 1fr;
+  }
 }
 
+.page-section,
 .hello-section {
   @include block-spacing();
 
+  grid-area: content;
+  width: 100vw;
+
+  @media (min-width: 800px) {
+    width: unset;
+    overflow-y: auto;
+  }
+}
+
+.hello-section {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  flex: 1 1 600px;
-}
-
-.hello {
-  @include mixins.relative-font-size(4);
-}
-
-.sidebar {
-  height: 100vh;
-  flex: 0 0 200px;
-  display: flex;
-  flex-direction: column;
-  border-right: 1px solid colors.$black;
 }
 
 .nav {
-  padding: 40px 10px 10px;
-  flex: 1 1;
+  padding: 10px;
+  grid-area: nav;
+  display: flex;
+  flex-wrap: wrap;
 
-  .nav-link {
-    cursor: pointer;
+  .link {
+    text-decoration: none;
+
+    &::after {
+      content: '|';
+      margin: 0 5px;
+    }
+
+    &:last-child::after {
+      content: '';
+      margin: 0;
+    }
   }
-}
 
-.current {
-  font-weight: bold;
-  color: colors.$accent-color;
-  text-decoration: underline;
+  @media (min-width: 800px) {
+    flex-direction: column;
+    border-right: 1px solid colors.$black;
+    text-align: center;
+    height: 100vh;
+
+    .link::after {
+      content: '';
+      margin: 0;
+    }
+  }
 }
 
 .footer {
-  padding: 5px;
-  flex: 0 0;
-}
+  margin-top: 50px;
 
-.crumbs {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: colors.$white;
-  border-bottom: 1px solid colors.$black;
-  opacity: 0;
-  transition: opacity 0.7s;
-  padding: 1px 20px;
-
-  &.visible {
-    opacity: 100%;
+  @media (min-width: 800px) {
+    margin-top: 100px;
   }
 }
 
-.page-section {
-  @include block-spacing();
+/* STYLING */
 
-  overflow-y: auto;
-  flex: 1 1 600px;
+.current-link {
+  font-weight: bold;
+  color: colors.$yellow;
+  text-decoration: underline;
+}
+
+.hello {
+  @include mixins.relative-font-size(2);
+
+  @media (min-width: 800px) {
+    @include mixins.relative-font-size(4);
+  }
+}
+
+.crumbs {
+  padding: 5px 20px;
+}
+
+.crumb-link {
+  @include mixins.relative-font-size(0.9);
+
+  text-decoration: none;
+
+  &::after {
+    content: '>';
+    margin: 0 5px;
+  }
+
+  &:last-child::after {
+    content: '';
+    margin: 0;
+  }
 }
 
 .page-header {

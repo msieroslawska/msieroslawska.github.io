@@ -2,30 +2,24 @@ import React from 'react';
 
 import Base from './Base';
 import Crumbs from '../components/Crumbs';
-import Sidebar from '../components/Sidebar';
+import Nav from '../components/Nav';
 import { Url } from '../interfaces';
 
 interface Props {
-  children: any;
-  crumbs: Url[];
+  crumbs?: Url[];
   header: string;
   title: string;
 }
 
-const Page: React.FC<Props> = ({ children, crumbs, header, title }: Props) => {
-  const [crumbsVisible, setCrumbsVisibility] = React.useState(false);
-
-  const handleScroll = (e: React.UIEvent<HTMLElement>) => {
-    setCrumbsVisibility(e.currentTarget.scrollTop > 100);
-  };
-
+const Page: React.FC<Props> = ({ children, crumbs = undefined, header, title }) => {
   return (
     <Base title={title}>
-      <Sidebar />
-      <main className="page-section" onScroll={handleScroll}>
-        <Crumbs visible={crumbsVisible} content={crumbs} />
+      <Nav />
+      <main className="page-section">
+        {crumbs && <Crumbs content={crumbs} />}
         <h1 className="page-header">{header}</h1>
         {children}
+        {crumbs && <Crumbs content={crumbs} />}
       </main>
     </Base>
   );

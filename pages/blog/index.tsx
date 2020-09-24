@@ -5,7 +5,7 @@ import { GetStaticProps } from 'next';
 import PageLayout from '../../layouts/Page';
 
 import { getBlogs } from '../../utils/fileUtils';
-import { Blog, Url } from '../../interfaces';
+import { Blog } from '../../interfaces';
 
 interface Props {
   blogs: Blog[];
@@ -23,10 +23,8 @@ const renderArticleList = (blogs: Blog[]) => (
   </ul>
 );
 
-const crumbs: Url[] = [{ href: '/', name: 'Home' }];
-
-const BlogList: React.FC<Props> = ({ blogs = [] }: Props) => (
-  <PageLayout crumbs={crumbs} header="All blog entries" title="All blog entries | Marta Sierosławska">
+const BlogList: React.FC<Props> = ({ blogs = [] }) => (
+  <PageLayout header="All blog entries" title="All blog entries | Marta Sierosławska">
     {renderArticleList(blogs)}
   </PageLayout>
 );

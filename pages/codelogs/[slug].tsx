@@ -19,7 +19,7 @@ const crumbs: Url[] = [
   { href: '/codelogs', name: 'All codelogs' },
 ];
 
-const BlogPostPage: React.FC<Props> = (props: Props) => {
+const BlogPostPage: React.FC<Props> = (props) => {
   const {
     codelog: { content, tags, title },
   } = props;
