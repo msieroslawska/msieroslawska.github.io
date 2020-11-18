@@ -1,20 +1,25 @@
 import React from 'react';
 
 interface Props {
-  implementation?: string;
+  appLink?: string;
   name: string;
-  stack?: string[];
-  url: string;
+  stack: string[];
+  repoUrl: string;
 }
 
-const Project: React.FC<Props> = ({ implementation = 'not ready yet', name, stack = [], url }) => (
-  <>
-    <h2>
-      <a href={url}>{name}</a>
-    </h2>
+const createImplementationLink = (link: string) => (
+  <p>
+    <strong>Implementation: </strong>
+    <a href={link}>{link}</a>
+  </p>
+);
+
+const Project: React.FC<Props> = ({ appLink, name, stack = [], repoUrl }) => (
+  <section>
+    <h2>{name}</h2>
+    {appLink && createImplementationLink(appLink)}
     <p>
-      <strong>Implementation: </strong>
-      {implementation}
+      Repo: <a href={repoUrl}>{repoUrl}</a>
     </p>
     <p>Stack: </p>
     <ul>
@@ -22,7 +27,7 @@ const Project: React.FC<Props> = ({ implementation = 'not ready yet', name, stac
         <li key={s}>{s}</li>
       ))}
     </ul>
-  </>
+  </section>
 );
 
 export default Project;
