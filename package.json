@@ -1,6 +1,11 @@
 {
   "name": "msieroslawska",
-  "version": "2.0.0",
+  "version": "2.0.1",
+  "description": "Marta Sierosławska's homepage",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/msieroslawska/msieroslawska.github.io.git"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
