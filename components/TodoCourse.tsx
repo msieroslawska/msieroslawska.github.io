@@ -1,24 +1,28 @@
 import React from 'react';
+import { CourseList } from '../types/dataSources';
 
-interface Props {
-  author: string;
-  done: boolean;
-  finished?: string;
-  summary?: string;
-  title: string;
-  url: string;
-}
+type Props = CourseList;
 
-const ToDoCourse: React.FC<Props> = ({ author, done, finished = 'XX.XX.XXXX', summary = 'N/A', title, url }) => (
+const renderDetails = (finished: string, summary: string) =>
+  finished && (
+    <>
+      <p>Finished on {finished}</p>
+      <p>
+        <strong>Summary:</strong> {summary}
+      </p>
+    </>
+  );
+
+const ToDoCourse: React.FC<Props> = ({ author, finished, summary, title, url }) => (
   <>
-    <h3>
-      {done ? '[x]' : `[ ]`}
-      <a href={url}>{title}</a> by {author}
-    </h3>
-    <p>Finished on {finished}</p>
-    <p>
-      <strong>Summary:</strong> {summary}
-    </p>
+    <header className="todo-header">
+      <input className="todo-checkbox" type="checkbox" checked={!!finished} readOnly />
+      <h3 className="todo-headertext">
+        <a href={url}>{title}</a> by {author}
+      </h3>
+    </header>
+
+    {finished && summary && renderDetails(finished, summary)}
   </>
 );
 

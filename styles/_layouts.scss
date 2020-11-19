@@ -149,3 +149,17 @@
     flex: 0 0 100px;
   }
 }
+
+.todo-header {
+  display: flex;
+  margin: 30px auto 10px;
+}
+
+.todo-checkbox {
+  align-self: center;
+  margin-right: 10px;
+}
+
+.todo-headertext {
+  margin: 0;
+}
