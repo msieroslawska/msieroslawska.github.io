@@ -26,21 +26,21 @@ const mapCodelogsToMonths = (codelogs: Codelog[], year: string): MappedCodelogs 
     };
   }, {});
 
+const renderOneCodelog = (codelog: Codelog) => (
+  <li key={codelog.title} className="wrapped-element">
+    <Link href={`/codelogs/${codelog.slug.year}-${codelog.slug.month}-${codelog.slug.day}`}>
+      <a>{codelog.title}</a>
+    </Link>
+  </li>
+);
+
 const renderCodelogs = (filteredCodelogs: MappedCodelogs) =>
   Object.keys(filteredCodelogs).map(
     (month) =>
       filteredCodelogs[month].length > 0 && (
         <div key={month}>
           <p>{month}</p>
-          <ul className="wrapped-list">
-            {filteredCodelogs[month].map((codelog) => (
-              <li key={codelog.title} className="wrapped-element">
-                <Link href={`/codelogs/${codelog.slug.year}-${codelog.slug.month}-${codelog.slug.day}`}>
-                  <a>{codelog.title}</a>
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <ul className="wrapped-list">{filteredCodelogs[month].map(renderOneCodelog)}</ul>
         </div>
       ),
   );
