@@ -1,7 +1,8 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 
-import { Article, Blog, Codelog } from '../interfaces';
+import { Codelog } from '../types/codelogs';
+import { Article, Blog } from '../types/next';
 
 export const getDirectories = (source: string): string[] =>
   fs

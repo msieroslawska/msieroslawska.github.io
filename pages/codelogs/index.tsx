@@ -6,7 +6,7 @@ import { GetStaticProps } from 'next';
 import PageLayout from '../../layouts/Page';
 
 import { getCodelogs } from '../../utils/fileUtils';
-import { Codelog, MappedCodelogs } from '../../interfaces';
+import { Codelog, MappedCodelogs } from '../../types/codelogs';
 
 interface Props {
   codelogs: Codelog[];

@@ -8,7 +8,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import PageLayout from '../../layouts/Page';
 
 import { getCodelogs } from '../../utils/fileUtils';
-import { Codelog, Url } from '../../interfaces';
+import { Codelog, Url } from '../../types/codelogs';
 
 interface Props {
   codelog: Codelog;
