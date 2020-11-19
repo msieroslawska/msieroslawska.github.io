@@ -5,7 +5,7 @@ import { GetStaticProps } from 'next';
 import PageLayout from '../../layouts/Page';
 
 import { getArticles } from '../../utils/fileUtils';
-import { Article } from '../../interfaces';
+import { Article } from '../../types/next';
 
 interface Props {
   articles: Article[];
