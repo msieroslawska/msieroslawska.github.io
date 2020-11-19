@@ -3,7 +3,7 @@ import React from 'react';
 import Base from './Base';
 import Crumbs from '../components/Crumbs';
 import Nav from '../components/Nav';
-import { Url } from '../types/codelogs';
+import { Url } from '../types';
 
 interface Props {
   crumbs?: Url[];

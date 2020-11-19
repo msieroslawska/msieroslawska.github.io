@@ -2,7 +2,7 @@ import React from 'react';
 
 import PageLayout from '../layouts/Page';
 import TodoCourse from '../components/TodoCourse';
-import { CourseList, Topic } from '../types/dataSources';
+import { CourseList, Topic } from '../types';
 import { COURSE_LIST, GENERIC_TOPICS, HTML_TOPICS, CSS_TOPICS, JS_TOPICS, QUESTIONS } from '../dataSources/todo';
 
 const renderTodoCourses = (courseList: CourseList[]) =>

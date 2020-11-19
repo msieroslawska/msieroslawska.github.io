@@ -1,4 +1,4 @@
-import { CourseList, Topic } from '../types/dataSources';
+import { CourseList, Topic } from '../types';
 
 export const COURSE_LIST: CourseList[] = [
   {

@@ -8,8 +8,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import PageLayout from '../../layouts/Page';
 
 import { getArticles } from '../../utils/fileUtils';
-import { Url } from '../../types/codelogs';
-import { Article } from '../../types/next';
+import { Article, Url } from '../../types';
 
 interface Props {
   article: Article;

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-import { Url } from '../types/codelogs';
+import { Url } from '../types';
 
 const URLS: Url[] = [
   { href: '/', name: 'Home' },

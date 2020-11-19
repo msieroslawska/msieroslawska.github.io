@@ -1,6 +1,6 @@
 import React, { ReactElement } from 'react';
 import Link from 'next/link';
-import { Url } from '../types/codelogs';
+import { Url } from '../types';
 
 interface Props {
   content: Url[];

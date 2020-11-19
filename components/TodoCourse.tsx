@@ -1,5 +1,5 @@
 import React from 'react';
-import { CourseList } from '../types/dataSources';
+import { CourseList } from '../types';
 
 type Props = CourseList;
 
