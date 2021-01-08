@@ -138,4 +138,13 @@ export const CODELOGS_RESOURCES: CodelogResource[] = [
   },
 ];
 
-export const OTHER_RESOURCES: Resource[] = [];
+export const OTHER_RESOURCES: Resource[] = [
+  {
+    title: 'TypeScript cheatsheet: React',
+    url: 'https://github.com/typescript-cheatsheets/react',
+  },
+  {
+    title: 'React TypeScript cheatsheet',
+    url: 'https://react-typescript-cheatsheet.netlify.app/docs/basic/setup',
+  },
+];
