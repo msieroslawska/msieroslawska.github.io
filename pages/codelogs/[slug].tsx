@@ -19,17 +19,12 @@ const crumbs: Url[] = [
   { href: '/codelogs', name: 'All codelogs' },
 ];
 
-const BlogPostPage: React.FC<Props> = (props) => {
-  const {
-    codelog: { content, tags, title },
-  } = props;
-  return (
-    <PageLayout crumbs={crumbs} header={title} title={title}>
-      <p>{`Tags: ${tags}`}</p>
-      <section dangerouslySetInnerHTML={{ __html: content }} />
-    </PageLayout>
-  );
-};
+const BlogPostPage: React.FC<Props> = ({ codelog: { content, tags, title } }) => (
+  <PageLayout crumbs={crumbs} header={title} title={title}>
+    <p>{`Tags: ${tags}`}</p>
+    <section dangerouslySetInnerHTML={{ __html: content }} />
+  </PageLayout>
+);
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const codelogs = getCodelogs();

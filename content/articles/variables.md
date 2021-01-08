@@ -1,5 +1,6 @@
 ---
 title: '[What a Frontend Engineer should know] Keywords: var, let, const; scoping and hoisting'
+tags: ['javascript']
 ---
 
 _This is a part of larger series I am writing as answers to [these questions (PL)](https://solutionchaser.com/rekrutacja-na-front-end-developera-porady-pytania/) posted as preparation for an interview as a frontend engineer._

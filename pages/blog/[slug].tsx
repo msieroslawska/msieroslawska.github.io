@@ -19,19 +19,13 @@ const crumbsList: Url[] = [
   { href: '/blog/', name: 'All blog articles' },
 ];
 
-const BlogPage: React.FC<Props> = (props) => {
-  const {
-    blog: { content, date, tags, title },
-  } = props;
-
-  return (
-    <PageLayout crumbs={crumbsList} header={title} title={title}>
-      <p>{date}</p>
-      <p>{`Tags: ${tags}`}</p>
-      <section dangerouslySetInnerHTML={{ __html: content }} />
-    </PageLayout>
-  );
-};
+const BlogPage: React.FC<Props> = ({ blog: { content, date, tags, title } }) => (
+  <PageLayout crumbs={crumbsList} header={title} title={title}>
+    <p>{date}</p>
+    <p>{`Tags: ${tags}`}</p>
+    <section dangerouslySetInnerHTML={{ __html: content }} />
+  </PageLayout>
+);
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const blogs = getBlogs();

@@ -19,16 +19,12 @@ const crumbs: Url[] = [
   { href: '/articles', name: 'All articles' },
 ];
 
-const ArticlePage: React.FC<Props> = (props) => {
-  const {
-    article: { content, title },
-  } = props;
-  return (
-    <PageLayout crumbs={crumbs} header={title} title={title}>
-      <section dangerouslySetInnerHTML={{ __html: content }} />
-    </PageLayout>
-  );
-};
+const ArticlePage: React.FC<Props> = ({ article: { content, tags = [], title } }) => (
+  <PageLayout crumbs={crumbs} header={title} title={title}>
+    <p>{`Tags: ${tags}`}</p>
+    <section dangerouslySetInnerHTML={{ __html: content }} />
+  </PageLayout>
+);
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const articles = getArticles();
@@ -39,13 +35,14 @@ export const getStaticProps: GetStaticProps = async (context) => {
     throw new Error('No article found!');
   }
 
-  const { content, title } = article;
+  const { content, tags, title } = article;
 
   const result = await unified().use(markdown).use(highlight).use(html).process(content);
 
   return {
     props: {
       article: {
+        tags,
         title,
         content: result.toString(),
       },

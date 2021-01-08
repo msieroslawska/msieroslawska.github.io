@@ -57,12 +57,13 @@ export const getArticles = (): Article[] => {
     .map((fileName) => {
       const rawContent = fs.readFileSync(`${ROOT_PATH}/${fileName}`, { encoding: 'utf-8' });
       const {
-        data: { title },
+        data: { tags, title },
         content,
       } = matter(rawContent);
 
       return {
         content,
+        tags,
         title,
         slug: fileName.replace('.md', ''),
       };
