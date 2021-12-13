@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use 'colors';
 @use 'variables';
 @use 'mixins';
@@ -75,7 +76,7 @@ blockquote {
 
   color: colors.$grey;
   border-left: 4px solid colors.$green;
-  padding-left: variables.$spacing-unit / 2;
+  padding-left: math.div(variables.$spacing-unit, 2);
   letter-spacing: -1px;
   font-style: italic;
 
