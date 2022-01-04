@@ -1,7 +1,7 @@
 import React from 'react';
 import html from 'remark-html';
 import highlight from 'remark-highlight.js';
-import unified from 'unified';
+import { unified } from 'unified';
 import markdown from 'remark-parse';
 import { GetStaticProps, GetStaticPaths } from 'next';
 
