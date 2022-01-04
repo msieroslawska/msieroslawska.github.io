@@ -5,7 +5,7 @@ import PageLayout from '../layouts/Page';
 
 const AboutPage: React.FC = () => (
   <PageLayout header="About" title="About | Marta Sierosławska">
-    <Image className="about marta" src="/img/marta.jpg" alt="Marta" />
+    <Image className="about marta" src="/img/marta.jpg" alt="Marta" height={100} width={100} layout="fixed" />
 
     <p>
       I am a silly geek born and raised in Poland, currently enjoying my life and trying to speak German in Munich,
@@ -17,7 +17,7 @@ const AboutPage: React.FC = () => (
       I used to be a Linux power user, but I betrayed the penguin for the sake of the popular fruit. Life ¯\\\_(ツ)_/¯
     </p>
 
-    <Image className="about doggo" src="/img/arya.jpg" alt="Arya" />
+    <Image className="about doggo" src="/img/arya.jpg" alt="Arya" height={100} width={100} layout="fixed" />
 
     <p>
       Professionally I have become a bit of Jack of all trades. While I always enjoyed playing with code, I have
