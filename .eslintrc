@@ -1,11 +1,6 @@
 {
-  "plugins": ["@typescript-eslint"],
-  "extends": [
-    "airbnb-typescript",
-    "plugin:@typescript-eslint/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
-  ],
+  "plugins": ["@typescript-eslint", "import", "react"],
+  "extends": ["airbnb-typescript", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
   "parser": "@typescript-eslint/parser",
   "rules": {
     "jsx-a11y/anchor-is-valid": "off",
