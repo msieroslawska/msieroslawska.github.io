@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 import PageLayout from '../layouts/Page';
@@ -12,15 +13,15 @@ const ProjectPage: React.FC = () => (
     <p>Status: new version in progress</p>
     <p>v2 stack: next.js, netlify, React + TypeScript, SASS, markdown</p>
     <div className="projects-images">
-      <img src="/projects/homepage-v2-01.png" alt="Homepage v2 01" />
-      <img src="/projects/homepage-v2-02.png" alt="Homepage v2 02" />
+      <Image src="/projects/homepage-v2-01.png" alt="Homepage v2 01" />
+      <Image src="/projects/homepage-v2-02.png" alt="Homepage v2 02" />
     </div>
 
     <p>v1 stack: github pages, Jekyll, SASS, markdown</p>
     <div className="projects-images">
-      <img src="/projects/homepage-v1-01.png" alt="Homepage v1 01" />
-      <img src="/projects/homepage-v1-02.png" alt="Homepage v1 02" />
-      <img src="/projects/homepage-v1-03.png" alt="Homepage v1 03" />
+      <Image src="/projects/homepage-v1-01.png" alt="Homepage v1 01" />
+      <Image src="/projects/homepage-v1-02.png" alt="Homepage v1 02" />
+      <Image src="/projects/homepage-v1-03.png" alt="Homepage v1 03" />
     </div>
 
     <Project

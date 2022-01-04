@@ -1,10 +1,11 @@
+import Image from 'next/image';
 import React from 'react';
 
 import PageLayout from '../layouts/Page';
 
 const AboutPage: React.FC = () => (
   <PageLayout header="About" title="About | Marta Sierosławska">
-    <img className="about marta" src="/img/marta.jpg" alt="Marta" />
+    <Image className="about marta" src="/img/marta.jpg" alt="Marta" />
 
     <p>
       I am a silly geek born and raised in Poland, currently enjoying my life and trying to speak German in Munich,
@@ -16,7 +17,7 @@ const AboutPage: React.FC = () => (
       I used to be a Linux power user, but I betrayed the penguin for the sake of the popular fruit. Life ¯\\\_(ツ)_/¯
     </p>
 
-    <img className="about doggo" src="/img/arya.jpg" alt="Arya" />
+    <Image className="about doggo" src="/img/arya.jpg" alt="Arya" />
 
     <p>
       Professionally I have become a bit of Jack of all trades. While I always enjoyed playing with code, I have

@@ -16,21 +16,22 @@ const URLS: Url[] = [
   { href: '/tags', name: 'Tags' },
 ];
 
-const checkSelf = (href: string): boolean => {
+const Nav: React.FC = () => {
   const router = useRouter();
-  return router.route === href;
+
+  const checkSelf = (href: string): boolean => router.route === href;
+
+  const getCurrentClass = (href: string): string => (checkSelf(href) ? 'link current-link' : 'link');
+
+  return (
+    <nav className="nav">
+      {URLS.map((link) => (
+        <Link href={link.href} key={link.name}>
+          <a className={getCurrentClass(link.href)}>{link.name}</a>
+        </Link>
+      ))}
+    </nav>
+  );
 };
-
-const getCurrentClass = (href: string): string => (checkSelf(href) ? 'link current-link' : 'link');
-
-const Nav: React.FC = () => (
-  <nav className="nav">
-    {URLS.map((link) => (
-      <Link href={link.href} key={link.name}>
-        <a className={getCurrentClass(link.href)}>{link.name}</a>
-      </Link>
-    ))}
-  </nav>
-);
 
 export default Nav;

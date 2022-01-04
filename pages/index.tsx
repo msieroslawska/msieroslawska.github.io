@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 
 import HelloLayout from '../layouts/Hello';
@@ -14,15 +15,15 @@ const IndexPage: React.FC = () => (
 
     <section>
       <a href="https://github.com/msieroslawska">
-        <img className="svg-icon" src="/img/github.svg" alt="Github" />
+        <Image className="svg-icon" src="/img/github.svg" alt="Github" />
       </a>
 
       <a href="https://www.linkedin.com/in/martasieroslawska">
-        <img className="svg-icon" src="/img/linkedin.svg" alt="linkedin" />
+        <Image className="svg-icon" src="/img/linkedin.svg" alt="linkedin" />
       </a>
 
       <a href="https://www.hackerrank.com/msieroslawska">
-        <img className="svg-icon" src="/img/hackerrank.svg" alt="HackerRank" />
+        <Image className="svg-icon" src="/img/hackerrank.svg" alt="HackerRank" />
       </a>
     </section>
   </HelloLayout>
