@@ -13,9 +13,11 @@ export const getStaticPaths = async () => {
 export type CodeLogProps = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const {
-  id,
-
-  planForTheDay: { json },
+  // id,
+  learnedToday,
+  otherResources,
+  planForTheDay,
+  resourcesList,
   // tags,
   title,
 }: CodeLogProps = Astro.props;
@@ -26,7 +28,7 @@ const {
     <div class="mt-12">
       <Breadcrumbs>
         <BreadcrumbsItem href="/" label="Home" />
-        <BreadcrumbsItem href="/blog" label="Blog" />
+        <BreadcrumbsItem href="/code-logs" label="Code Logs" />
         <BreadcrumbsItem currentPage={true} label={title} />
       </Breadcrumbs>
     </div>
@@ -34,16 +36,40 @@ const {
   <section class="my-12">
     <div class="container">
       <h1>{title}</h1><br />
-      <p>By userId: {id}</p>
     </div>
   </section>
   <section class="my-12">
     <div class="container">
-              <article
-          set:html={documentToHtmlString(json)}
+        <h4>Plan for the day</h4>
+        <article
+          set:html={documentToHtmlString(planForTheDay.json)}
           class="leading-loose text-slate-200 text-justify"
         />
-    </div>
+        <h4>Learned today</h4>
+        <article
+          set:html={documentToHtmlString(learnedToday.json)}
+          class="leading-loose text-slate-200 text-justify"
+        />
+        { resourcesList && resourcesList.length > 0 && (
+          <div>
+          <h4>Resources list</h4>
+          {resourcesList.map((resource) => (
+            <ul>
+              <li><a href={resource.url}>{resource.title}</a></li>
+          </ul>
+          ))}
+          </div>
+          )}
+          { otherResources && otherResources.length > 0 && (
+          <div>
+          <h4>Other resources</h4>
+          {otherResources.map((resource) => (
+            <ul>
+              <li><a href={resource.url}>{resource.title}</a></li>
+          </ul>
+          ))}
+          </div>
+          )}
   </section>
 </DefaultLayout>
 

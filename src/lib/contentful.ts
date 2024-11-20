@@ -23,8 +23,19 @@ const getSingleCodeLog = async (id: string): Promise<CodeLog> => {
           title
           date
           tags
-          planForTheDay {
-            json
+          planForTheDay { json }
+          learnedToday { json }
+          resourcesListCollection {
+            items {
+              title
+              url
+            }
+          }
+          otherResourcesCollection {
+            items {
+              title
+              url
+            }
           }
         }
       }
@@ -42,29 +53,44 @@ const getAllCodeLogs = async (): Promise<CodeLog[]> => {
     {
         codeLogCollection {
           items {
-            sys {
-                id
-            }
+            sys { id }
             title
             date
             tags
-            planForTheDay {
-              json
+            planForTheDay { json }
+            learnedToday { json }
+            resourcesListCollection {
+              items {
+                title
+                url
+              }
+            }
+            otherResourcesCollection {
+              items {
+                title
+                url
+              }
             }
           }
         }
       }`;
-  const response = await apiCall(query);
-  const json = await response.json()
 
-  return json.data.codeLogCollection.items;
+  try {
+    const response = await apiCall(query);
+    const json = await response.json()
+
+    return  json.data.codeLogCollection.items;
+  } catch (error) {
+    console.error(error);
+    throw error
+  }
 }
 
 const getPages = async () => {
   const codeLogs = await getAllCodeLogs();
 
   return codeLogs.map((codeLog: CodeLog) => {
-    const { planForTheDay, title, date, tags } = codeLog;
+    const { planForTheDay, title, date, tags, learnedToday, resourcesListCollection, otherResourcesCollection } = codeLog;
 
     return {
       params: { codeLog: title},
@@ -74,6 +100,9 @@ const getPages = async () => {
         planForTheDay,
         tags,
         title,
+        learnedToday,
+        resourcesList: resourcesListCollection.items,
+        otherResources: otherResourcesCollection.items
       }
     }
   })
