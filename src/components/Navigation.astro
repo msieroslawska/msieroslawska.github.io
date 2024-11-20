@@ -31,17 +31,17 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
 <script>
   document.addEventListener('astro:page-load', () => {
     // variables
-    const mainNav = document.querySelector('#main-navigation')
-    const mainMenu = mainNav.querySelector('ul')
-    const dropdownMenus = [...document.querySelectorAll('.has-dropdown button')]
+    const mainNav = document.querySelector<HTMLElement>('#main-navigation')
+    const mainMenu = mainNav!.querySelector('ul')
+    const dropdownMenus = [...document.querySelectorAll<HTMLElement>('.has-dropdown button')]
 
     // functions
     const setActiveMenuItem = () => {
-      const mobileDesktopMenus = mainNav.querySelectorAll('nav > ul')
+      const mobileDesktopMenus = mainNav!.querySelectorAll<HTMLElement>('nav > ul')
       const currenPathname = window.location.pathname
 
       mobileDesktopMenus.forEach((menu) => {
-        const menuItems = [...menu.querySelectorAll('a:not([rel*="external"])')] as HTMLAnchorElement[]
+        const menuItems = [...menu.querySelectorAll<HTMLAnchorElement>('a:not([rel*="external"])')]
 
         menuItems.forEach((menuItem) => {
           if (currenPathname.includes(menuItem.pathname.replaceAll('/', '')) && menuItem.textContent !== 'Home') {
@@ -56,37 +56,37 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
     }
 
     const checkMenuSize = () => {
-      const mainNavWidth = mainNav.getBoundingClientRect().width
-      const desktopMenuWidth = document.querySelector('.desktop-menu').getBoundingClientRect().width
+      const mainNavWidth = mainNav!.getBoundingClientRect().width
+      const desktopMenuWidth = document.querySelector('.desktop-menu')!.getBoundingClientRect().width
       const logoWidthBuffer = 300
       const totalMenuWidth = Math.round(desktopMenuWidth) + logoWidthBuffer
 
       if (totalMenuWidth >= mainNavWidth) {
-        mainNav.classList.remove('is-desktop')
-        mainNav.classList.add('is-mobile')
+        mainNav!.classList.remove('is-desktop')
+        mainNav!.classList.add('is-mobile')
       } else if (totalMenuWidth <= mainNavWidth) {
-        mainNav.classList.add('is-desktop')
-        mainNav.classList.remove('is-mobile')
+        mainNav!.classList.add('is-desktop')
+        mainNav!.classList.remove('is-mobile')
       }
     }
 
-    const isOutOfViewport = (element) => {
+    const isOutOfViewport = (element: HTMLUListElement) => {
       const elementBounds = element.getBoundingClientRect()
       return elementBounds.right > (window.innerWidth || document.documentElement.clientWidth)
     }
 
-    const openDropdownMenu = (dropdownMenu) => {
-      const dropdownList = dropdownMenu.parentNode.querySelector('ul')
+    const openDropdownMenu = (dropdownMenu: HTMLElement) => {
+      const dropdownList = dropdownMenu!.parentNode!.querySelector('ul') as HTMLUListElement
 
       dropdownMenu.classList.add('show')
       dropdownMenu.setAttribute('aria-expanded', 'true')
 
       if (isOutOfViewport(dropdownList)) {
-        dropdownList.style.left = 'auto'
+        dropdownList!.style.left = 'auto'
       }
     }
 
-    const closeDropdownMenu = (dropdownMenu) => {
+    const closeDropdownMenu = (dropdownMenu: HTMLElement) => {
       dropdownMenu.classList.remove('show')
       dropdownMenu.setAttribute('aria-expanded', 'false')
     }
@@ -97,12 +97,16 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
       }
     }
 
-    const toggleDropdownMenu = (event) => {
-      if (event.target.getAttribute('aria-expanded') === 'false') {
-        closeAllDropdownMenus()
-        openDropdownMenu(event.target)
-      } else {
-        closeDropdownMenu(event.target)
+    const toggleDropdownMenu = (event: Event) => {
+      const target = event.target
+
+      if (target instanceof HTMLElement) {
+        if (target.getAttribute('aria-expanded') === 'false') {
+          closeAllDropdownMenus()
+          openDropdownMenu(target)
+        } else {
+          closeDropdownMenu(target)
+        }
       }
     }
 
@@ -110,9 +114,9 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
     mainMenu &&
       mainMenu.addEventListener('keydown', (event) => {
         const element = event.target as Element
-        const currentMenuItem = element.closest('li')
+        const currentMenuItem = element.closest('li') as HTMLElement
         const menuItems = [...mainMenu.querySelectorAll('.menu-item')]
-        const currentDropdownMenu = element.closest('.has-dropdown button')
+        const currentDropdownMenu = element.closest('.has-dropdown button') as HTMLElement
         const currentDropdownMenuItem = element.closest('.has-dropdown li')
         const currentIndex = menuItems.findIndex((item) => item === currentMenuItem)
 
@@ -140,7 +144,7 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
         }
 
         if (currentDropdownMenu) {
-          const firstDropdownItem = currentDropdownMenu.nextElementSibling.querySelector('li')
+          const firstDropdownItem = currentDropdownMenu.nextElementSibling!.querySelector('li')
 
           if (key === 'ArrowDown') {
             event.preventDefault()
@@ -155,7 +159,7 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
 
         if (currentDropdownMenuItem) {
           const currentDropdownList = currentDropdownMenuItem.parentNode
-          const dropdownMenuItems = [...currentDropdownList.querySelectorAll('li')]
+          const dropdownMenuItems = [...currentDropdownList!.querySelectorAll('li')]
           const currentIndex = dropdownMenuItems.findIndex((item) => item === currentDropdownMenuItem)
 
           if (key === 'ArrowDown') {
@@ -179,13 +183,13 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
           }
 
           if (key === 'Escape') {
-            const currentDropdownMenu = (currentDropdownList as Element).previousElementSibling
-            targetItem = currentDropdownMenu.parentNode
+            const currentDropdownMenu = (currentDropdownList as HTMLElement).previousElementSibling as HTMLElement
+            targetItem = currentDropdownMenu!.parentNode
             closeAllDropdownMenus()
           }
 
           if (key === 'Tab') {
-            const currentDropdownMenu = (currentDropdownList as Element).previousElementSibling
+            const currentDropdownMenu = (currentDropdownList as HTMLElement).previousElementSibling as HTMLElement
 
             if (dropdownMenuItems.indexOf(currentDropdownMenuItem as HTMLLIElement) === dropdownMenuItems.length - 1) {
               closeDropdownMenu(currentDropdownMenu)
@@ -194,7 +198,7 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
         }
 
         if (targetItem) {
-          targetItem.querySelector('a, button, input').focus()
+          (targetItem.querySelector('a, button, input') as HTMLElement).focus()
         }
       })
 
