@@ -1,34 +1,21 @@
 {
+  "extends": "astro/tsconfigs/strict",
+  "include": ["**/*.ts", "**/*.tsx", "**/*.astro"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
-    "allowJs": true,
-    "alwaysStrict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "lib": [
-      "dom",
-      "es2017"
-    ],
-    "module": "esnext",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "noFallthroughCasesInSwitch": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "esnext",
-    "incremental": true
-  },
-  "exclude": [
-    "node_modules",
-    "**/*.js",
-    "**/*.es"
-  ],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+    "baseUrl": "src",
+    "jsx": "react-jsx",
+    "jsxImportSource": "react",
+    "paths": {
+      "@lib/*": ["lib/*"],
+      "@utils/*": ["utils/*"],
+      "@components/*": ["components/*"],
+      "@layouts/*": ["layouts/*"],
+      "@assets/*": ["assets/*"],
+      "@pages/*": ["pages/*"],
+      "@test/*": ["test/*"]
+    },
+    "verbatimModuleSyntax": true,
+    "rootDir": "."
+  }
 }
