@@ -1,57 +1,46 @@
 {
-  "name": "msieroslawska",
-  "version": "2.0.2",
+  "name": "msieroslawska.github.io",
+  "version": "3.0.1",
   "description": "Marta Sierosławska's homepage",
+  "module": "index.ts",
+  "type": "module",
+  "license": "ISC",
   "repository": {
     "type": "git",
     "url": "https://github.com/msieroslawska/msieroslawska.github.io.git"
   },
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "export": "next export",
-    "type-check": "tsc",
-    "style": "stylelint \"**/*.scss\" --color",
-    "style:fix": "stylelint \"**/*.scss\" --color --fix",
-    "lint": "next lint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run style && npm run lint"
-    }
-  },
-  "dependencies": {
-    "g": "2.0.1",
-    "gray-matter": "4.0.3",
-    "moment": "2.29.4",
-    "next": "12.3.4",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "remark-highlight.js": "7.0.1",
-    "remark-html": "15.0.1",
-    "remark-parse": "10.0.1",
-    "sass": "1.45.0",
-    "unified": "10.1.1"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "devDependencies": {
-    "@netlify/plugin-nextjs": "4.23.1",
-    "@types/node": "14.14.8",
-    "@types/react": "17.0.37",
-    "@types/react-dom": "17.0.11",
-    "@types/uuid": "8.3.3",
-    "@typescript-eslint/eslint-plugin": "5.9.0",
-    "@typescript-eslint/parser": "5.9.0",
-    "eslint": "8.6.0",
-    "eslint-config-next": "12.0.7",
-    "eslint-config-prettier": "8.3.0",
-    "husky": "7.0.4",
-    "prettier": "2.5.1",
-    "rimraf": "3.0.2",
-    "stylelint": "14.1.0",
-    "stylelint-config-sass-guidelines": "9.0.1",
-    "stylelint-config-standard": "24.0.0",
-    "typescript": "4.5.3"
+    "@astrojs/mdx": "2.0.2",
+    "@astrojs/partytown": "2.0.2",
+    "@astrojs/tailwind": "5.0.4",
+    "@contentful/rich-text-html-renderer": "17.0.0",
+    "@iconify-json/ion": "1.1.15",
+    "@iconify-json/mdi": "1.1.64",
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "accessible-astro-components": "2.3.5",
+    "astro": "4.0.7",
+    "astro-compress": "2.0.6",
+    "astro-icon": "1.0.2",
+    "eslint": "8.33.0",
+    "eslint-plugin-astro": "0.23.0",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "prettier": "2.8.3",
+    "prettier-plugin-astro": "0.8.0",
+    "prettier-plugin-tailwindcss": "0.2.2",
+    "sass": "1.49.9",
+    "svgo": "3.2.0",
+    "tailwindcss": "3.4.15"
   },
-  "license": "ISC"
+  "peerDependencies": {
+    "typescript": "5.0.0"
+  },
+  "resolutions": { "cheerio": "1.0.0-rc.12" }
 }

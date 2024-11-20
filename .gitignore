@@ -1,10 +1,27 @@
-_site
-.sass-cache
-.jekyll-metadata
-.vscode
+# build output
+dist
+
+# dependencies
+node_modules/
+.snowpack/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
 .DS_Store
-.cache
-.next
-_next
-out
-node_modules
+
+# vscode settings and dictionaries
+.vscode
+
+# webstorm settings and dictionaries
+.idea
+
+# package lock
+package-lock.json
