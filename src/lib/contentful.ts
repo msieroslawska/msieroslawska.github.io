@@ -1,7 +1,9 @@
+import type { CodeLog } from "../../types";
+
 const SPACE = import.meta.env.CONTENTFUL_SPACE_ID
 const TOKEN = import.meta.env.CONTENTFUL_DELIVERY_TOKEN
 
-const apiCall = async (query: string, variables: Record<string, any> = {}) => {
+const apiCall = async (query: string, variables: Record<string, string> = {}) => {
   const fetchUrl = `https://graphql.contentful.com/content/v1/spaces/${SPACE}/environments/master`;
   const options = {
     method: 'POST',
@@ -14,7 +16,7 @@ const apiCall = async (query: string, variables: Record<string, any> = {}) => {
   return fetch(fetchUrl, options)
 }
 
-const getSingleCodeLog = async (id: string) => {
+const getSingleCodeLog = async (id: string): Promise<CodeLog> => {
     const query = `
     query ($id: String!) {
         codeLog(id: $id) {
@@ -35,7 +37,7 @@ const getSingleCodeLog = async (id: string) => {
   return json.data.codeLog
 }
 
-const getAllCodeLogs = async () => {
+const getAllCodeLogs = async (): Promise<CodeLog[]> => {
   const query = `
     {
         codeLogCollection {
@@ -61,7 +63,7 @@ const getAllCodeLogs = async () => {
 const getPages = async () => {
   const codeLogs = await getAllCodeLogs();
 
-  return codeLogs.map((codeLog: any) => {
+  return codeLogs.map((codeLog: CodeLog) => {
     const { planForTheDay, title, date, tags } = codeLog;
 
     return {
