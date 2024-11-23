@@ -1,3 +1,4 @@
+import { date } from 'astro/zod';
 import { defineCollection, z } from 'astro:content';
 
 const codeLogsCollection = defineCollection({
@@ -11,6 +12,7 @@ const blogCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    date: z.string(),
     tags: z.array(z.string()),
   }),
 });

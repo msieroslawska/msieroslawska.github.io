@@ -6,17 +6,12 @@ import { getCollection } from 'astro:content';
 const articles = await getCollection('articles');
 ---
 
-<DefaultLayout
-  title="Blog"
-  description="An example of a blog with dynamic content fetched from JSONPlaceholder using the title, body and userId."
->
+<DefaultLayout title="Articles">
   <section class="my-12">
     <div class="space-content container">
-      <h1>Blog</h1>
+      <h1>Articles</h1>
       <p class="text-2xl">
-        An example of a blog with dynamic content fetched from <a href="https://jsonplaceholder.typicode.com/posts"
-          >JSONPlaceholder</a
-        > using the title, body and userId. The Accessible Astro Card Component is used here to display al the posts.
+        Articles were my way of learning a concept, by writing down the basics of it. This is a collection of all the articles I have written so far.
       </p>
     </div>
   </section>
@@ -29,10 +24,10 @@ const articles = await getCollection('articles');
             <li>
               <Card
                 url={'/articles/' + a.slug}
-                title={a.id}
-                footer={'id:' + a.id}
+                title={a.data.title}
+                footer=""
               >
-                {a.id}
+                {a.data.title}
               </Card>
             </li>
           ))

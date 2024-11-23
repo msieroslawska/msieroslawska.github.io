@@ -6,20 +6,26 @@ import { getCollection } from 'astro:content';
 export async function getStaticPaths() {
   const articles = await getCollection('articles');
   return articles.map(a => ({
-    params: { slug: a.slug }, props: { a, title: a.id },
+    params: { slug: a.slug },
+    props: {
+      a,
+      tags: a. data.tags,
+      title: a.data.title,
+      url: a.id
+    },
   }));
 }
 
-const { a, title } = Astro.props;
+const { a, tags, title, url } = Astro.props;
 const { Content } = await a.render();
 ---
 
-<DefaultLayout title={title} description='asdf' url={title}>
+<DefaultLayout title={title} url={url}>
   <div class="container">
     <div class="mt-12">
       <Breadcrumbs>
         <BreadcrumbsItem href="/" label="Home" />
-        <BreadcrumbsItem href="/code-logs" label="Code Logs" />
+        <BreadcrumbsItem href="/articles" label="Articles" />
         <BreadcrumbsItem currentPage={true} label={title} />
       </Breadcrumbs>
     </div>

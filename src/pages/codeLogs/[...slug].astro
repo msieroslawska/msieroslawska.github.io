@@ -6,15 +6,21 @@ import { getCollection } from 'astro:content';
 export async function getStaticPaths() {
   const codeLogs = await getCollection('codeLogs');
   return codeLogs.map(cl => ({
-    params: { slug: cl.slug }, props: { cl, title: cl.id },
+    params: { slug: cl.slug },
+    props: {
+      cl,
+      tags: cl.data.tags,
+      title: cl.data.title,
+      url: cl.id
+    },
   }));
 }
 
-const { cl, title } = Astro.props;
+const { cl, tags, title, url } = Astro.props;
 const { Content } = await cl.render();
 ---
 
-<DefaultLayout title={title} description='asdf' url={title}>
+<DefaultLayout title={title} url={url}>
   <div class="container">
     <div class="mt-12">
       <Breadcrumbs>

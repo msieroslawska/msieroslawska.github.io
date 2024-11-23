@@ -18,6 +18,11 @@ ol:not([class]) {
   }
 }
 
+section li {
+  display: list-item;
+  list-style-type: disc;
+}
+
 ul:not([class]) {
   > li::marker {
     display: block;
