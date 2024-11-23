@@ -33,7 +33,6 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
     // variables
     const mainNav = document.querySelector<HTMLElement>('#main-navigation')
     const mainMenu = mainNav!.querySelector('ul')
-    const dropdownMenus = [...document.querySelectorAll<HTMLElement>('.has-dropdown button')]
 
     // functions
     const setActiveMenuItem = () => {
@@ -70,54 +69,12 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
       }
     }
 
-    const isOutOfViewport = (element: HTMLUListElement) => {
-      const elementBounds = element.getBoundingClientRect()
-      return elementBounds.right > (window.innerWidth || document.documentElement.clientWidth)
-    }
-
-    const openDropdownMenu = (dropdownMenu: HTMLElement) => {
-      const dropdownList = dropdownMenu!.parentNode!.querySelector('ul') as HTMLUListElement
-
-      dropdownMenu.classList.add('show')
-      dropdownMenu.setAttribute('aria-expanded', 'true')
-
-      if (isOutOfViewport(dropdownList)) {
-        dropdownList!.style.left = 'auto'
-      }
-    }
-
-    const closeDropdownMenu = (dropdownMenu: HTMLElement) => {
-      dropdownMenu.classList.remove('show')
-      dropdownMenu.setAttribute('aria-expanded', 'false')
-    }
-
-    const closeAllDropdownMenus = () => {
-      for (let i = 0; i < dropdownMenus.length; i++) {
-        closeDropdownMenu(dropdownMenus[i])
-      }
-    }
-
-    const toggleDropdownMenu = (event: Event) => {
-      const target = event.target
-
-      if (target instanceof HTMLElement) {
-        if (target.getAttribute('aria-expanded') === 'false') {
-          closeAllDropdownMenus()
-          openDropdownMenu(target)
-        } else {
-          closeDropdownMenu(target)
-        }
-      }
-    }
-
     // execution
     mainMenu &&
       mainMenu.addEventListener('keydown', (event) => {
         const element = event.target as Element
         const currentMenuItem = element.closest('li') as HTMLElement
         const menuItems = [...mainMenu.querySelectorAll('.menu-item')]
-        const currentDropdownMenu = element.closest('.has-dropdown button') as HTMLElement
-        const currentDropdownMenuItem = element.closest('.has-dropdown li')
         const currentIndex = menuItems.findIndex((item) => item === currentMenuItem)
 
         const key = event.key
@@ -143,80 +100,15 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
           targetItem = menuItems[0]
         }
 
-        if (currentDropdownMenu) {
-          const firstDropdownItem = currentDropdownMenu.nextElementSibling!.querySelector('li')
-
-          if (key === 'ArrowDown') {
-            event.preventDefault()
-            openDropdownMenu(currentDropdownMenu)
-            targetItem = firstDropdownItem
-          }
-
-          if (key === 'Escape') {
-            closeDropdownMenu(currentDropdownMenu)
-          }
-        }
-
-        if (currentDropdownMenuItem) {
-          const currentDropdownList = currentDropdownMenuItem.parentNode
-          const dropdownMenuItems = [...currentDropdownList!.querySelectorAll('li')]
-          const currentIndex = dropdownMenuItems.findIndex((item) => item === currentDropdownMenuItem)
-
-          if (key === 'ArrowDown') {
-            event.preventDefault()
-
-            if (dropdownMenuItems.indexOf(currentDropdownMenuItem as HTMLLIElement) === dropdownMenuItems.length - 1) {
-              targetItem = dropdownMenuItems[0]
-            } else {
-              targetItem = dropdownMenuItems[currentIndex + 1]
-            }
-          }
-
-          if (key === 'ArrowUp') {
-            event.preventDefault()
-
-            if (dropdownMenuItems.indexOf(currentDropdownMenuItem as HTMLLIElement) === 0) {
-              targetItem = dropdownMenuItems[dropdownMenuItems.length - 1]
-            } else {
-              targetItem = dropdownMenuItems[currentIndex - 1]
-            }
-          }
-
-          if (key === 'Escape') {
-            const currentDropdownMenu = (currentDropdownList as HTMLElement).previousElementSibling as HTMLElement
-            targetItem = currentDropdownMenu!.parentNode
-            closeAllDropdownMenus()
-          }
-
-          if (key === 'Tab') {
-            const currentDropdownMenu = (currentDropdownList as HTMLElement).previousElementSibling as HTMLElement
-
-            if (dropdownMenuItems.indexOf(currentDropdownMenuItem as HTMLLIElement) === dropdownMenuItems.length - 1) {
-              closeDropdownMenu(currentDropdownMenu)
-            }
-          }
-        }
-
         if (targetItem) {
           (targetItem.querySelector('a, button, input') as HTMLElement).focus()
         }
-      })
-
-    dropdownMenus &&
-      dropdownMenus.forEach((dropdownMenu) => {
-        dropdownMenu.addEventListener('click', toggleDropdownMenu)
       })
 
     setActiveMenuItem()
     checkMenuSize()
 
     window.addEventListener('resize', checkMenuSize)
-    window.addEventListener('click', (event) => {
-      const element = event.target as Element
-      if (!element.hasAttribute('aria-haspopup') && !element.classList.contains('submenu-item')) {
-        closeAllDropdownMenus()
-      }
-    })
   })
 </script>
 
@@ -290,9 +182,7 @@ import ResponsiveToggle from '@components/ResponsiveToggle.astro'
 
         a:hover,
         a:focus,
-        .is-active,
-        .has-dropdown > button:hover,
-        .has-dropdown > button:focus {
+        .is-active {
           text-decoration: underline;
           text-decoration-thickness: 1px;
           text-decoration-style: wavy;

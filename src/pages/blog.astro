@@ -3,7 +3,7 @@ import DefaultLayout from '@layouts/DefaultLayout.astro'
 import { Card } from 'accessible-astro-components'
 
 import { getCollection } from 'astro:content';
-const codeLogs = await getCollection('codeLogs');
+const blog = await getCollection('blog');
 ---
 
 <DefaultLayout
@@ -25,14 +25,14 @@ const codeLogs = await getCollection('codeLogs');
       <!-- <p class="text-sm"><em>Post {page.start + 1} through {page.end + 1} of {page.total} total posts</em></p> -->
       <ul class="my-3">
         {
-          codeLogs.map((cl) => (
+          blog.map((b) => (
             <li>
               <Card
-                url={'/codeLogs/' + cl.slug}
-                title={cl.id}
-                footer={'id:' + cl.id}
+                url={'/blog/' + b.slug}
+                title={b.id}
+                footer={'id:' + b.id}
               >
-                {cl.id}
+                {b.id}
               </Card>
             </li>
           ))
