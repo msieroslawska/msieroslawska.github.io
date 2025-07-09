@@ -6,21 +6,29 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "format": "prettier --check .",
+    "format:fix": "prettier --write ."
   },
   "dependencies": {
     "@mantine/core": "8.1.2",
     "@mantine/hooks": "8.1.2",
+    "@next/eslint-plugin-next": "^15.3.3",
+    "contentful": "^11.7.1",
+    "eslint-plugin-react": "^7.34.3",
     "next": "15.2.3",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "@types/bun": "latest",
     "@types/node": "22.13.11",
     "@types/react": "19.0.12",
     "@types/react-dom": "19.0.4",
     "eslint": "9.23.0",
     "eslint-config-next": "15.2.3",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
     "postcss": "^8.5.3",
     "postcss-preset-mantine": "1.17.0",
     "postcss-simple-vars": "^7.0.1",
