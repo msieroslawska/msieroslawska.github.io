@@ -1,3 +1,4 @@
+"use client";
 import {
   Anchor,
   AppShell,
@@ -9,24 +10,33 @@ import {
   Text,
   Title,
 } from "@mantine/core";
-// import * as contentful from "contentful";
-
-// function test() {
-//   const client = contentful.createClient({
-//     space: process.env.CONTENTFUL_SPACE_ID || "",
-//     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || "",
-//   });
-
-//   client
-//     .getEntries({
-//       content_type: "codeLog",
-//     })
-//     .then((response) => {
-//       console.log(response.items);
-//     });
-// }
+import { useEffect, useState } from "react";
 
 export default function Home() {
+  const [contentfulData, setContentfulData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    async function fetchContentfulData() {
+      setIsLoading(true);
+      try {
+        const response = await fetch("/contentful");
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        setContentfulData(data);
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchContentfulData();
+  }, []);
+
   return (
     <AppShell header={{ height: 60 }} footer={{ height: 60 }}>
       <AppShellHeader>
@@ -65,16 +75,7 @@ export default function Home() {
             site generation.
           </Text>
           <Text>
-            <strong>
-              <Anchor
-                href="https://bun.sh/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Bun
-              </Anchor>
-            </strong>
-            : A fast and efficient package manager, bundler, and test runner.
+            {isLoading ? "Loading..." : JSON.stringify(contentfulData, null, 2)}
           </Text>
         </Container>
       </AppShellMain>
