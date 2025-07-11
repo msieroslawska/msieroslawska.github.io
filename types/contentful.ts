@@ -1,5 +1,7 @@
 import * as z from "zod";
 
+import { MetadataSchema, SysSchema } from "./utils";
+
 export const CODELOG_CONTENT_TYPE_ID = "codeLog";
 export const RESOURCE_CONTENT_TYPE_ID = "resource";
 
@@ -19,14 +21,22 @@ export const ResourceEntrySkeletonSchema = z.object({
 
 export type ResourceEntrySkeleton = z.infer<typeof ResourceEntrySkeletonSchema>;
 
+export const ResourceEntrySchema = z.object({
+  ...MetadataSchema.shape,
+  ...SysSchema.shape,
+  fields: ResourceFieldsSchema,
+});
+
 export const CodeLogFieldsSchema = z.object({
   title: z.string(),
-  date: z.date(),
+  date: z.string(),
   tags: z.array(z.string()).optional(),
-  planForTheDay: z.string(),
-  learnedToday: z.string(),
-  resourcesList: z.array(z.lazy(() => ResourceEntrySkeletonSchema)).optional(),
-  otherResources: z.array(z.lazy(() => ResourceEntrySkeletonSchema)).optional(),
+  // planForTheDay: z.string(),
+  // learnedToday: z.string(),
+  planForTheDay: z.any().optional(),
+  learnedToday: z.any().optional(),
+  resourcesList: z.array(z.lazy(() => ResourceEntrySchema)).optional(),
+  otherResources: z.array(z.lazy(() => ResourceEntrySchema)).optional(),
 });
 
 export const CodeLogEntrySkeletonSchema = z.object({
@@ -36,32 +46,9 @@ export const CodeLogEntrySkeletonSchema = z.object({
 
 export type CodeLogEntrySkeleton = z.infer<typeof CodeLogEntrySkeletonSchema>;
 
-const createLinkSchema = (linkType: string) =>
-  z.object({
-    sys: z.object({
-      id: z.string(),
-      type: z.literal("Link"),
-      linkType: z.literal(linkType),
-    }),
-  });
-
 export const CodeLogEntrySchema = z.object({
-  metadata: z.object({
-    tags: z.array(z.string()).optional(),
-    concepts: z.array(z.string()).optional(),
-  }),
-  sys: z.object({
-    id: z.string(),
-    type: z.literal("Entry"),
-    createdAt: z.string(),
-    updatedAt: z.string(),
-    environment: createLinkSchema("Environment"),
-    publishedVersion: z.number().optional(),
-    revision: z.number().optional(),
-    contentType: createLinkSchema("ContentType"),
-    space: createLinkSchema("Space"),
-    locale: z.string().optional(),
-  }),
+  ...MetadataSchema.shape,
+  ...SysSchema.shape,
   fields: CodeLogFieldsSchema,
 });
 
