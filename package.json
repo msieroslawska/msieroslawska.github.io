@@ -18,7 +18,8 @@
     "eslint-plugin-react": "^7.34.3",
     "next": "15.2.3",
     "react": "19.1.0",
-    "react-dom": "19.1.0"
+    "react-dom": "19.1.0",
+    "zod": "^4.0.5"
   },
   "devDependencies": {
     "@types/bun": "latest",

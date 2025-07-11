@@ -2,8 +2,10 @@
 import { Text } from "@mantine/core";
 import { useEffect, useState } from "react";
 
+import { type CodeLogEntry, CodeLogEntrySchema } from "@/types/contentful";
+
 export default function CodeLogs() {
-  const [contentfulData, setContentfulData] = useState([]);
+  const [contentfulData, setContentfulData] = useState<CodeLogEntry[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -15,8 +17,10 @@ export default function CodeLogs() {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        setContentfulData(data);
-        console.log(data);
+        const codeLogs = CodeLogEntrySchema.array().parse(data);
+
+        setContentfulData(codeLogs);
+        console.log(codeLogs);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
