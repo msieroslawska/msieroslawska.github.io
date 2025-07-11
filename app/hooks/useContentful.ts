@@ -2,11 +2,11 @@
 
 import { useEffect, useMemo, useState } from "react";
 
-import { type CodeLogEntry, CodeLogEntrySchema } from "@/types/contentful";
+import { type CodelogEntry, CodelogEntrySchema } from "@/types/contentful";
 
 export const useContentful = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<CodeLogEntry[]>([]);
+  const [data, setData] = useState<CodelogEntry[]>([]);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
@@ -18,7 +18,7 @@ export const useContentful = () => {
           throw new Error("Failed to fetch data");
         }
         const rawData = await response.json();
-        const parsedData = CodeLogEntrySchema.array().parse(rawData);
+        const parsedData = CodelogEntrySchema.array().parse(rawData);
         setData(parsedData);
       } catch (err) {
         console.error("Error fetching data:", err);
@@ -31,10 +31,10 @@ export const useContentful = () => {
     fetchContentfulData();
   }, []);
 
-  const codeLogs = useMemo(() => data, [data]);
+  const codelogs = useMemo(() => data, [data]);
 
   return {
-    codeLogs,
+    codelogs,
     error,
     isLoading,
   };

@@ -27,7 +27,7 @@ export const ResourceEntrySchema = z.object({
   fields: ResourceFieldsSchema,
 });
 
-export const CodeLogFieldsSchema = z.object({
+export const CodelogFieldsSchema = z.object({
   title: z.string(),
   date: z.string(),
   tags: z.array(z.string()).optional(),
@@ -39,17 +39,17 @@ export const CodeLogFieldsSchema = z.object({
   otherResources: z.array(z.lazy(() => ResourceEntrySchema)).optional(),
 });
 
-export const CodeLogEntrySkeletonSchema = z.object({
+export const CodelogEntrySkeletonSchema = z.object({
   contentTypeId: z.literal(CODELOG_CONTENT_TYPE_ID),
-  fields: CodeLogFieldsSchema,
+  fields: CodelogFieldsSchema,
 });
 
-export type CodeLogEntrySkeleton = z.infer<typeof CodeLogEntrySkeletonSchema>;
+export type CodelogEntrySkeleton = z.infer<typeof CodelogEntrySkeletonSchema>;
 
-export const CodeLogEntrySchema = z.object({
+export const CodelogEntrySchema = z.object({
   ...MetadataSchema.shape,
   ...SysSchema.shape,
-  fields: CodeLogFieldsSchema,
+  fields: CodelogFieldsSchema,
 });
 
-export type CodeLogEntry = z.infer<typeof CodeLogEntrySchema>;
+export type CodelogEntry = z.infer<typeof CodelogEntrySchema>;

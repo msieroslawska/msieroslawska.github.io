@@ -2,7 +2,7 @@ import * as contentful from "contentful";
 import { NextResponse } from "next/server";
 
 import {
-  type CodeLogEntrySkeleton,
+  type CodelogEntrySkeleton,
   CODELOG_CONTENT_TYPE_ID,
 } from "@/types/contentful";
 
@@ -10,12 +10,12 @@ export async function GET() {
   try {
     const client = contentful.createClient({
       space: process.env.CONTENTFUL_SPACE_ID || "",
-      accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || "",
+      accessToken: process.env.CONTENTFUL_DELIVERY_TOKEN || "",
     });
 
     const configuredClient = client.withoutUnresolvableLinks;
 
-    const response = await configuredClient.getEntries<CodeLogEntrySkeleton>({
+    const response = await configuredClient.getEntries<CodelogEntrySkeleton>({
       content_type: CODELOG_CONTENT_TYPE_ID,
     });
 
