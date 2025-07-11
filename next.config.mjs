@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    optimizePackageImports: ["@mantine/core", "@mantine/hooks"],
+    optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
   },
   eslint: {
     // Warning: This allows production builds to successfully complete even if
