@@ -1,6 +1,11 @@
 import * as contentful from "contentful";
 import { NextResponse } from "next/server";
 
+import {
+  type CodeLogEntrySkeleton,
+  CODELOG_CONTENT_TYPE_ID,
+} from "@/types/contentful";
+
 export async function GET() {
   try {
     const client = contentful.createClient({
@@ -8,8 +13,10 @@ export async function GET() {
       accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || "",
     });
 
-    const response = await client.getEntries({
-      content_type: "codeLog",
+    const configuredClient = client.withoutUnresolvableLinks;
+
+    const response = await configuredClient.getEntries<CodeLogEntrySkeleton>({
+      content_type: CODELOG_CONTENT_TYPE_ID,
     });
 
     return NextResponse.json(response.items);

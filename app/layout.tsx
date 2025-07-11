@@ -3,14 +3,23 @@ import {
   MantineProvider,
   ColorSchemeScript,
   mantineHtmlProps,
+  Anchor,
+  AppShell,
+  AppShellFooter,
+  AppShellHeader,
+  AppShellMain,
+  Center,
+  Container,
+  Text,
 } from "@mantine/core";
+import Link from "next/link";
 import React from "react";
 
 import { theme } from "../theme";
 
 export const metadata = {
-  title: "Mantine Next.js template",
-  description: "I am using Mantine with Next.js!",
+  title: "Marta's personal page",
+  description: "Hello! This is my personal website!",
 };
 
 export default function RootLayout({
@@ -29,7 +38,30 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <MantineProvider theme={theme}>{children}</MantineProvider>
+        <MantineProvider theme={theme}>
+          <AppShell header={{ height: 60 }} footer={{ height: 60 }}>
+            <AppShellHeader>
+              <Container>
+                <Link href="/">Home</Link>
+                <Link href="/codelogs">Code logs</Link>
+              </Container>
+            </AppShellHeader>
+            <AppShellMain>{children}</AppShellMain>
+            <AppShellFooter>
+              <Center h={60}>
+                <Text>
+                  Page built using{" "}
+                  <Anchor href="https://contentful.com">Contentful</Anchor>,{" "}
+                  <Anchor href="https://mantine.dev">Mantine</Anchor> and{" "}
+                  <Anchor href="https://nextjs.org">Next.js</Anchor> &middot;{" "}
+                  <Anchor href="https://github.com/msieroslawska/">
+                    Source
+                  </Anchor>
+                </Text>
+              </Center>
+            </AppShellFooter>
+          </AppShell>
+        </MantineProvider>
       </body>
     </html>
   );

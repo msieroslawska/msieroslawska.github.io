@@ -1,2 +1,1 @@
-export * from './dataSources';
-export * from './next';
+export * from './contentful';
