@@ -1,21 +1,31 @@
 "use client";
-import { Text } from "@mantine/core";
+import { List, Text } from "@mantine/core";
+import Link from 'next/link';
 
 import { useContentful } from "../hooks/useContentful";
 
 export default function CodeLogs() {
   const { codelogs, error, isLoading } = useContentful();
 
+  const codeLogLinks = codelogs.map((cl) => (
+    <List.Item key={cl.sys.id}>
+    <Link
+      href={`/codelogs/${cl.fields.title}`}
+    >
+      {cl.fields.title}
+    </Link>
+    </List.Item>
+  ));
+
   return (
     <>
       <Text>
         {isLoading
           ? "Loading..."
-          : JSON.stringify(
-              codelogs.map((codelog) => codelog.fields.title),
-              null,
-              2
-            )}
+          : (<List>
+              {codeLogLinks}
+            </List>
+          )}
         {error && <Text c="red">Error: {error.message}</Text>}
       </Text>
     </>
