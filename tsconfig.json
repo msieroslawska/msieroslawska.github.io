@@ -23,7 +23,9 @@
     "noFallthroughCasesInSwitch": true,
     "paths": {
       "@/*": ["./*"],
-      "@components/*": ["./app/components/*"]
+      "@components/*": ["./app/components/*"],
+      "@hooks/*": ["./app/hooks/*"],
+      "@providers/*": ["./app/providers/*"]
     },
     "target": "ES2017"
   },

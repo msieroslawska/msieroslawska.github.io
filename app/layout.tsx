@@ -9,11 +9,10 @@ import {
   Center,
   Text,
 } from '@mantine/core';
+import { AppProviders } from '@providers/index';
 import React from 'react';
 
 import { Navigation } from '@components/navigation';
-
-import { AppProviders } from './providers';
 
 export const metadata = {
   title: "Marta's personal page",

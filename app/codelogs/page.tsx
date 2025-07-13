@@ -1,11 +1,10 @@
 'use client';
+import { useCodelogs } from '@hooks/useContentful';
 import { List, Text } from '@mantine/core';
 import Link from 'next/link';
 
-import { useContentful } from '../hooks/useContentful';
-
 export default function CodeLogs() {
-  const { data: codelogs, error, isLoading } = useContentful();
+  const { data: codelogs, error, isLoading } = useCodelogs();
 
   if (isLoading) return <Text>Loading...</Text>;
   if (error) return <Text c="red">Error: {error.message}</Text>;

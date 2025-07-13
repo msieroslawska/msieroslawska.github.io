@@ -1,15 +1,13 @@
 'use client';
+import { useCodelogs } from '@hooks/useContentful';
 import { Text } from '@mantine/core';
-import { notFound } from 'next/navigation';
-import { useParams } from 'next/navigation';
-
-import { useContentful } from '@/app/hooks/useContentful';
+import { notFound, useParams } from 'next/navigation';
 
 export default function Page() {
   const params = useParams();
   const slug = params.slug;
 
-  const { data: codelogs } = useContentful();
+  const { data: codelogs } = useCodelogs();
   if (codelogs.length === 0) return <Text>No codelogs found</Text>;
 
   const codelog = codelogs.find((cl) => cl.fields.title === slug);
