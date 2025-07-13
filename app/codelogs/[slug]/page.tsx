@@ -3,12 +3,13 @@ import { useCodelogs } from '@hooks/useContentful';
 import { Text } from '@mantine/core';
 import { notFound, useParams } from 'next/navigation';
 
+import { PageContainer } from '@/app/components/pageContainer';
+
 export default function Page() {
   const params = useParams();
   const slug = params.slug;
 
-  const { data: codelogs } = useCodelogs();
-  if (codelogs.length === 0) return <Text>No codelogs found</Text>;
+  const { data: codelogs, isLoading } = useCodelogs();
 
   const codelog = codelogs.find((cl) => cl.fields.title === slug);
 
@@ -17,9 +18,8 @@ export default function Page() {
   }
 
   return (
-    <div>
-      <h1>{codelog.fields.title}</h1>
+    <PageContainer isLoading={isLoading} title={codelog.fields.title}>
       <Text>My Post: {JSON.stringify(codelog.fields.planForTheDay)}</Text>
-    </div>
+    </PageContainer>
   );
 }
