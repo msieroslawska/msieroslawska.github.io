@@ -1,41 +1,24 @@
-"use client";
+import { useQuery } from '@tanstack/react-query';
 
-import { useEffect, useMemo, useState } from "react";
+import type { CodelogEntry } from '@/types';
 
-import { type CodelogEntry, CodelogEntrySchema } from "@/types/contentful";
+async function fetchCodelogs(): Promise<CodelogEntry[]> {
+  const response = await fetch('/contentful');
+  if (!response.ok) throw new Error('Failed to fetch codelogs');
+  return response.json();
+}
 
-export const useContentful = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const [data, setData] = useState<CodelogEntry[]>([]);
-  const [error, setError] = useState<Error | null>(null);
-
-  useEffect(() => {
-    const fetchContentfulData = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch("/contentful");
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const rawData = await response.json();
-        const parsedData = CodelogEntrySchema.array().parse(rawData);
-        setData(parsedData);
-      } catch (err) {
-        console.error("Error fetching data:", err);
-        setError(err instanceof Error ? err : new Error(String(err)));
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchContentfulData();
-  }, []);
-
-  const codelogs = useMemo(() => data, [data]);
+export function useContentful() {
+  const query = useQuery({
+    queryKey: ['codelogs'],
+    queryFn: fetchCodelogs,
+    staleTime: 5 * 60 * 1000, // 5 minutes
+    gcTime: 10 * 60 * 1000, // 10 minutes
+  });
 
   return {
-    codelogs,
-    error,
-    isLoading,
+    isLoading: query.isLoading,
+    error: query.error,
+    data: query.data || [],
   };
-};
+}

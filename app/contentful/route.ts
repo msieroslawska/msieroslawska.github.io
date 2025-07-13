@@ -19,6 +19,8 @@ export async function GET() {
       content_type: CODELOG_CONTENT_TYPE_ID,
     });
 
+    console.log('xxx', response)
+
     return NextResponse.json(response.items);
   } catch (error) {
     console.error("Error fetching data from Contentful:", error);

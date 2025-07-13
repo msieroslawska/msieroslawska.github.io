@@ -1,7 +1,4 @@
-import '@mantine/core/styles.css';
-import { Navigation } from '@components/navigation';
 import {
-  MantineProvider,
   ColorSchemeScript,
   mantineHtmlProps,
   Anchor,
@@ -14,7 +11,9 @@ import {
 } from '@mantine/core';
 import React from 'react';
 
-import { theme } from '../theme';
+import { Navigation } from '@components/navigation';
+
+import { AppProviders } from './providers';
 
 export const metadata = {
   title: "Marta's personal page",
@@ -30,7 +29,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no" />
       </head>
       <body>
-        <MantineProvider theme={theme}>
+        <AppProviders>
           <AppShell header={{ height: 60 }} footer={{ height: 60 }}>
             <AppShellHeader>
               <Navigation />
@@ -47,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Center>
             </AppShellFooter>
           </AppShell>
-        </MantineProvider>
+        </AppProviders>
       </body>
     </html>
   );
