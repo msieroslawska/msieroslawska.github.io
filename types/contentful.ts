@@ -28,6 +28,8 @@ export const ResourceEntrySchema = z.object({
   fields: ResourceFieldsSchema,
 });
 
+export type ResourceEntry = z.infer<typeof ResourceEntrySchema>;
+
 export const CodelogFieldsSchema = z.object({
   title: z.string(),
   date: z.string(),
