@@ -1,9 +1,10 @@
-import * as z from "zod";
+import * as z from 'zod';
 
-import { MetadataSchema, SysSchema } from "./utils";
+import { RichTextSchema } from './richText';
+import { MetadataSchema, SysSchema } from './utils';
 
-export const CODELOG_CONTENT_TYPE_ID = "codeLog";
-export const RESOURCE_CONTENT_TYPE_ID = "resource";
+export const CODELOG_CONTENT_TYPE_ID = 'codeLog';
+export const RESOURCE_CONTENT_TYPE_ID = 'resource';
 
 export const ResourceFieldsSchema = z
   .object({
@@ -31,10 +32,8 @@ export const CodelogFieldsSchema = z.object({
   title: z.string(),
   date: z.string(),
   tags: z.array(z.string()).optional(),
-  // planForTheDay: z.string(),
-  // learnedToday: z.string(),
-  planForTheDay: z.any().optional(),
-  learnedToday: z.any().optional(),
+  planForTheDay: RichTextSchema.optional(),
+  learnedToday: RichTextSchema.optional(),
   resourcesList: z.array(z.lazy(() => ResourceEntrySchema)).optional(),
   otherResources: z.array(z.lazy(() => ResourceEntrySchema)).optional(),
 });

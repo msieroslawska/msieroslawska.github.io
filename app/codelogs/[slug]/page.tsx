@@ -1,9 +1,12 @@
 'use client';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { useCodelogs } from '@hooks/useContentful';
 import { Text } from '@mantine/core';
 import { notFound, useParams } from 'next/navigation';
 
 import { PageContainer } from '@/app/components/pageContainer';
+
+import type { Document } from '@contentful/rich-text-types';
 
 export default function Page() {
   const params = useParams();
@@ -17,8 +20,12 @@ export default function Page() {
     return notFound();
   }
 
+  const renderRichText = (document?: Document) => (document !== undefined ? documentToReactComponents(document) : null);
+
   return (
     <PageContainer isLoading={isLoading} title={codelog.fields.title}>
+      {renderRichText(codelog.fields.planForTheDay)}
+      {renderRichText(codelog.fields.learnedToday)}
       <Text>My Post: {JSON.stringify(codelog.fields.planForTheDay)}</Text>
     </PageContainer>
   );
