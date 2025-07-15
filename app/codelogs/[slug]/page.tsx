@@ -1,14 +1,16 @@
 'use client';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { BLOCKS, MARKS, type Document } from '@contentful/rich-text-types';
 import { useCodelogs } from '@hooks/useContentful';
-import { Anchor, List, Title } from '@mantine/core';
+import { Anchor, Code, List, Title } from '@mantine/core';
 import { notFound, useParams } from 'next/navigation';
 
 import { PageContainer } from '@/app/components/pageContainer';
-import type { CodelogEntry } from '@/types';
+import type { CodeBlockEntry, CodelogEntry } from '@/types';
 import { type ResourceEntry } from '@/types';
 
-import type { Document } from '@contentful/rich-text-types';
+import type { Block, Inline, NodeData } from '@contentful/rich-text-types';
+import type { ReactNode } from 'react';
 
 const HEADER_MAPPER = {
   title: 'Title',
@@ -19,6 +21,35 @@ const HEADER_MAPPER = {
   resourcesList: 'Resources List',
   otherResources: 'Other Resources',
 } satisfies Record<keyof CodelogEntry['fields'], string>;
+
+interface EmbeddedEntryNodeData extends NodeData {
+  target: CodeBlockEntry;
+}
+interface EmbeddedEntryBlock extends Block {
+  nodeType: typeof BLOCKS.EMBEDDED_ENTRY;
+  data: EmbeddedEntryNodeData;
+}
+
+const options = {
+  renderMark: {
+    [MARKS.CODE]: (text: ReactNode) => (
+      <Code color="blue" fz="sm">
+        {text}
+      </Code>
+    ),
+  },
+  renderNode: {
+    [BLOCKS.EMBEDDED_ENTRY]: (node: Block | Inline | Text) => {
+      const codeBlockEntry = node as EmbeddedEntryBlock;
+
+      return (
+        <Code block ml="xl" w="60%">
+          {codeBlockEntry.data.target.fields.code}
+        </Code>
+      );
+    },
+  },
+};
 
 export default function Page() {
   const params = useParams();
@@ -38,11 +69,12 @@ export default function Page() {
     }
 
     const document = codelog.fields[key] as Document;
+    console.log(JSON.stringify(document, null, 2));
 
     return (
       <>
         <Title order={3}>{HEADER_MAPPER[key]}</Title>
-        {documentToReactComponents(document)}
+        {documentToReactComponents(document, options)}
       </>
     );
   };

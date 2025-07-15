@@ -5,6 +5,32 @@ import { MetadataSchema, SysSchema } from './utils';
 
 export const CODELOG_CONTENT_TYPE_ID = 'codeLog';
 export const RESOURCE_CONTENT_TYPE_ID = 'resource';
+export const CODEBLOCK_CONTENT_TYPE_ID = 'codeBlock';
+
+export const CodeBlockFieldsSchema = z
+  .object({
+    description: z.string(),
+    language: z.string().optional(),
+    code: z.string(),
+  })
+  .required();
+
+export type CodeBlockFields = z.infer<typeof CodeBlockFieldsSchema>;
+
+export const CodeBlockEntrySkeletonSchema = z.object({
+  contentTypeId: z.literal(CODEBLOCK_CONTENT_TYPE_ID),
+  fields: CodeBlockFieldsSchema,
+});
+
+export type CodeBlockEntrySkeleton = z.infer<typeof CodeBlockEntrySkeletonSchema>;
+
+export const CodeBlockEntrySchema = z.object({
+  ...MetadataSchema.shape,
+  ...SysSchema.shape,
+  fields: CodeBlockFieldsSchema,
+});
+
+export type CodeBlockEntry = z.infer<typeof CodeBlockEntrySchema>;
 
 export const ResourceFieldsSchema = z
   .object({
