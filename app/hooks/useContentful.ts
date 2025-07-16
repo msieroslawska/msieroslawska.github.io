@@ -18,3 +18,34 @@ export function useCodelogs() {
     data: query.data?.sort(sortByDate) || [],
   };
 }
+
+export function useTags() {
+  const query = useQuery({
+    queryKey: ['codelogs'],
+    queryFn: queryFn.codelogs.getAll,
+  });
+
+  if (query.data === undefined) {
+    return {
+      isLoading: query.isLoading,
+      error: query.error,
+      data: [],
+    };
+  }
+
+  const codelogs = query.data;
+
+  const tags = [
+    ...new Set(
+      codelogs
+        .flatMap((codelog) => (Array.isArray(codelog.fields.tags) ? codelog.fields.tags : []))
+        .filter((tag): tag is string => typeof tag === 'string'),
+    ),
+  ];
+
+  return {
+    isLoading: query.isLoading,
+    error: query.error,
+    data: tags,
+  };
+}

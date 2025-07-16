@@ -17,6 +17,7 @@ export default function CodeLogs() {
   return (
     <PageContainer error={error} isLoading={isLoading} title="Code logs">
       <List>{codelogLinks}</List>
+      <Link href={'/tags/'}>TAGS</Link>
     </PageContainer>
   );
 }

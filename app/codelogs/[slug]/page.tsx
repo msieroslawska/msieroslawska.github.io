@@ -63,13 +63,32 @@ export default function Page() {
     return notFound();
   }
 
+  const renderTags = () => {
+    const tags = codelog.fields['tags'];
+    if (!tags || !Array.isArray(tags) || tags.length === 0) {
+      return null;
+    }
+
+    return (
+      <>
+        <Title order={3}>{HEADER_MAPPER['tags']}</Title>
+        <List>
+          {tags.map((tag) => (
+            <List.Item key={tag}>
+              <Anchor href={`/tags/${tag}`}>{tag}</Anchor>
+            </List.Item>
+          ))}
+        </List>
+      </>
+    );
+  };
+
   const renderDocument = (key: keyof CodelogEntry['fields']) => {
     if (!codelog.fields[key]) {
       return null;
     }
 
     const document = codelog.fields[key] as Document;
-    console.log(JSON.stringify(document, null, 2));
 
     return (
       <>
@@ -104,6 +123,7 @@ export default function Page() {
 
   return (
     <PageContainer isLoading={isLoading} title={codelog.fields.title}>
+      {renderTags()}
       {renderDocument('planForTheDay')}
       {renderDocument('learnedToday')}
 
