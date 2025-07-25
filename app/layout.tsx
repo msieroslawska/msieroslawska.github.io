@@ -1,8 +1,9 @@
-import { AppProviders } from '@providers';
 import React from 'react';
-import './globals.css';
 
 import { Anchor, Text, Navigation } from '@components';
+import { AppProviders } from '@providers';
+
+import './globals.css';
 
 export const metadata = {
   title: "Marta's personal page",
