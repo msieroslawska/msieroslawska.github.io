@@ -1,6 +1,7 @@
 'use client';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, type Document } from '@contentful/rich-text-types';
+import Link from 'next/link';
 import { notFound, useParams } from 'next/navigation';
 
 import { Anchor, Code, List, TwoColumnContainer } from '@components';
@@ -60,16 +61,14 @@ export default function Page() {
     }
 
     return (
-      <>
-        <h3>{HEADER_MAPPER['tags']}</h3>
-        <List>
-          {tags.map((tag) => (
-            <List.Item key={tag}>
-              <Anchor href={`/tags/${tag}`} label={tag} />
-            </List.Item>
-          ))}
-        </List>
-      </>
+      <div className="flex flex-wrap gap-2">
+        {tags.map((tag) => (
+          <div key={tag} className="badge badge-soft badge-secondary not-prose hover:underline">
+            <Link href={`/tags/${tag}`}>{`#${tag}`}</Link>
+            {/* <Anchor href={`/tags/${tag}`} label={tag} /> */}
+          </div>
+        ))}
+      </div>
     );
   };
 
