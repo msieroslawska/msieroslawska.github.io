@@ -10,10 +10,14 @@ interface CalendarProps {
   selectedDate?: Date;
 }
 
+const BaseTableCell = ({ children }: { children?: React.ReactNode }) => (
+  <td className="text-center w-1/7 p-2">{children}</td>
+);
+
 export const Calendar = ({ codelogs, selectedDate }: CalendarProps) => {
   const CustomDay = ({ day }: DayProps) => {
     if (day.outside) {
-      return <td></td>;
+      return <BaseTableCell />;
     }
 
     const codelog = codelogs.find((cl) => new Date(cl.fields.date).toDateString() === day.date.toDateString());
@@ -22,7 +26,7 @@ export const Calendar = ({ codelogs, selectedDate }: CalendarProps) => {
 
     if (codelog) {
       return (
-        <td>
+        <BaseTableCell>
           <Link
             href={`/codelogs/${codelog.fields.title}`}
             className={`font-bold no-underline rounded-full border-2 border-primary w-8 h-8 flex items-center justify-center hover:underline hover:text-secondary ${
@@ -31,11 +35,11 @@ export const Calendar = ({ codelogs, selectedDate }: CalendarProps) => {
           >
             {day.date.getDate()}
           </Link>
-        </td>
+        </BaseTableCell>
       );
     }
 
-    return <td className="text-center">{day.date.getDate()}</td>;
+    return <BaseTableCell>{day.date.getDate()}</BaseTableCell>;
   };
 
   const codelogDates = codelogs.map((cl) => new Date(cl.fields.date));
