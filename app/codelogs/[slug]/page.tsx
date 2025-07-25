@@ -3,7 +3,7 @@ import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 import { BLOCKS, MARKS, type Document } from '@contentful/rich-text-types';
 import { notFound, useParams } from 'next/navigation';
 
-import { Anchor, Code, List, PageContainer } from '@components';
+import { Anchor, Code, List, TwoColumnContainer } from '@components';
 import { useCodelogs } from '@hooks/useContentful';
 
 import type { Block, Inline, NodeData } from '@contentful/rich-text-types';
@@ -45,7 +45,7 @@ export default function Page() {
   const params = useParams();
   const slug = params.slug;
 
-  const { data: codelogs, isLoading } = useCodelogs();
+  const { data: codelogs, error, isLoading } = useCodelogs();
 
   const codelog = codelogs.find((cl) => cl.fields.title === slug);
 
@@ -112,13 +112,21 @@ export default function Page() {
   };
 
   return (
-    <PageContainer isLoading={isLoading} title={codelog.fields.title}>
-      {renderTags()}
-      {renderDocument('planForTheDay')}
-      {renderDocument('learnedToday')}
+    <TwoColumnContainer
+      className="w-full max-w-5xl flex-1"
+      error={error}
+      isLoading={isLoading}
+      right={
+        <>
+          {renderTags()}
+          {renderDocument('planForTheDay')}
+          {renderDocument('learnedToday')}
 
-      {renderResources('resourcesList')}
-      {renderResources('otherResources')}
-    </PageContainer>
+          {renderResources('resourcesList')}
+          {renderResources('otherResources')}
+        </>
+      }
+      title={codelog.fields.title}
+    />
   );
 }

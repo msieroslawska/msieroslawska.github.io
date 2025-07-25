@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <AppProviders>
           <div className="min-h-screen flex flex-col bg-base-200">
             <Navigation />
-            <main className="flex-1 w-full flex justify-center items-center">{children}</main>
+            <main className="flex-1 w-full flex flex-col items-center justify-center h-full">{children}</main>
             <Footer />
           </div>
         </AppProviders>

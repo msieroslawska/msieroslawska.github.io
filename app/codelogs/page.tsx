@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 
-import { Calendar, List, PageContainer } from '@components';
+import { List, TwoColumnContainer } from '@components';
 import { useCodelogs } from '@hooks/useContentful';
 
 export default function CodeLogs() {
@@ -14,10 +14,17 @@ export default function CodeLogs() {
   ));
 
   return (
-    <PageContainer error={error} isLoading={isLoading} title="Code logs">
-      <Calendar codelogs={codelogs} />
-      <List>{codelogLinks}</List>
-      <Link href={'/tags/'}>TAGS</Link>
-    </PageContainer>
+    <TwoColumnContainer
+      className="w-full max-w-5xl flex-1"
+      error={error}
+      isLoading={isLoading}
+      right={
+        <>
+          <List>{codelogLinks}</List>
+          <Link href={'/tags/'}>TAGS</Link>
+        </>
+      }
+      title="Code logs"
+    />
   );
 }

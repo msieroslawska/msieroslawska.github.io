@@ -35,3 +35,7 @@
   --depth: 1;
   --noise: 0;
 }
+
+html {
+  margin-left: calc(100vw - 100%);
+}
