@@ -2,7 +2,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 
-import { Container } from '@components';
+import { FixedHeightContainer } from '@components';
 
 const links = [
   { link: '/', label: 'Home' },
@@ -31,8 +31,10 @@ export const Navigation = () => {
   ));
 
   return (
-    <Container className="navbar bg-base-100 shadow-sm">
-      <ul className="menu menu-horizontal px-1">{navElements}</ul>
-    </Container>
+    <FixedHeightContainer className="navbar">
+      <header>
+        <ul className="menu menu-horizontal px-1">{navElements}</ul>
+      </header>
+    </FixedHeightContainer>
   );
 };
