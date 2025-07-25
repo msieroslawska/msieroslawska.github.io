@@ -36,7 +36,7 @@ const options = {
     [BLOCKS.EMBEDDED_ENTRY]: (node: Block | Inline | Text) => {
       const codeBlockEntry = node as EmbeddedEntryBlock;
 
-      return <Code>{codeBlockEntry.data.target.fields.code}</Code>;
+      return <Code block>{codeBlockEntry.data.target.fields.code}</Code>;
     },
   },
 };

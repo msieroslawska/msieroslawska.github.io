@@ -39,3 +39,7 @@
 html {
   margin-left: calc(100vw - 100%);
 }
+
+pre::before {
+  display: none;
+}
