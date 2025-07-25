@@ -1,4 +1,5 @@
 export { Anchor } from './Anchor';
+export { Calendar } from './Calendar';
 export { Code } from './Code';
 export { Container, FixedHeightContainer } from './Container';
 export { Footer } from './Footer';

@@ -17,13 +17,14 @@ export const Navigation = () => {
   };
 
   const navElements = links.map((link) => (
-    <li key={link.label}>
+    <li key={link.label} className="mr-2 last:mr-0">
       <Link
         href={link.link}
         data-active={active === link.link || undefined}
         onClick={() => {
           handleClick(link.link);
         }}
+        className="data-[active=true]:bg-primary data-[active=true]:text-primary-content"
       >
         {link.label}
       </Link>

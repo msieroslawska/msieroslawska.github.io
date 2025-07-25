@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 
-import { List, PageContainer } from '@components';
+import { Calendar, List, PageContainer } from '@components';
 import { useCodelogs } from '@hooks/useContentful';
 
 export default function CodeLogs() {
@@ -15,6 +15,7 @@ export default function CodeLogs() {
 
   return (
     <PageContainer error={error} isLoading={isLoading} title="Code logs">
+      <Calendar codelogs={codelogs} />
       <List>{codelogLinks}</List>
       <Link href={'/tags/'}>TAGS</Link>
     </PageContainer>
