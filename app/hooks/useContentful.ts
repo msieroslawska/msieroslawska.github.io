@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 
-import type { CodelogEntry } from '@/types';
-
 import { queryFn } from './queries';
+
+import type { CodelogEntry } from '@types';
 
 export function useCodelogs() {
   const query = useQuery({

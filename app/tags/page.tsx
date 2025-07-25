@@ -1,8 +1,8 @@
 'use client';
-import { useTags } from '@hooks/useContentful';
 import Link from 'next/link';
 
 import { List, PageContainer } from '@components';
+import { useTags } from '@hooks/useContentful';
 
 export default function Tags() {
   const { data: tags, error, isLoading } = useTags();

@@ -1,9 +1,9 @@
 'use client';
-import { useCodelogs, useTags } from '@hooks/useContentful';
 import Link from 'next/link';
 import { notFound, useParams } from 'next/navigation';
 
 import { List, PageContainer, Text } from '@components';
+import { useCodelogs, useTags } from '@hooks/useContentful';
 
 export default function Page() {
   const params = useParams();

@@ -1,10 +1,10 @@
 'use client';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, type Document } from '@contentful/rich-text-types';
-import { useCodelogs } from '@hooks/useContentful';
 import { notFound, useParams } from 'next/navigation';
 
 import { Anchor, Code, List, PageContainer } from '@components';
+import { useCodelogs } from '@hooks/useContentful';
 
 import type { Block, Inline, NodeData } from '@contentful/rich-text-types';
 import type { CodeBlockEntry, CodelogEntry, ResourceEntry } from '@types';

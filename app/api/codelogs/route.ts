@@ -1,5 +1,6 @@
-import { type CodelogEntrySkeleton, CODELOG_CONTENT_TYPE_ID } from '@types';
 import { NextResponse } from 'next/server';
+
+import { type CodelogEntrySkeleton, CODELOG_CONTENT_TYPE_ID } from '@types';
 
 import { configuredClient } from '../createClient';
 

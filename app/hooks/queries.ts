@@ -1,4 +1,4 @@
-import type { CodelogEntry } from '@/types';
+import type { CodelogEntry } from '@types';
 
 export const queryFn = {
   codelogs: {

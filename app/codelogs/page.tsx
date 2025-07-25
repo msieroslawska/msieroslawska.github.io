@@ -1,7 +1,8 @@
 'use client';
+import Link from 'next/link';
+
 import { List, PageContainer } from '@components';
 import { useCodelogs } from '@hooks/useContentful';
-import Link from 'next/link';
 
 export default function CodeLogs() {
   const { data: codelogs, error, isLoading } = useCodelogs();
