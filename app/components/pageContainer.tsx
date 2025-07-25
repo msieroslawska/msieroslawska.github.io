@@ -1,5 +1,5 @@
 'use client';
-import { Container, Text, Title } from '@mantine/core';
+import { Container, Text } from '@components';
 
 interface PageContainerProps {
   children: React.ReactNode;
@@ -10,11 +10,11 @@ interface PageContainerProps {
 
 export const PageContainer = ({ children, error, isLoading, title }: PageContainerProps) => {
   if (isLoading) return <Text>Loading...</Text>;
-  if (error) return <Text c="red">Error: {error.message}</Text>;
+  if (error) return <Text style={{ color: 'red' }}>Error: {error.message}</Text>;
 
   return (
-    <Container p="xl" mt={200}>
-      <Title order={2}>{title}</Title>
+    <Container>
+      <h2>{title}</h2>
       {children}
     </Container>
   );

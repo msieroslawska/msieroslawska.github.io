@@ -1,9 +1,8 @@
 'use client';
-import { Container, Group } from '@mantine/core';
 import Link from 'next/link';
 import { useState } from 'react';
 
-import classes from './navigation.module.css';
+import { Container } from '@components';
 
 const links = [
   { link: '/', label: 'Home' },
@@ -18,24 +17,22 @@ export const Navigation = () => {
   };
 
   const navElements = links.map((link) => (
-    <Link
-      className={classes.link}
-      key={link.label}
-      href={link.link}
-      data-active={active === link.link || undefined}
-      onClick={() => {
-        handleClick(link.link);
-      }}
-    >
-      {link.label}
-    </Link>
+    <li key={link.label}>
+      <Link
+        href={link.link}
+        data-active={active === link.link || undefined}
+        onClick={() => {
+          handleClick(link.link);
+        }}
+      >
+        {link.label}
+      </Link>
+    </li>
   ));
 
   return (
-    <Container size="md" className={classes.inner}>
-      <Group gap={5} visibleFrom="xs">
-        {navElements}
-      </Group>
+    <Container className="navbar bg-base-100 shadow-sm">
+      <ul className="menu menu-horizontal px-1">{navElements}</ul>
     </Container>
   );
 };

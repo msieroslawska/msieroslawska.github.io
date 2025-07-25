@@ -1,9 +1,7 @@
 'use client';
+import { List, PageContainer } from '@components';
 import { useCodelogs } from '@hooks/useContentful';
-import { List } from '@mantine/core';
 import Link from 'next/link';
-
-import { PageContainer } from '@components/pageContainer';
 
 export default function CodeLogs() {
   const { data: codelogs, error, isLoading } = useCodelogs();

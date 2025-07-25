@@ -22,10 +22,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "@/*": ["./*"],
-      "@components/*": ["./app/components/*"],
+      "@components": ["./app/components/index.tsx"],
       "@hooks/*": ["./app/hooks/*"],
-      "@providers/*": ["./app/providers/*"]
+      "@providers": ["./app/providers/index.tsx"],
+      "@types": ["./types/index.ts"]
     },
     "target": "ES2017"
   },

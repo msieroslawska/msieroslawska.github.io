@@ -2,14 +2,12 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, type Document } from '@contentful/rich-text-types';
 import { useCodelogs } from '@hooks/useContentful';
-import { Anchor, Code, List, Title } from '@mantine/core';
 import { notFound, useParams } from 'next/navigation';
 
-import { PageContainer } from '@/app/components/pageContainer';
-import type { CodeBlockEntry, CodelogEntry } from '@/types';
-import { type ResourceEntry } from '@/types';
+import { Anchor, Code, List, PageContainer } from '@components';
 
 import type { Block, Inline, NodeData } from '@contentful/rich-text-types';
+import type { CodeBlockEntry, CodelogEntry, ResourceEntry } from '@types';
 import type { ReactNode } from 'react';
 
 const HEADER_MAPPER = {
@@ -32,21 +30,13 @@ interface EmbeddedEntryBlock extends Block {
 
 const options = {
   renderMark: {
-    [MARKS.CODE]: (text: ReactNode) => (
-      <Code color="blue" fz="sm">
-        {text}
-      </Code>
-    ),
+    [MARKS.CODE]: (text: ReactNode) => <Code>{text}</Code>,
   },
   renderNode: {
     [BLOCKS.EMBEDDED_ENTRY]: (node: Block | Inline | Text) => {
       const codeBlockEntry = node as EmbeddedEntryBlock;
 
-      return (
-        <Code block ml="xl" w="60%">
-          {codeBlockEntry.data.target.fields.code}
-        </Code>
-      );
+      return <Code>{codeBlockEntry.data.target.fields.code}</Code>;
     },
   },
 };
@@ -71,11 +61,11 @@ export default function Page() {
 
     return (
       <>
-        <Title order={3}>{HEADER_MAPPER['tags']}</Title>
+        <h3>{HEADER_MAPPER['tags']}</h3>
         <List>
           {tags.map((tag) => (
             <List.Item key={tag}>
-              <Anchor href={`/tags/${tag}`}>{tag}</Anchor>
+              <Anchor href={`/tags/${tag}`} label={tag} />
             </List.Item>
           ))}
         </List>
@@ -92,7 +82,7 @@ export default function Page() {
 
     return (
       <>
-        <Title order={3}>{HEADER_MAPPER[key]}</Title>
+        <h3>{HEADER_MAPPER[key]}</h3>
         {documentToReactComponents(document, options)}
       </>
     );
@@ -107,12 +97,12 @@ export default function Page() {
 
     return (
       <>
-        <Title order={3}>{HEADER_MAPPER[key]}</Title>
+        <h3>{HEADER_MAPPER[key]}</h3>
         <List>
           {resources.map((resource) => {
             return (
               <List.Item key={resource.sys.id}>
-                <Anchor href={resource.fields.url}>{resource.fields.title}</Anchor>
+                <Anchor href={resource.fields.url} label={resource.fields.title} />
               </List.Item>
             );
           })}

@@ -1,10 +1,9 @@
 'use client';
 import { useCodelogs, useTags } from '@hooks/useContentful';
-import { List, Text } from '@mantine/core';
 import Link from 'next/link';
 import { notFound, useParams } from 'next/navigation';
 
-import { PageContainer } from '@/app/components/pageContainer';
+import { List, PageContainer, Text } from '@components';
 
 export default function Page() {
   const params = useParams();

@@ -1,9 +1,8 @@
 'use client';
 import { useTags } from '@hooks/useContentful';
-import { List } from '@mantine/core';
 import Link from 'next/link';
 
-import { PageContainer } from '@components/pageContainer';
+import { List, PageContainer } from '@components';
 
 export default function Tags() {
   const { data: tags, error, isLoading } = useTags();

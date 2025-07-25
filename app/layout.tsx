@@ -1,18 +1,8 @@
-import {
-  ColorSchemeScript,
-  mantineHtmlProps,
-  Anchor,
-  AppShell,
-  AppShellFooter,
-  AppShellHeader,
-  AppShellMain,
-  Center,
-  Text,
-} from '@mantine/core';
-import { AppProviders } from '@providers/index';
+import { AppProviders } from '@providers';
 import React from 'react';
+import './globals.css';
 
-import { Navigation } from '@components/navigation';
+import { Anchor, Text, Navigation } from '@components';
 
 export const metadata = {
   title: "Marta's personal page",
@@ -21,30 +11,26 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" {...mantineHtmlProps}>
+    <html lang="en">
       <head>
-        <ColorSchemeScript />
         <link rel="shortcut icon" href="/favicon.svg" />
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no" />
       </head>
       <body>
         <AppProviders>
-          <AppShell header={{ height: 60 }} footer={{ height: 60 }}>
-            <AppShellHeader>
+          <div className="min-h-screen flex flex-col">
+            <header className="w-full h-[150px] bg-gray-100">
               <Navigation />
-            </AppShellHeader>
-            <AppShellMain>{children}</AppShellMain>
-            <AppShellFooter>
-              <Center h={60}>
-                <Text>
-                  Page built using <Anchor href="https://contentful.com">Contentful</Anchor>,{' '}
-                  <Anchor href="https://mantine.dev">Mantine</Anchor> and{' '}
-                  <Anchor href="https://nextjs.org">Next.js</Anchor> &middot;{' '}
-                  <Anchor href="https://github.com/msieroslawska/">Source</Anchor>
-                </Text>
-              </Center>
-            </AppShellFooter>
-          </AppShell>
+            </header>
+            <main className="flex-1 w-full">{children}</main>
+            <footer className="w-full h-[150px] bg-gray-100">
+              <Text>
+                Page built using <Anchor href="https://contentful.com" label="Contentful" />,{' '}
+                <Anchor href="https://nextjs.org" label="Next.js" /> &middot;{' '}
+                <Anchor href="https://github.com/msieroslawska/" label="Source" />
+              </Text>
+            </footer>
+          </div>
         </AppProviders>
       </body>
     </html>
