@@ -25,23 +25,29 @@ export function useTags() {
     queryFn: queryFn.codelogs.getAll,
   });
   const blogsQuery = useQuery({
-    queryKey: ['blog'],
+    queryKey: ['blogs'],
     queryFn: queryFn.blogs.getAll,
   });
+  const articlesQuery = useQuery({
+    queryKey: ['articles'],
+    queryFn: queryFn.articles.getAll,
+  });
 
-  if (codeLogsQuery.data === undefined && blogsQuery.data === undefined) {
+  if (codeLogsQuery.data === undefined && blogsQuery.data === undefined && articlesQuery.data === undefined) {
     return {
-      isLoading: codeLogsQuery.isLoading && blogsQuery.isLoading,
-      error: codeLogsQuery.error || blogsQuery.error,
+      isLoading: codeLogsQuery.isLoading && blogsQuery.isLoading && articlesQuery.isLoading,
+      error: codeLogsQuery.error || blogsQuery.error || articlesQuery.error,
       data: {
-        codelogTags: [],
+        articleTags: [],
         blogTags: [],
+        codelogTags: [],
       },
     };
   }
 
   const codelogs = codeLogsQuery.data;
   const blogs = blogsQuery.data;
+  const articles = articlesQuery.data;
 
   const codelogTags = [
     ...new Set(
@@ -57,13 +63,21 @@ export function useTags() {
         .filter((tag): tag is string => typeof tag === 'string'),
     ),
   ];
+  const articleTags = [
+    ...new Set(
+      (articles ?? [])
+        .flatMap((article) => (Array.isArray(article.fields.tags) ? article.fields.tags : []))
+        .filter((tag): tag is string => typeof tag === 'string'),
+    ),
+  ];
 
   return {
-    isLoading: codeLogsQuery.isLoading && blogsQuery.isLoading,
-    error: codeLogsQuery.error || blogsQuery.error,
+    isLoading: codeLogsQuery.isLoading && blogsQuery.isLoading && articlesQuery.isLoading,
+    error: codeLogsQuery.error || blogsQuery.error || articlesQuery.error,
     data: {
-      codelogTags,
+      articleTags,
       blogTags,
+      codelogTags,
     },
   };
 }
@@ -72,6 +86,19 @@ export function useBlogs() {
   const query = useQuery({
     queryKey: ['blog'],
     queryFn: queryFn.blogs.getAll,
+  });
+
+  return {
+    isLoading: query.isLoading,
+    error: query.error,
+    data: query.data || [],
+  };
+}
+
+export function useArticles() {
+  const query = useQuery({
+    queryKey: ['article'],
+    queryFn: queryFn.articles.getAll,
   });
 
   return {

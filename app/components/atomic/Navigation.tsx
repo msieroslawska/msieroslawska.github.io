@@ -9,6 +9,7 @@ const links = [
   { link: '/codelogs', label: 'Code logs' },
   { link: '/tags', label: 'Tags' },
   { link: '/blogs', label: 'Blog' },
+  { link: '/articles', label: 'Articles' },
 ];
 
 export const Navigation = () => {

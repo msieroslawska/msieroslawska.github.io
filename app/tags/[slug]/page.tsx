@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { notFound, useParams } from 'next/navigation';
 
 import { List, PageContainer, Text } from '@components';
-import { useBlogs, useCodelogs, useTags } from '@hooks/useContentful';
+import { useArticles, useBlogs, useCodelogs, useTags } from '@hooks/useContentful';
 
 function CodelogsList({ tag }: { tag: string }) {
   const { data: codelogs } = useCodelogs();
@@ -51,16 +51,39 @@ function BlogsList({ tag }: { tag: string }) {
   );
 }
 
+function ArticlesList({ tag }: { tag: string }) {
+  const { data: articles } = useArticles();
+
+  const tagHasArticles = articles.some((article) => article.fields.tags?.includes(tag));
+
+  if (!tagHasArticles) {
+    return <Text>No articles found.</Text>;
+  }
+
+  const articlesWithTag = articles.filter((article) => article.fields.tags?.includes(tag));
+
+  return (
+    <>
+      <h3>Articles:</h3>
+      {articlesWithTag.map((article) => (
+        <List.Item key={article.sys.id}>
+          <Link href={`/articles/${article.fields.title}`}>{article.fields.title}</Link>
+        </List.Item>
+      ))}
+    </>
+  );
+}
+
 export default function Page() {
   const params = useParams();
   const slug = params.slug;
 
   const {
-    data: { codelogTags, blogTags },
+    data: { articleTags, blogTags, codelogTags },
     isLoading: isLoadingTags,
   } = useTags();
 
-  const currentTag = [...codelogTags, ...blogTags].find((tag) => tag === slug);
+  const currentTag = [...articleTags, ...blogTags, ...codelogTags].find((tag) => tag === slug);
 
   if (!currentTag) {
     return notFound();
@@ -71,6 +94,7 @@ export default function Page() {
       <List>
         <CodelogsList tag={currentTag} />
         <BlogsList tag={currentTag} />
+        <ArticlesList tag={currentTag} />
       </List>
     </PageContainer>
   );

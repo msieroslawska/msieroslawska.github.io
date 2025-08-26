@@ -5,12 +5,12 @@ import { useTags } from '@hooks/useContentful';
 
 export default function Tags() {
   const {
-    data: { codelogTags, blogTags },
+    data: { articleTags, blogTags, codelogTags },
     error,
     isLoading,
   } = useTags();
 
-  const tagLinks = [...new Set([...codelogTags, ...blogTags])]
+  const tagLinks = [...new Set([...articleTags, ...blogTags, ...codelogTags])]
     .sort((a, b) => a.localeCompare(b))
     .map((tag) => (
       <List.Item key={tag}>

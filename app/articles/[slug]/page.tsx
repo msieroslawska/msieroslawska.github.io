@@ -4,18 +4,17 @@ import { BLOCKS, MARKS, type Document } from '@contentful/rich-text-types';
 import { notFound, useParams } from 'next/navigation';
 
 import { Code, Tag, PageContainer } from '@components';
-import { useBlogs } from '@hooks/useContentful';
+import { useArticles } from '@hooks/useContentful';
 
 import type { Block, Inline, NodeData } from '@contentful/rich-text-types';
-import type { BlogEntry, CodeBlockEntry } from '@types';
+import type { ArticleEntry, CodeBlockEntry } from '@types';
 import type { ReactNode } from 'react';
 
 const HEADER_MAPPER = {
   title: 'Title',
-  date: 'Date',
   tags: 'Tags',
   content: 'Content',
-} satisfies Record<keyof BlogEntry['fields'], string>;
+} satisfies Record<keyof ArticleEntry['fields'], string>;
 
 interface EmbeddedEntryNodeData extends NodeData {
   target: CodeBlockEntry;
@@ -42,16 +41,16 @@ export default function Page() {
   const params = useParams();
   const slug = params.slug;
 
-  const { data: blogs, error, isLoading } = useBlogs();
+  const { data: articles, error, isLoading } = useArticles();
 
-  const blog = blogs.find((b) => b.fields.date === slug);
+  const article = articles.find((a) => encodeURIComponent(a.fields.title) === slug);
 
-  if (!blog) {
+  if (!article) {
     return notFound();
   }
 
   const renderTags = () => {
-    const tags = blog.fields['tags'];
+    const tags = article.fields['tags'];
     if (!tags || !Array.isArray(tags) || tags.length === 0) {
       return null;
     }
@@ -65,12 +64,12 @@ export default function Page() {
     );
   };
 
-  const renderDocument = (key: keyof BlogEntry['fields']) => {
-    if (!blog.fields[key]) {
+  const renderDocument = (key: keyof ArticleEntry['fields']) => {
+    if (!article.fields[key]) {
       return null;
     }
 
-    const document = blog.fields[key] as Document;
+    const document = article.fields[key] as Document;
 
     return (
       <>
@@ -81,7 +80,7 @@ export default function Page() {
   };
 
   return (
-    <PageContainer error={error} isLoading={isLoading} title={blog.fields.title}>
+    <PageContainer error={error} isLoading={isLoading} title={article.fields.title}>
       {renderTags()}
       {renderDocument('content')}
     </PageContainer>

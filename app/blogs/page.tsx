@@ -7,9 +7,9 @@ import { useBlogs } from '@hooks/useContentful';
 export default function Blogs() {
   const { data: blogs, error, isLoading } = useBlogs();
 
-  const blogLinks = blogs.map((cl) => (
-    <List.Item key={cl.sys.id}>
-      <Link href={`/blogs/${cl.fields.date}`}>{cl.fields.title}</Link>
+  const blogLinks = blogs.map((b) => (
+    <List.Item key={b.sys.id}>
+      <Link href={`/blogs/${b.fields.date}`}>{b.fields.title}</Link>
     </List.Item>
   ));
 

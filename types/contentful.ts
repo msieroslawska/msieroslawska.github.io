@@ -7,6 +7,7 @@ export const CODELOG_CONTENT_TYPE_ID = 'codeLog';
 export const RESOURCE_CONTENT_TYPE_ID = 'resource';
 export const CODEBLOCK_CONTENT_TYPE_ID = 'codeBlock';
 export const BLOG_CONTENT_TYPE_ID = 'blog';
+export const ARTICLE_CONTENT_TYPE_ID = 'article';
 
 export const CodeBlockFieldsSchema = z
   .object({
@@ -103,3 +104,24 @@ export const BlogEntrySchema = z.object({
 });
 
 export type BlogEntry = z.infer<typeof BlogEntrySchema>;
+
+export const ArticleFieldsSchema = z.object({
+  title: z.string(),
+  tags: z.array(z.string()).optional(),
+  content: RichTextSchema.optional(),
+});
+
+export const ArticleEntrySkeletonSchema = z.object({
+  contentTypeId: z.literal(ARTICLE_CONTENT_TYPE_ID),
+  fields: ArticleFieldsSchema,
+});
+
+export type ArticleEntrySkeleton = z.infer<typeof ArticleEntrySkeletonSchema>;
+
+export const ArticleEntrySchema = z.object({
+  ...MetadataSchema.shape,
+  ...SysSchema.shape,
+  fields: ArticleFieldsSchema,
+});
+
+export type ArticleEntry = z.infer<typeof ArticleEntrySchema>;
