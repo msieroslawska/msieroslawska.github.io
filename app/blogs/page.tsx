@@ -1,11 +1,10 @@
-'use client';
 import Link from 'next/link';
 
 import { List, PageContainer } from '@components';
-import { useBlogs } from '@hooks/useContentful';
+import { getBlogs } from 'app/lib/getContent';
 
-export default function Blogs() {
-  const { data: blogs, error, isLoading } = useBlogs();
+export default async function Blogs() {
+  const blogs = await getBlogs();
 
   const blogLinks = blogs.map((b) => (
     <List.Item key={b.sys.id}>
@@ -14,7 +13,7 @@ export default function Blogs() {
   ));
 
   return (
-    <PageContainer error={error} isLoading={isLoading} title="Blog entries">
+    <PageContainer title="Blog entries">
       <List>{blogLinks}</List>
     </PageContainer>
   );

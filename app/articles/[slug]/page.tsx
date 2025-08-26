@@ -1,10 +1,9 @@
-'use client';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, type Document } from '@contentful/rich-text-types';
-import { notFound, useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 import { Code, Tag, PageContainer } from '@components';
-import { useArticles } from '@hooks/useContentful';
+import { getArticles } from 'app/lib/getContent';
 
 import type { Block, Inline, NodeData } from '@contentful/rich-text-types';
 import type { ArticleEntry, CodeBlockEntry } from '@types';
@@ -37,11 +36,22 @@ const options = {
   },
 };
 
-export default function Page() {
-  const params = useParams();
-  const slug = params.slug;
+export async function generateStaticParams() {
+  const articles = await getArticles();
 
-  const { data: articles, error, isLoading } = useArticles();
+  return articles.map((article) => ({
+    slug: encodeURIComponent(article.fields.title),
+  }));
+}
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+
+  const articles = await getArticles();
 
   const article = articles.find((a) => encodeURIComponent(a.fields.title) === slug);
 
@@ -80,7 +90,7 @@ export default function Page() {
   };
 
   return (
-    <PageContainer error={error} isLoading={isLoading} title={article.fields.title}>
+    <PageContainer title={article.fields.title}>
       {renderTags()}
       {renderDocument('content')}
     </PageContainer>

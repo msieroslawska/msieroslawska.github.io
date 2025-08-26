@@ -1,11 +1,10 @@
-'use client';
 import { Calendar, Container, Text } from '@components';
-import { useCodelogs } from '@hooks/useContentful';
+import { getCodelogs } from 'app/lib/getContent';
 
 interface TwoColumnContainerProps {
   className?: string;
   error?: Error | null;
-  isLoading: boolean;
+  isLoading?: boolean;
   right: React.ReactNode;
   title: string;
 }
@@ -14,8 +13,14 @@ const isValidDateString = (dateString: string): boolean => {
   return !isNaN(Date.parse(dateString));
 };
 
-export const TwoColumnContainer = ({ className = '', error, isLoading, right, title }: TwoColumnContainerProps) => {
-  const { data: codelogs } = useCodelogs();
+export const TwoColumnContainer = async ({
+  className = '',
+  error,
+  isLoading,
+  right,
+  title,
+}: TwoColumnContainerProps) => {
+  const codelogs = await getCodelogs();
 
   const getContent = () => {
     if (isLoading) {

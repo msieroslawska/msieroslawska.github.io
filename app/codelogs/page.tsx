@@ -1,11 +1,10 @@
-'use client';
 import Link from 'next/link';
 
 import { List, TwoColumnContainer } from '@components';
-import { useCodelogs } from '@hooks/useContentful';
+import { getCodelogs } from 'app/lib/getContent';
 
-export default function CodeLogs() {
-  const { data: codelogs, error, isLoading } = useCodelogs();
+export default async function CodeLogs() {
+  const codelogs = await getCodelogs();
 
   const codelogLinks = codelogs.map((cl) => (
     <List.Item key={cl.sys.id}>
@@ -14,12 +13,6 @@ export default function CodeLogs() {
   ));
 
   return (
-    <TwoColumnContainer
-      className="w-full max-w-5xl flex-1"
-      error={error}
-      isLoading={isLoading}
-      right={<List>{codelogLinks}</List>}
-      title="Code logs"
-    />
+    <TwoColumnContainer className="w-full max-w-5xl flex-1" right={<List>{codelogLinks}</List>} title="Code logs" />
   );
 }

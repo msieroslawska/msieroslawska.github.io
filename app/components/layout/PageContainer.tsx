@@ -1,11 +1,10 @@
-'use client';
 import { Container, Text } from '@components';
 
 interface PageContainerProps {
   children: React.ReactNode;
   className?: string;
   error?: Error | null;
-  isLoading: boolean;
+  isLoading?: boolean;
   title: string;
 }
 

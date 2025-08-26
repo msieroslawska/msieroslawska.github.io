@@ -1,14 +1,8 @@
-'use client';
-
 import { List, PageContainer, Tag } from '@components';
-import { useTags } from '@hooks/useContentful';
+import { getTags } from 'app/lib/getContent';
 
-export default function Tags() {
-  const {
-    data: { articleTags, blogTags, codelogTags },
-    error,
-    isLoading,
-  } = useTags();
+export default async function Tags() {
+  const { articleTags, blogTags, codelogTags } = await getTags();
 
   const tagLinks = [...new Set([...articleTags, ...blogTags, ...codelogTags])]
     .sort((a, b) => a.localeCompare(b))
@@ -19,7 +13,7 @@ export default function Tags() {
     ));
 
   return (
-    <PageContainer error={error} isLoading={isLoading} title="Tags">
+    <PageContainer title="Tags">
       <List>{tagLinks}</List>
     </PageContainer>
   );

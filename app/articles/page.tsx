@@ -1,11 +1,10 @@
-'use client';
 import Link from 'next/link';
 
 import { List, PageContainer } from '@components';
-import { useArticles } from '@hooks/useContentful';
+import { getArticles } from 'app/lib/getContent';
 
-export default function Articles() {
-  const { data: articles, error, isLoading } = useArticles();
+export default async function Articles() {
+  const articles = await getArticles();
 
   const articleLinks = articles.map((a) => (
     <List.Item key={a.sys.id}>
@@ -14,7 +13,7 @@ export default function Articles() {
   ));
 
   return (
-    <PageContainer error={error} isLoading={isLoading} title="Articles">
+    <PageContainer title="Articles">
       <List>{articleLinks}</List>
     </PageContainer>
   );

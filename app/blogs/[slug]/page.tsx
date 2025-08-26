@@ -1,10 +1,9 @@
-'use client';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, type Document } from '@contentful/rich-text-types';
-import { notFound, useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 import { Code, Tag, PageContainer } from '@components';
-import { useBlogs } from '@hooks/useContentful';
+import { getBlogs } from 'app/lib/getContent';
 
 import type { Block, Inline, NodeData } from '@contentful/rich-text-types';
 import type { BlogEntry, CodeBlockEntry } from '@types';
@@ -38,11 +37,22 @@ const options = {
   },
 };
 
-export default function Page() {
-  const params = useParams();
-  const slug = params.slug;
+export async function generateStaticParams() {
+  const blogs = await getBlogs();
 
-  const { data: blogs, error, isLoading } = useBlogs();
+  return blogs.map((blog) => ({
+    slug: blog.fields.date,
+  }));
+}
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+
+  const blogs = await getBlogs();
 
   const blog = blogs.find((b) => b.fields.date === slug);
 
@@ -81,7 +91,7 @@ export default function Page() {
   };
 
   return (
-    <PageContainer error={error} isLoading={isLoading} title={blog.fields.title}>
+    <PageContainer title={blog.fields.title}>
       {renderTags()}
       {renderDocument('content')}
     </PageContainer>

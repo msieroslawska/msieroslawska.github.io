@@ -1,12 +1,11 @@
-'use client';
 import Link from 'next/link';
-import { notFound, useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 import { List, PageContainer, Text } from '@components';
-import { useArticles, useBlogs, useCodelogs, useTags } from '@hooks/useContentful';
+import { getArticles, getBlogs, getCodelogs, getTags } from 'app/lib/getContent';
 
-function CodelogsList({ tag }: { tag: string }) {
-  const { data: codelogs } = useCodelogs();
+async function CodelogsList({ tag }: { tag: string }) {
+  const codelogs = await getCodelogs();
 
   const tagHasCodelogs = codelogs.some((codelog) => codelog.fields.tags?.includes(tag));
 
@@ -28,8 +27,8 @@ function CodelogsList({ tag }: { tag: string }) {
   );
 }
 
-function BlogsList({ tag }: { tag: string }) {
-  const { data: blogs } = useBlogs();
+async function BlogsList({ tag }: { tag: string }) {
+  const blogs = await getBlogs();
 
   const tagHasBlogs = blogs.some((blog) => blog.fields.tags?.includes(tag));
 
@@ -51,8 +50,8 @@ function BlogsList({ tag }: { tag: string }) {
   );
 }
 
-function ArticlesList({ tag }: { tag: string }) {
-  const { data: articles } = useArticles();
+async function ArticlesList({ tag }: { tag: string }) {
+  const articles = await getArticles();
 
   const tagHasArticles = articles.some((article) => article.fields.tags?.includes(tag));
 
@@ -74,14 +73,22 @@ function ArticlesList({ tag }: { tag: string }) {
   );
 }
 
-export default function Page() {
-  const params = useParams();
-  const slug = params.slug;
+export async function generateStaticParams() {
+  const { articleTags, blogTags, codelogTags } = await getTags();
 
-  const {
-    data: { articleTags, blogTags, codelogTags },
-    isLoading: isLoadingTags,
-  } = useTags();
+  return [...articleTags, ...blogTags, ...codelogTags].map((tag) => ({
+    slug: tag,
+  }));
+}
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+
+  const { articleTags, blogTags, codelogTags } = await getTags();
 
   const currentTag = [...articleTags, ...blogTags, ...codelogTags].find((tag) => tag === slug);
 
@@ -90,7 +97,7 @@ export default function Page() {
   }
 
   return (
-    <PageContainer isLoading={isLoadingTags} title={`Pages with tag: ${currentTag}`}>
+    <PageContainer title={`Pages with tag: ${currentTag}`}>
       <List>
         <CodelogsList tag={currentTag} />
         <BlogsList tag={currentTag} />

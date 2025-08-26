@@ -1,10 +1,9 @@
-'use client';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, type Document } from '@contentful/rich-text-types';
-import { notFound, useParams } from 'next/navigation';
+import { notFound } from 'next/navigation';
 
 import { Anchor, Code, List, Tag, TwoColumnContainer } from '@components';
-import { useCodelogs } from '@hooks/useContentful';
+import { getCodelogs } from 'app/lib/getContent';
 
 import type { Block, Inline, NodeData } from '@contentful/rich-text-types';
 import type { CodeBlockEntry, CodelogEntry, ResourceEntry } from '@types';
@@ -41,11 +40,22 @@ const options = {
   },
 };
 
-export default function Page() {
-  const params = useParams();
-  const slug = params.slug;
+export async function generateStaticParams() {
+  const codelogs = await getCodelogs();
 
-  const { data: codelogs, error, isLoading } = useCodelogs();
+  return codelogs.map((codelog) => ({
+    slug: codelog.fields.title,
+  }));
+}
+
+interface PageProps {
+  params: Promise<{ slug: string }>;
+}
+
+export default async function Page({ params }: PageProps) {
+  const { slug } = await params;
+
+  const codelogs = await getCodelogs();
 
   const codelog = codelogs.find((cl) => cl.fields.title === slug);
 
@@ -109,8 +119,6 @@ export default function Page() {
   return (
     <TwoColumnContainer
       className="w-full max-w-5xl flex-1"
-      error={error}
-      isLoading={isLoading}
       right={
         <>
           {renderTags()}
