@@ -5,6 +5,7 @@ export { Container, FixedHeightContainer } from './atomic/Container';
 export { Footer } from './atomic/Footer';
 export { List } from './atomic/List';
 export { Navigation } from './atomic/Navigation';
+export { Tag } from './atomic/Tag';
 export { Text } from './atomic/Text';
 
 export { PageContainer } from './layout/PageContainer';

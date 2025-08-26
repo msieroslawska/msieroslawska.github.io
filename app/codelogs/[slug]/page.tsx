@@ -1,10 +1,9 @@
 'use client';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import { BLOCKS, MARKS, type Document } from '@contentful/rich-text-types';
-import Link from 'next/link';
 import { notFound, useParams } from 'next/navigation';
 
-import { Anchor, Code, List, TwoColumnContainer } from '@components';
+import { Anchor, Code, List, Tag, TwoColumnContainer } from '@components';
 import { useCodelogs } from '@hooks/useContentful';
 
 import type { Block, Inline, NodeData } from '@contentful/rich-text-types';
@@ -63,10 +62,7 @@ export default function Page() {
     return (
       <div className="flex flex-wrap gap-2">
         {tags.map((tag) => (
-          <div key={tag} className="badge badge-soft badge-secondary not-prose hover:underline">
-            <Link href={`/tags/${tag}`}>{`#${tag}`}</Link>
-            {/* <Anchor href={`/tags/${tag}`} label={tag} /> */}
-          </div>
+          <Tag key={tag} tag={tag} />
         ))}
       </div>
     );

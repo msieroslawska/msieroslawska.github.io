@@ -1,17 +1,18 @@
 'use client';
-import Link from 'next/link';
 
-import { List, PageContainer } from '@components';
+import { List, PageContainer, Tag } from '@components';
 import { useTags } from '@hooks/useContentful';
 
 export default function Tags() {
   const { data: tags, error, isLoading } = useTags();
 
-  const tagLinks = tags.map((tag) => (
-    <List.Item key={tag}>
-      <Link href={`/tags/${tag}`}>{tag}</Link>
-    </List.Item>
-  ));
+  const tagLinks = tags
+    .sort((a, b) => a.localeCompare(b))
+    .map((tag) => (
+      <List.Item key={tag}>
+        <Tag key={tag} tag={tag} />
+      </List.Item>
+    ));
 
   return (
     <PageContainer error={error} isLoading={isLoading} title="Tags">

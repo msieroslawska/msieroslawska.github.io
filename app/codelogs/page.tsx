@@ -18,12 +18,7 @@ export default function CodeLogs() {
       className="w-full max-w-5xl flex-1"
       error={error}
       isLoading={isLoading}
-      right={
-        <>
-          <List>{codelogLinks}</List>
-          <Link href={'/tags/'}>TAGS</Link>
-        </>
-      }
+      right={<List>{codelogLinks}</List>}
       title="Code logs"
     />
   );

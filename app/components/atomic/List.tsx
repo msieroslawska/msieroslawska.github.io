@@ -11,7 +11,7 @@ interface ListProps {
 }
 
 const ListItem = ({ children, className = '' }: ListItemProps) => {
-  return <li className={`list-row ${className}`}>{children}</li>;
+  return <li className={className}>{children}</li>;
 };
 
 const List = ({ children, className = '' }: ListProps) => {

@@ -7,6 +7,7 @@ import { FixedHeightContainer } from '@components';
 const links = [
   { link: '/', label: 'Home' },
   { link: '/codelogs', label: 'Code logs' },
+  { link: '/tags', label: 'Tags' },
 ];
 
 export const Navigation = () => {
