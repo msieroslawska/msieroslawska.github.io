@@ -6,6 +6,7 @@ import { MetadataSchema, SysSchema } from './utils';
 export const CODELOG_CONTENT_TYPE_ID = 'codeLog';
 export const RESOURCE_CONTENT_TYPE_ID = 'resource';
 export const CODEBLOCK_CONTENT_TYPE_ID = 'codeBlock';
+export const BLOG_CONTENT_TYPE_ID = 'blog';
 
 export const CodeBlockFieldsSchema = z
   .object({
@@ -80,3 +81,25 @@ export const CodelogEntrySchema = z.object({
 });
 
 export type CodelogEntry = z.infer<typeof CodelogEntrySchema>;
+
+export const BlogFieldsSchema = z.object({
+  title: z.string(),
+  date: z.string(),
+  tags: z.array(z.string()).optional(),
+  content: RichTextSchema.optional(),
+});
+
+export const BlogEntrySkeletonSchema = z.object({
+  contentTypeId: z.literal(BLOG_CONTENT_TYPE_ID),
+  fields: BlogFieldsSchema,
+});
+
+export type BlogEntrySkeleton = z.infer<typeof BlogEntrySkeletonSchema>;
+
+export const BlogEntrySchema = z.object({
+  ...MetadataSchema.shape,
+  ...SysSchema.shape,
+  fields: BlogFieldsSchema,
+});
+
+export type BlogEntry = z.infer<typeof BlogEntrySchema>;

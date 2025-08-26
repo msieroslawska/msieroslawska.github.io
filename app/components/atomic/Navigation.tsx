@@ -8,6 +8,7 @@ const links = [
   { link: '/', label: 'Home' },
   { link: '/codelogs', label: 'Code logs' },
   { link: '/tags', label: 'Tags' },
+  { link: '/blogs', label: 'Blog' },
 ];
 
 export const Navigation = () => {
