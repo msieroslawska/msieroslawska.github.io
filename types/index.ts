@@ -1,2 +1,3 @@
-export * from './dataSources';
-export * from './next';
+export * from './contentful';
+export * from './richText';
+export * from './utils';
